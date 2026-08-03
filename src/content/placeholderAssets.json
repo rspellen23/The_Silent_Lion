@@ -1,0 +1,34 @@
+[
+  {
+    "assetId": "asset_background_test_room",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#233247",
+    "label": "Test Investigation Room (background)"
+  },
+  {
+    "assetId": "asset_portrait_test_a_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#5a3a6e",
+    "label": "Test Character A - neutral"
+  },
+  {
+    "assetId": "asset_evidence_test_a",
+    "kind": "evidence",
+    "width": 512,
+    "height": 512,
+    "color": "#3a5a40",
+    "label": "Test Evidence A"
+  },
+  {
+    "assetId": "asset_evidence_test_b",
+    "kind": "evidence",
+    "width": 512,
+    "height": 512,
+    "color": "#5a4a3a",
+    "label": "Test Evidence B"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "journal_test_clue",
+    "title": "[PLACEHOLDER] Test Clue",
+    "placeholder": true,
+    "relatedEvidenceIds": ["ev_test_a", "ev_test_b"],
+    "stages": [
+      {
+        "stage": 0,
+        "text": "[PLACEHOLDER OBSERVATION] Gloria notices something at the desk, but hasn't drawn any conclusions yet."
+      },
+      {
+        "stage": 1,
+        "text": "[PLACEHOLDER INTERPRETATION] After speaking with the test character, Gloria begins to suspect this detail means more than it first appeared."
+      },
+      {
+        "stage": 2,
+        "text": "[PLACEHOLDER REALIZATION] Once the evidence is connected, Gloria understands what this clue was really pointing to all along."
+      }
+    ]
+  }
+]

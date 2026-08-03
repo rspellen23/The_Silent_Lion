@@ -1,0 +1,41 @@
+{
+  "id": "conv_test_intro",
+  "title": "[PLACEHOLDER] Test Conversation",
+  "placeholder": true,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "char_test_a",
+      "expressionId": "neutral",
+      "text": "[PLACEHOLDER DIALOGUE] This is a stand-in line used only to test the dialogue system. No final dialogue has been written yet.",
+      "grantsEvidenceIds": ["ev_test_b"],
+      "journalUpdates": [{ "entryId": "journal_test_clue", "stage": 1 }],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "[PLACEHOLDER CHOICE] Ask a stand-in follow-up question.",
+          "nextLineId": "l2"
+        },
+        {
+          "id": "c2",
+          "text": "[PLACEHOLDER CHOICE] Say nothing further.",
+          "nextLineId": "l3"
+        }
+      ]
+    },
+    {
+      "id": "l2",
+      "speakerId": "char_test_a",
+      "expressionId": "neutral",
+      "text": "[PLACEHOLDER DIALOGUE] This optional line only appears if the follow-up choice is picked, to test conditional branching.",
+      "nextLineId": "l3"
+    },
+    {
+      "id": "l3",
+      "speakerId": "char_test_a",
+      "expressionId": "neutral",
+      "text": "[PLACEHOLDER DIALOGUE] Closing stand-in line. The conversation ends after this."
+    }
+  ]
+}

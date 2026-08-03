@@ -1,0 +1,11 @@
+[
+  {
+    "id": "char_test_a",
+    "displayName": "[PLACEHOLDER] Test Character A",
+    "placeholder": true,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_test_a_neutral" }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "deduct_test_conclusion",
+    "title": "[PLACEHOLDER] Test Deduction",
+    "placeholder": true,
+    "prompt": "[PLACEHOLDER PROMPT] Select the evidence that supports a single conclusion, then submit.",
+    "requiredEvidenceIds": ["ev_test_a", "ev_test_b"],
+    "optionalSupportingEvidenceIds": [],
+    "conclusionText": "[PLACEHOLDER CONCLUSION] This is stand-in conclusion text used only to test the evidence-connection deduction mechanic end to end. It is not final story content.",
+    "hintStages": [
+      { "stage": 0, "text": "Interesting. Show me what supports that conclusion." },
+      { "stage": 1, "text": "[PLACEHOLDER HINT] Consider whether every piece you've selected points toward the same idea." },
+      { "stage": 2, "text": "[PLACEHOLDER HINT] Two specific pieces of evidence, taken together, support one conclusion here." }
+    ],
+    "successActions": {
+      "setFlags": { "test_deduction_completed": true },
+      "journalUpdates": [{ "entryId": "journal_test_clue", "stage": 2 }],
+      "unlockSceneIds": []
+    },
+    "failureFeedbackText": "Interesting. Show me what supports that conclusion.",
+    "unlockConditions": [
+      { "type": "evidence_collected", "evidenceId": "ev_test_a" },
+      { "type": "evidence_collected", "evidenceId": "ev_test_b" }
+    ]
+  }
+]

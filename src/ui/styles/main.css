@@ -1,0 +1,336 @@
+/* The Silent Lion — Phase 1 UI shell. Placeholder visual styling only. */
+
+:root {
+  --sl-bg: #0d0f14;
+  --sl-panel-bg: rgba(18, 20, 28, 0.94);
+  --sl-panel-border: #39d6c8;
+  --sl-text: #eef1f6;
+  --sl-text-dim: #b7bfcc;
+  --sl-accent: #39d6c8;
+  --sl-danger: #ff4d6d;
+  --sl-focus-ring: #ffcf5c;
+  --sl-font-scale: 1;
+  --sl-motion: 1;
+}
+
+:root[data-high-contrast='true'] {
+  --sl-bg: #000000;
+  --sl-panel-bg: #000000;
+  --sl-panel-border: #ffffff;
+  --sl-text: #ffffff;
+  --sl-text-dim: #ffffff;
+  --sl-accent: #ffe14d;
+  --sl-danger: #ff6b6b;
+  --sl-focus-ring: #ffe14d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--sl-bg);
+  color: var(--sl-text);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: calc(16px * var(--sl-font-scale));
+  overflow: hidden;
+}
+
+#app-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#phaser-mount {
+  position: absolute;
+  inset: 0;
+}
+
+#ui-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+#ui-overlay > * {
+  pointer-events: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--sl-focus-ring);
+  outline-offset: 2px;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  background: var(--sl-danger);
+  color: #1a0009;
+  font-weight: 700;
+  font-size: 0.7em;
+  letter-spacing: 0.04em;
+  padding: 0.15em 0.5em;
+  border-radius: 3px;
+  margin-inline-end: 0.5em;
+  text-transform: uppercase;
+}
+
+.sl-panel {
+  background: var(--sl-panel-bg);
+  border: 2px solid var(--sl-panel-border);
+  border-radius: 10px;
+  color: var(--sl-text);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.sl-transition {
+  transition: transform calc(0.2s * var(--sl-motion)), opacity calc(0.2s * var(--sl-motion));
+}
+
+:root[data-reduced-motion='true'] .sl-transition {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* --- HUD --------------------------------------------------------------- */
+
+#hud-bar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+#hud-bar button {
+  padding: 0.5em 1em;
+  border-radius: 6px;
+}
+
+/* --- Dialogue box -------------------------------------------------------- */
+
+#dialogue-box {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.1em 1.4em;
+}
+
+#dialogue-speaker {
+  font-weight: 700;
+  color: var(--sl-accent);
+  margin-bottom: 0.3em;
+}
+
+#dialogue-text {
+  line-height: 1.5;
+  min-height: 3.2em;
+}
+
+#dialogue-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin-top: 0.8em;
+}
+
+#dialogue-choices button {
+  text-align: left;
+  padding: 0.5em 0.8em;
+  background: transparent;
+  border: 1px solid var(--sl-panel-border);
+  border-radius: 6px;
+  color: var(--sl-text);
+}
+
+#dialogue-choices button:hover {
+  background: rgba(57, 214, 200, 0.15);
+}
+
+#dialogue-continue {
+  margin-top: 0.6em;
+  padding: 0.4em 1em;
+  background: var(--sl-accent);
+  border: none;
+  border-radius: 6px;
+  color: #04211d;
+  font-weight: 700;
+}
+
+/* --- Overlay panels (journal / deduction / settings / title) ------------ */
+
+.sl-overlay-panel {
+  position: absolute;
+  inset: 6% 12%;
+  padding: 1.5em;
+  overflow-y: auto;
+}
+
+.sl-overlay-panel h2 {
+  margin-top: 0;
+}
+
+.sl-close-button {
+  position: absolute;
+  top: 0.8em;
+  right: 0.8em;
+  background: transparent;
+  border: 1px solid var(--sl-panel-border);
+  border-radius: 6px;
+  padding: 0.3em 0.7em;
+}
+
+.journal-entry {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.8em 0;
+}
+
+.journal-entry:first-child {
+  border-top: none;
+}
+
+.journal-stage {
+  margin: 0.4em 0;
+  padding-left: 0.8em;
+  border-left: 3px solid var(--sl-accent);
+}
+
+.journal-stage-label {
+  font-weight: 700;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--sl-text-dim);
+}
+
+/* --- Deduction ------------------------------------------------------------ */
+
+#deduction-prompt {
+  margin-bottom: 1em;
+}
+
+#deduction-evidence-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.6em;
+  margin-bottom: 1em;
+}
+
+.deduction-evidence-item {
+  border: 2px solid var(--sl-panel-border);
+  border-radius: 8px;
+  padding: 0.6em;
+  text-align: left;
+  background: transparent;
+  color: var(--sl-text);
+}
+
+.deduction-evidence-item[aria-pressed='true'] {
+  background: var(--sl-accent);
+  color: #04211d;
+}
+
+.deduction-evidence-item[aria-pressed='true']::before {
+  content: '✓ ';
+  font-weight: 700;
+}
+
+#deduction-submit {
+  padding: 0.6em 1.2em;
+  border-radius: 6px;
+  border: none;
+  background: var(--sl-accent);
+  color: #04211d;
+  font-weight: 700;
+}
+
+#deduction-feedback {
+  margin-top: 1em;
+  padding: 0.8em;
+  border-radius: 6px;
+  border: 1px solid var(--sl-panel-border);
+}
+
+#deduction-feedback[data-outcome='success'] {
+  border-color: #6bffb0;
+}
+
+#deduction-feedback[data-outcome='failure'] {
+  border-color: var(--sl-danger);
+}
+
+/* --- Settings ------------------------------------------------------------- */
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.6em 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.settings-row:first-of-type {
+  border-top: none;
+}
+
+.settings-row label {
+  font-weight: 600;
+}
+
+/* --- Title screen ----------------------------------------------------------- */
+
+#title-screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  background: var(--sl-bg);
+}
+
+#title-screen h1 {
+  color: var(--sl-accent);
+}
+
+#title-screen button {
+  min-width: 260px;
+  padding: 0.7em 1.2em;
+  border-radius: 6px;
+  border: 1px solid var(--sl-panel-border);
+  background: transparent;
+  color: var(--sl-text);
+}
+
+#title-screen button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --- Observation toast ------------------------------------------------------ */
+
+#observation-toast {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 640px;
+  padding: 2.4em 1.4em 1.4em;
+  text-align: center;
+}

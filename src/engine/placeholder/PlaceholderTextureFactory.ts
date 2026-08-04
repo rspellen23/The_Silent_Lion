@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-export type PlaceholderKind = 'background' | 'portrait' | 'evidence' | 'ui';
+export type PlaceholderKind = 'background' | 'portrait' | 'fragment' | 'ui';
 
 export interface PlaceholderTextureSpec {
   assetId: string;
@@ -9,7 +9,7 @@ export interface PlaceholderTextureSpec {
   height: number;
   /** CSS color string for the fill. */
   color: string;
-  /** Short label baked into the texture, e.g. character/scene/evidence name. */
+  /** Short label baked into the texture, e.g. character/scene/fragment name. */
   label: string;
 }
 

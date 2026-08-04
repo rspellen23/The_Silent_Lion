@@ -9,7 +9,7 @@ const DEFS: JournalEntryDefinition[] = [
     id: 'journal_a',
     title: 'Clue A',
     placeholder: true,
-    relatedEvidenceIds: [],
+    relatedFragmentIds: [],
     stages: [
       { stage: 0, text: 'observation text' },
       { stage: 1, text: 'interpretation text' },

@@ -10,11 +10,21 @@ describe('GameState', () => {
     expect(state.isSceneUnlocked('scene_a')).toBe(true);
   });
 
-  it('only adds new evidence once and reports duplicates', () => {
+  it('only adds new fragments once and reports duplicates', () => {
     const state = new GameState();
-    expect(state.addEvidence('ev_a')).toBe(true);
-    expect(state.addEvidence('ev_a')).toBe(false);
-    expect(state.getCollectedEvidenceIds()).toEqual(['ev_a']);
+    expect(state.addFragment('ev_a')).toBe(true);
+    expect(state.addFragment('ev_a')).toBe(false);
+    expect(state.getCollectedFragmentIds()).toEqual(['ev_a']);
+  });
+
+  it('tracks read state independently of collection', () => {
+    const state = new GameState();
+    state.addFragment('ev_a');
+    expect(state.hasReadFragment('ev_a')).toBe(false);
+
+    expect(state.markFragmentRead('ev_a')).toBe(true);
+    expect(state.hasReadFragment('ev_a')).toBe(true);
+    expect(state.markFragmentRead('ev_a')).toBe(false); // already read
   });
 
   it('accumulates journal stages in ascending order without duplicates', () => {
@@ -40,16 +50,16 @@ describe('GameState', () => {
 
   it('round-trips through getSnapshot/loadSnapshot without sharing references', () => {
     const state = new GameState();
-    state.addEvidence('ev_a');
+    state.addFragment('ev_a');
     const snapshot = state.getSnapshot();
 
     const restored = new GameState();
     restored.loadSnapshot(snapshot);
 
-    expect(restored.getCollectedEvidenceIds()).toEqual(['ev_a']);
+    expect(restored.getCollectedFragmentIds()).toEqual(['ev_a']);
 
     // Mutating the original state must not affect the restored copy.
-    state.addEvidence('ev_b');
-    expect(restored.getCollectedEvidenceIds()).toEqual(['ev_a']);
+    state.addFragment('ev_b');
+    expect(restored.getCollectedFragmentIds()).toEqual(['ev_a']);
   });
 });

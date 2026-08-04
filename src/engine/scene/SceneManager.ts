@@ -2,7 +2,7 @@ import type { EventBus } from '../EventBus';
 import type { GameState } from '../GameState';
 import type { BackgroundManager } from '../background/BackgroundManager';
 import type { AudioManager } from '../audio/AudioManager';
-import type { EvidenceSystem } from '../evidence/EvidenceSystem';
+import type { FragmentSystem } from '../fragment/FragmentSystem';
 import type { InsightJournal } from '../journal/InsightJournal';
 import type { DeductionFramework } from '../deduction/DeductionFramework';
 import type { DialogueSystem } from '../dialogue/DialogueSystem';
@@ -13,9 +13,9 @@ import type { Hotspot, SceneDefinition } from '../types';
  * Orchestrator for the point-and-click investigation loop: given the
  * current scene's data, it renders the active visual state's background
  * and hotspots via BackgroundManager, and routes each hotspot's effects to
- * the appropriate system (evidence, journal, dialogue, deduction, scene
- * unlocks, or a visual-state swap). SceneManager holds no story content —
- * all of it comes from /src/content/scenes.json.
+ * the appropriate system (fragments, journal, dialogue, deduction, scene
+ * navigation, or a visual-state swap). SceneManager holds no story content —
+ * all of it comes from /src/content/scenes/*.json.
  */
 export class SceneManager {
   private scenes: Map<string, SceneDefinition> = new Map();
@@ -26,7 +26,7 @@ export class SceneManager {
     private events: EventBus,
     private background: BackgroundManager,
     private audio: AudioManager,
-    private evidence: EvidenceSystem,
+    private fragments: FragmentSystem,
     private journal: InsightJournal,
     private deduction: DeductionFramework,
     private dialogue: DialogueSystem,
@@ -125,8 +125,14 @@ export class SceneManager {
           text: effect.text ?? ''
         });
         break;
-      case 'add_evidence':
-        if (effect.targetId) this.evidence.collect(effect.targetId);
+      case 'add_fragment':
+        if (effect.targetId) this.fragments.collect(effect.targetId);
+        break;
+      case 'read_fragment':
+        if (effect.targetId) {
+          this.fragments.markRead(effect.targetId);
+          this.events.emit('fragment:present', { fragmentId: effect.targetId });
+        }
         break;
       case 'start_conversation':
         if (effect.targetId) this.dialogue.start(effect.targetId);
@@ -138,6 +144,12 @@ export class SceneManager {
         break;
       case 'unlock_scene':
         if (effect.targetId) this.state.unlockScene(effect.targetId);
+        break;
+      case 'travel_to_scene':
+        if (effect.targetId) {
+          this.state.unlockScene(effect.targetId);
+          this.goTo(effect.targetId);
+        }
         break;
       case 'change_visual_state':
         if (effect.targetId) {
@@ -155,7 +167,7 @@ export class SceneManager {
     }
   }
 
-  /** Re-renders hotspots for the current visual state — call after any state change that affects hotspot conditions (e.g. new evidence, journal update, deduction success). */
+  /** Re-renders hotspots for the current visual state — call after any state change that affects hotspot conditions (e.g. new fragment, journal update, deduction success). */
   refresh(): void {
     this.renderCurrentVisualState();
   }

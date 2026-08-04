@@ -1,7 +1,7 @@
 import type { EventBus } from '../EventBus';
 import type { GameState } from '../GameState';
 import type { InsightJournal } from '../journal/InsightJournal';
-import type { EvidenceSystem } from '../evidence/EvidenceSystem';
+import type { FragmentSystem } from '../fragment/FragmentSystem';
 import { conditionsMet } from '../conditions';
 import type { DeductionDefinition } from '../types';
 
@@ -15,8 +15,8 @@ export interface DeductionAttemptResult {
 const DEFAULT_HINT_TEXT = 'Interesting. Show me what supports that conclusion.';
 
 /**
- * The core investigation mechanic: the player selects two or more pieces
- * of evidence that together support a conclusion, rather than choosing
+ * The core investigation mechanic: the player selects two or more
+ * fragments that together support a conclusion, rather than choosing
  * from a multiple-choice list. Incorrect attempts are never a fail state —
  * they surface a gentle, escalating hint and let the player try again.
  */
@@ -26,7 +26,7 @@ export class DeductionFramework {
   constructor(
     private state: GameState,
     private events: EventBus,
-    private evidence: EvidenceSystem,
+    private fragments: FragmentSystem,
     private journal: InsightJournal,
     definitions: DeductionDefinition[]
   ) {
@@ -53,31 +53,31 @@ export class DeductionFramework {
   }
 
   /**
-   * Attempts a deduction with the evidence IDs the player selected.
-   * Success requires every required evidence ID to be present in the
-   * selection (order-independent); optional supporting evidence is not
-   * required but does not invalidate a correct attempt.
+   * Attempts a deduction with the fragment IDs the player selected.
+   * Success requires every required fragment ID to be present in the
+   * selection (order-independent); optional supporting fragments are not
+   * required but do not invalidate a correct attempt.
    */
-  attempt(deductionId: string, selectedEvidenceIds: string[]): DeductionAttemptResult {
+  attempt(deductionId: string, selectedFragmentIds: string[]): DeductionAttemptResult {
     const def = this.definitions.get(deductionId);
     if (!def) {
       throw new Error(`DeductionFramework: unknown deduction ID "${deductionId}"`);
     }
-    this.events.emit('deduction:attempt', { deductionId, selectedEvidenceIds });
+    this.events.emit('deduction:attempt', { deductionId, selectedFragmentIds });
 
-    const uncollected = selectedEvidenceIds.filter((id) => !this.evidence.hasCollected(id));
+    const uncollected = selectedFragmentIds.filter((id) => !this.fragments.hasCollected(id));
     if (uncollected.length > 0) {
       throw new Error(
-        `DeductionFramework: attempted deduction "${deductionId}" with uncollected evidence: ${uncollected.join(', ')}`
+        `DeductionFramework: attempted deduction "${deductionId}" with uncollected fragments: ${uncollected.join(', ')}`
       );
     }
 
-    const selected = new Set(selectedEvidenceIds);
-    const requiredMet = def.requiredEvidenceIds.every((id) => selected.has(id));
-    const noExtraneous = selectedEvidenceIds.every(
-      (id) => def.requiredEvidenceIds.includes(id) || def.optionalSupportingEvidenceIds.includes(id)
+    const selected = new Set(selectedFragmentIds);
+    const requiredMet = def.requiredFragmentIds.every((id) => selected.has(id));
+    const noExtraneous = selectedFragmentIds.every(
+      (id) => def.requiredFragmentIds.includes(id) || def.optionalSupportingFragmentIds.includes(id)
     );
-    const success = requiredMet && noExtraneous && selectedEvidenceIds.length >= 2;
+    const success = requiredMet && noExtraneous && selectedFragmentIds.length >= 2;
 
     const record = this.state.recordDeductionAttempt(deductionId, success);
 

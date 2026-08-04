@@ -17,7 +17,7 @@ describe('SaveManager', () => {
   it('writes a versioned save and can load it back into GameState', () => {
     const { state, saveManager } = buildManager();
     state.setCurrentScene('scene_test_room');
-    state.addEvidence('ev_a');
+    state.addFragment('ev_a');
 
     saveManager.save('slot1', 'Test Investigation Room');
 
@@ -27,7 +27,7 @@ describe('SaveManager', () => {
     const loaded = reloadedManager.load('slot1');
 
     expect(loaded?.schemaVersion).toBe(SAVE_SCHEMA_VERSION);
-    expect(freshState.getCollectedEvidenceIds()).toEqual(['ev_a']);
+    expect(freshState.getCollectedFragmentIds()).toEqual(['ev_a']);
     expect(freshState.getCurrentSceneId()).toBe('scene_test_room');
   });
 
@@ -48,7 +48,7 @@ describe('SaveManager', () => {
     expect(saveManager.getMostRecentSave()?.sceneTitleAtSave).toBe('Newer');
   });
 
-  it('refuses to load a save with an incompatible schema version', () => {
+  it('refuses to load a save with no migration path (newer than this build understands)', () => {
     const { storage, saveManager } = buildManager();
     storage.setItem(
       'silentLion:save:slot1',
@@ -56,6 +56,68 @@ describe('SaveManager', () => {
     );
 
     expect(saveManager.load('slot1')).toBeNull();
+  });
+
+  it('migrates a v1 save (evidenceCollected) to the current schema (fragmentsCollected + readFragmentIds) on load', () => {
+    const { storage, saveManager } = buildManager();
+    const v1Save = {
+      schemaVersion: 1,
+      slotId: 'slot1',
+      savedAtIso: new Date().toISOString(),
+      sceneTitleAtSave: 'Old Save',
+      state: {
+        currentSceneId: 'scene_test_room',
+        currentVisualStateIdByScene: {},
+        activeConversationId: null,
+        activeConversationLineId: null,
+        flags: {},
+        evidenceCollected: ['ev_a', 'ev_b'],
+        journalProgress: {},
+        deductionState: {},
+        visitedSceneIds: ['scene_test_room'],
+        unlockedSceneIds: ['scene_test_room']
+      },
+      settings: DEFAULT_SETTINGS
+    };
+    storage.setItem('silentLion:save:slot1', JSON.stringify(v1Save));
+
+    const loaded = saveManager.load('slot1');
+
+    expect(loaded?.schemaVersion).toBe(SAVE_SCHEMA_VERSION);
+    expect(loaded?.state.fragmentsCollected).toEqual(['ev_a', 'ev_b']);
+    // Migrated fragments are marked read so returning players don't see
+    // "Unread" badges on things they'd already encountered under v1.
+    expect(loaded?.state.readFragmentIds).toEqual(['ev_a', 'ev_b']);
+  });
+
+  it('includes migratable legacy saves when computing getMostRecentSave', () => {
+    const { storage, saveManager } = buildManager();
+    storage.setItem(
+      'silentLion:save:autosave',
+      JSON.stringify({
+        schemaVersion: 1,
+        slotId: 'autosave',
+        savedAtIso: new Date().toISOString(),
+        sceneTitleAtSave: 'Legacy Save',
+        state: {
+          currentSceneId: 'scene_test_room',
+          currentVisualStateIdByScene: {},
+          activeConversationId: null,
+          activeConversationLineId: null,
+          flags: {},
+          evidenceCollected: [],
+          journalProgress: {},
+          deductionState: {},
+          visitedSceneIds: [],
+          unlockedSceneIds: []
+        },
+        settings: DEFAULT_SETTINGS
+      })
+    );
+
+    const mostRecent = saveManager.getMostRecentSave();
+    expect(mostRecent?.sceneTitleAtSave).toBe('Legacy Save');
+    expect(mostRecent?.schemaVersion).toBe(SAVE_SCHEMA_VERSION);
   });
 
   it('resetAllProgress clears autosave and every manual slot', () => {

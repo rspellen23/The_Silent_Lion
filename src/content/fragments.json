@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ev_test_a",
+    "name": "[PLACEHOLDER] Test Fragment A",
+    "description": "[PLACEHOLDER] Stand-in fragment opened directly from a scene hotspot, used only to test the read_fragment pipeline.",
+    "category": "physical",
+    "presentation": "document",
+    "imageAssetId": "asset_fragment_test_a",
+    "documentBody": "[PLACEHOLDER DOCUMENT]\n\nThis is stand-in **document** text used only to test the DocumentReaderUI's Markdown rendering. It is not final story content.\n\nA second paragraph, to confirm paragraph breaks render correctly.",
+    "relatedJournalEntryIds": ["journal_test_clue"],
+    "relatedFragmentIds": ["ev_test_b"],
+    "deductionUnlockIds": ["deduct_test_conclusion"],
+    "placeholder": true
+  },
+  {
+    "id": "ev_test_b",
+    "name": "[PLACEHOLDER] Test Fragment B",
+    "description": "[PLACEHOLDER] Stand-in fragment granted by a conversation, used only to test dialogue fragment rewards and the unread-until-opened state.",
+    "category": "testimonial",
+    "presentation": "document",
+    "imageAssetId": "asset_fragment_test_b",
+    "documentBody": "[PLACEHOLDER DOCUMENT]\n\nThis fragment is collected mid-conversation but stays **unread** until opened from the Fragments panel — used to test read/unread tracking.",
+    "relatedJournalEntryIds": ["journal_test_clue"],
+    "relatedFragmentIds": ["ev_test_a"],
+    "deductionUnlockIds": ["deduct_test_conclusion"],
+    "placeholder": true
+  }
+]

@@ -6,7 +6,7 @@ import { el } from './dom';
 
 const MANUAL_SLOTS: SaveSlotId[] = ['slot1', 'slot2', 'slot3'];
 
-/** Always-visible control bar during gameplay: Journal, Deduction, manual save slots, Settings. */
+/** Always-visible control bar during gameplay: Journal, Fragments, Deduction, manual save slots, Settings. */
 export class HudBar {
   private deductionButton: HTMLButtonElement;
 
@@ -14,6 +14,7 @@ export class HudBar {
     container: HTMLElement,
     events: EventBus,
     onJournalToggle: () => void,
+    onFragmentsToggle: () => void,
     onSettingsToggle: () => void,
     saveManager: SaveManager,
     deduction: DeductionFramework,
@@ -26,6 +27,9 @@ export class HudBar {
     const journalButton = el('button', { type: 'button', 'aria-label': 'Open Insight Journal' }, ['Journal']) as HTMLButtonElement;
     journalButton.addEventListener('click', onJournalToggle);
 
+    const fragmentsButton = el('button', { type: 'button', 'aria-label': 'Open Fragments' }, ['Fragments']) as HTMLButtonElement;
+    fragmentsButton.addEventListener('click', onFragmentsToggle);
+
     this.deductionButton = el('button', { type: 'button', 'aria-label': 'Open deduction screen' }, [
       'Deduction'
     ]) as HTMLButtonElement;
@@ -34,7 +38,7 @@ export class HudBar {
       this.deductionButton.disabled = !deduction.isAvailable(deductionId) || deduction.isCompleted(deductionId);
     };
     refreshDeductionAvailability();
-    events.on('evidence:added', refreshDeductionAvailability);
+    events.on('fragment:added', refreshDeductionAvailability);
     events.on('deduction:success', refreshDeductionAvailability);
 
     const saveButtons = MANUAL_SLOTS.map((slotId, i) => {
@@ -51,7 +55,7 @@ export class HudBar {
     const settingsButton = el('button', { type: 'button', 'aria-label': 'Open settings' }, ['Settings']) as HTMLButtonElement;
     settingsButton.addEventListener('click', onSettingsToggle);
 
-    root.append(journalButton, this.deductionButton, ...saveButtons, settingsButton);
+    root.append(journalButton, fragmentsButton, this.deductionButton, ...saveButtons, settingsButton);
     container.append(root);
   }
 }

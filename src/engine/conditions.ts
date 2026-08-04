@@ -14,8 +14,8 @@ function conditionMet(condition: UnlockCondition, state: GameState): boolean {
   switch (condition.type) {
     case 'flag':
       return state.getFlag(condition.flag) === condition.equals;
-    case 'evidence_collected':
-      return state.hasEvidence(condition.evidenceId);
+    case 'fragment_collected':
+      return state.hasFragment(condition.fragmentId);
     case 'journal_stage': {
       const unlocked = state.getJournalProgress(condition.entryId).unlockedStages;
       return unlocked.some((stage) => stage >= condition.minStage);

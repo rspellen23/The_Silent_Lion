@@ -5,20 +5,20 @@ describe('EventBus', () => {
   it('calls listeners with the emitted payload', () => {
     const bus = new EventBus();
     const handler = vi.fn();
-    bus.on('evidence:added', handler);
+    bus.on('fragment:added', handler);
 
-    bus.emit('evidence:added', { evidenceId: 'ev_a' });
+    bus.emit('fragment:added', { fragmentId: 'ev_a' });
 
-    expect(handler).toHaveBeenCalledWith({ evidenceId: 'ev_a' });
+    expect(handler).toHaveBeenCalledWith({ fragmentId: 'ev_a' });
   });
 
   it('stops calling a listener after off()', () => {
     const bus = new EventBus();
     const handler = vi.fn();
-    bus.on('evidence:added', handler);
-    bus.off('evidence:added', handler);
+    bus.on('fragment:added', handler);
+    bus.off('fragment:added', handler);
 
-    bus.emit('evidence:added', { evidenceId: 'ev_a' });
+    bus.emit('fragment:added', { fragmentId: 'ev_a' });
 
     expect(handler).not.toHaveBeenCalled();
   });
@@ -26,16 +26,16 @@ describe('EventBus', () => {
   it('on() returns an unsubscribe function', () => {
     const bus = new EventBus();
     const handler = vi.fn();
-    const unsubscribe = bus.on('evidence:added', handler);
+    const unsubscribe = bus.on('fragment:added', handler);
     unsubscribe();
 
-    bus.emit('evidence:added', { evidenceId: 'ev_a' });
+    bus.emit('fragment:added', { fragmentId: 'ev_a' });
 
     expect(handler).not.toHaveBeenCalled();
   });
 
   it('does not throw when emitting an event with no listeners', () => {
     const bus = new EventBus();
-    expect(() => bus.emit('evidence:added', { evidenceId: 'ev_a' })).not.toThrow();
+    expect(() => bus.emit('fragment:added', { fragmentId: 'ev_a' })).not.toThrow();
   });
 });

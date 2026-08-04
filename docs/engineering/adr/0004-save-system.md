@@ -9,7 +9,7 @@ Status: Approved (Phase 1).
 
 ```ts
 interface SaveGame {
-  schemaVersion: number;      // SAVE_SCHEMA_VERSION, currently 1
+  schemaVersion: number;      // SAVE_SCHEMA_VERSION, currently 2
   slotId: 'autosave' | 'slot1' | 'slot2' | 'slot3';
   savedAtIso: string;
   sceneTitleAtSave: string;
@@ -31,20 +31,27 @@ interface SaveGame {
 
 ## Schema versioning
 
-`load()` compares `SaveGame.schemaVersion` against the current
-`SAVE_SCHEMA_VERSION` constant and refuses to load (returns `null`,
-logs a warning) on a mismatch, rather than attempting to coerce
-mismatched data into `GameState`. Phase 1 ships a single schema version,
-so there is no migration path yet — that is a known gap, not an oversight.
+`load()` (and `getMostRecentSave()`) run every parsed save through
+`migrateSaveGame()` (`src/engine/save/migrations.ts`) before touching
+`GameState`. `migrateSaveGame` walks a chain of per-version migration
+functions (keyed by the version they migrate *from*) up to
+`SAVE_SCHEMA_VERSION`, and returns `null` — refuse to load, log a warning
+— only if a save's version has no registered migration (too old to have
+one, or newer than this build understands). This superseded the original
+Phase 1 plan of refusing on any mismatch once the first real schema
+change (v1→v2, the Fragment rename in `adr/0006`) actually happened.
+
+**Adding a migration**: when `GameStateSnapshot` changes shape, bump
+`SAVE_SCHEMA_VERSION` and add a `MIGRATIONS[oldVersion] = migrateOldToNew`
+entry in `migrations.ts` — do not edit `SaveManager.load()` itself.
 
 ## Consequences
 
-- **When `GameStateSnapshot`'s shape changes** (new fields, renamed
-  fields, changed semantics), `SAVE_SCHEMA_VERSION` must be bumped and a
-  migration step added to `SaveManager.load()` before merging, or players
-  with an old save will silently lose it (safe failure, but still a bad
-  experience). This will very likely be needed once Phase 2 content adds
-  new state shapes.
+- Every schema bump requires a migration function to preserve backward
+  compatibility; skipping one means saves from that version become
+  unloadable (a safe failure — refusal, not corruption — but still a
+  worse experience than migrating). This will keep coming up as Phase 2
+  content adds new state shapes.
 - Save data is plain `JSON.stringify`d GameState — there is no
   compression or encryption. Given saves are local-only and contain no
   sensitive data, this is an intentional simplicity choice, not an

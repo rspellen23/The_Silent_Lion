@@ -4,7 +4,7 @@ import { EventBus } from '@engine/EventBus';
 import { GameState } from '@engine/GameState';
 import { SettingsManager } from '@engine/settings/SettingsManager';
 import { SaveManager } from '@engine/save/SaveManager';
-import { EvidenceSystem } from '@engine/evidence/EvidenceSystem';
+import { FragmentSystem } from '@engine/fragment/FragmentSystem';
 import { InsightJournal } from '@engine/journal/InsightJournal';
 import { DeductionFramework } from '@engine/deduction/DeductionFramework';
 import { DialogueSystem } from '@engine/dialogue/DialogueSystem';
@@ -21,6 +21,8 @@ import { GameScene, PLACEHOLDER_CLICK_SFX_KEY } from './phaser/GameScene';
 import { DialogueBoxUI } from '@ui/DialogueBoxUI';
 import { JournalUI } from '@ui/JournalUI';
 import { DeductionUI } from '@ui/DeductionUI';
+import { DocumentReaderUI } from '@ui/DocumentReaderUI';
+import { FragmentInventoryUI } from '@ui/FragmentInventoryUI';
 import { SettingsUI } from '@ui/SettingsUI';
 import { HudBar } from '@ui/HudBar';
 import { TitleScreenUI } from '@ui/TitleScreenUI';
@@ -30,14 +32,15 @@ import {
   characters,
   conversations,
   deductions,
-  evidenceDefinitions,
+  fragmentDefinitions,
+  gameConfig,
   journalEntries,
   placeholderAssetSpecs,
   scenes
 } from '@content/index';
 import type { SaveGame } from '@engine/types';
 
-const START_SCENE_ID = scenes[0].id;
+const START_SCENE_ID = gameConfig.startSceneId;
 
 // --- Framework-agnostic engine managers (no Phaser dependency) -----------
 
@@ -45,10 +48,10 @@ const events = new EventBus();
 const state = new GameState();
 const settings = new SettingsManager(events);
 const saveManager = new SaveManager(state, events, () => settings.getAll());
-const evidenceSystem = new EvidenceSystem(state, events, evidenceDefinitions);
+const fragmentSystem = new FragmentSystem(state, events, fragmentDefinitions);
 const journal = new InsightJournal(state, events, journalEntries);
-const deductionFramework = new DeductionFramework(state, events, evidenceSystem, journal, deductions);
-const dialogueSystem = new DialogueSystem(state, events, evidenceSystem, journal, conversations);
+const deductionFramework = new DeductionFramework(state, events, fragmentSystem, journal, deductions);
+const dialogueSystem = new DialogueSystem(state, events, fragmentSystem, journal, conversations);
 const portraitManager = new PortraitManager(characters);
 
 const uiOverlay = document.getElementById('ui-overlay') as HTMLElement;
@@ -69,7 +72,7 @@ function onGameReady(scene: Phaser.Scene): void {
     events,
     background,
     audio,
-    evidenceSystem,
+    fragmentSystem,
     journal,
     deductionFramework,
     dialogueSystem,
@@ -85,16 +88,27 @@ function onGameReady(scene: Phaser.Scene): void {
 
   // --- DOM UI -------------------------------------------------------------
 
-  const dialogueBox = new DialogueBoxUI(uiOverlay, events, dialogueSystem, portraitManager, settings, (assetId) =>
-    portraitRenderer.show(assetId)
+  const dialogueBox = new DialogueBoxUI(
+    uiOverlay,
+    events,
+    dialogueSystem,
+    portraitManager,
+    settings,
+    (assetId) => portraitRenderer.show(assetId),
+    (sceneId) => sceneManager.goTo(sceneId)
   );
   void dialogueBox;
 
   const journalUI = new JournalUI(uiOverlay, events, journal);
-  const deductionUI = new DeductionUI(uiOverlay, events, deductionFramework, evidenceSystem, (assetId) =>
+  const deductionUI = new DeductionUI(uiOverlay, events, deductionFramework, fragmentSystem, (assetId) =>
     getTextureDataUrl(scene, assetId)
   );
   void deductionUI;
+  const documentReader = new DocumentReaderUI(uiOverlay, events, fragmentSystem, (assetId) =>
+    getTextureDataUrl(scene, assetId)
+  );
+  void documentReader;
+  const fragmentInventory = new FragmentInventoryUI(uiOverlay, events, fragmentSystem);
   const observationToast = new ObservationToastUI(uiOverlay, events);
   void observationToast;
 
@@ -109,6 +123,7 @@ function onGameReady(scene: Phaser.Scene): void {
         uiOverlay,
         events,
         () => journalUI.toggle(),
+        () => fragmentInventory.toggle(),
         () => settingsUI.toggle(),
         saveManager,
         deductionFramework,

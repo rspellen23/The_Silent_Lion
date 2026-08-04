@@ -2,6 +2,7 @@ import type { EventBus } from '../EventBus';
 import type { GameState } from '../GameState';
 import { SAVE_SCHEMA_VERSION } from '../types';
 import type { GameSettings, SaveGame, SaveSlotId } from '../types';
+import { migrateSaveGame } from './migrations';
 
 const STORAGE_KEY_PREFIX = 'silentLion:save:';
 const MANUAL_SLOT_IDS: SaveSlotId[] = ['slot1', 'slot2', 'slot3'];
@@ -16,9 +17,10 @@ export interface SaveSlotSummary {
 /**
  * Persists GameState + settings to localStorage under a versioned schema.
  * One autosave slot (triggered by scene transitions and deduction success)
- * plus three manual slots. A save whose schemaVersion doesn't match the
- * current SAVE_SCHEMA_VERSION is treated as incompatible and reported to
- * the caller rather than silently coerced — see docs/engineering/adr/0004.
+ * plus three manual slots. A save whose schemaVersion is older than the
+ * current SAVE_SCHEMA_VERSION is migrated forward via migrateSaveGame()
+ * rather than discarded, as long as a migration path exists; a save from
+ * an unrecognized/newer version is refused — see docs/engineering/adr/0004.
  */
 export class SaveManager {
   constructor(
@@ -50,29 +52,28 @@ export class SaveManager {
     return this.save('autosave', sceneTitleAtSave);
   }
 
-  /** Returns null if the slot is empty or the saved schema version is unsupported. */
+  /** Returns null if the slot is empty, corrupt, or has no migration path to the current schema. */
   load(slotId: SaveSlotId): SaveGame | null {
     const raw = this.storage.getItem(this.key(slotId));
     if (!raw) return null;
-    let parsed: SaveGame;
+    let parsed: unknown;
     try {
       parsed = JSON.parse(raw);
     } catch {
       return null;
     }
-    if (parsed.schemaVersion !== SAVE_SCHEMA_VERSION) {
-      // Phase 1 has a single schema version, so there is no migration path yet.
-      // Future schema bumps should add a migration step here rather than
-      // discarding the save outright.
+    const migrated = migrateSaveGame(parsed);
+    if (!migrated) {
+      const rawVersion = (parsed as { schemaVersion?: unknown })?.schemaVersion;
       console.warn(
-        `SaveManager: save in slot "${slotId}" has schema version ${parsed.schemaVersion}, ` +
-          `expected ${SAVE_SCHEMA_VERSION}. Refusing to load.`
+        `SaveManager: save in slot "${slotId}" has schema version ${rawVersion}, ` +
+          `no migration path to ${SAVE_SCHEMA_VERSION}. Refusing to load.`
       );
       return null;
     }
-    this.state.loadSnapshot(parsed.state);
+    this.state.loadSnapshot(migrated.state);
     this.events.emit('save:loaded', { slotId });
-    return parsed;
+    return migrated;
   }
 
   hasSave(slotId: SaveSlotId): boolean {
@@ -86,8 +87,8 @@ export class SaveManager {
       const raw = this.storage.getItem(this.key(slotId));
       if (!raw) continue;
       try {
-        const parsed: SaveGame = JSON.parse(raw);
-        if (parsed.schemaVersion === SAVE_SCHEMA_VERSION) all.push(parsed);
+        const migrated = migrateSaveGame(JSON.parse(raw));
+        if (migrated) all.push(migrated);
       } catch {
         // skip corrupt entry
       }

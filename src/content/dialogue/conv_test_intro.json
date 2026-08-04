@@ -9,7 +9,7 @@
       "speakerId": "char_test_a",
       "expressionId": "neutral",
       "text": "[PLACEHOLDER DIALOGUE] This is a stand-in line used only to test the dialogue system. No final dialogue has been written yet.",
-      "grantsEvidenceIds": ["ev_test_b"],
+      "grantsFragmentIds": ["ev_test_b"],
       "journalUpdates": [{ "entryId": "journal_test_clue", "stage": 1 }],
       "choices": [
         {

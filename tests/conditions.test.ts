@@ -14,12 +14,12 @@ describe('conditionsMet', () => {
     state.setFlag('met_witness', true);
     const conditions: UnlockCondition[] = [
       { type: 'flag', flag: 'met_witness', equals: true },
-      { type: 'evidence_collected', evidenceId: 'ev_a' }
+      { type: 'fragment_collected', fragmentId: 'ev_a' }
     ];
 
     expect(conditionsMet(conditions, state)).toBe(false);
 
-    state.addEvidence('ev_a');
+    state.addFragment('ev_a');
     expect(conditionsMet(conditions, state)).toBe(true);
   });
 

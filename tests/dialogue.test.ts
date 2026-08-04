@@ -1,20 +1,20 @@
 import { describe, expect, it, vi } from 'vitest';
 import { EventBus } from '@engine/EventBus';
 import { GameState } from '@engine/GameState';
-import { EvidenceSystem } from '@engine/evidence/EvidenceSystem';
+import { FragmentSystem } from '@engine/fragment/FragmentSystem';
 import { InsightJournal } from '@engine/journal/InsightJournal';
 import { DialogueSystem } from '@engine/dialogue/DialogueSystem';
-import type { ConversationDefinition, EvidenceDefinition, JournalEntryDefinition } from '@engine/types';
+import type { ConversationDefinition, FragmentDefinition, JournalEntryDefinition } from '@engine/types';
 
-const EVIDENCE: EvidenceDefinition[] = [
-  { id: 'ev_a', name: 'A', description: '', imageAssetId: 'img_a', placeholder: true }
+const FRAGMENTS: FragmentDefinition[] = [
+  { id: 'ev_a', name: 'A', description: '', presentation: 'card', imageAssetId: 'img_a', placeholder: true }
 ];
 const JOURNAL: JournalEntryDefinition[] = [
   {
     id: 'journal_a',
     title: 'Clue',
     placeholder: true,
-    relatedEvidenceIds: [],
+    relatedFragmentIds: [],
     stages: [{ stage: 0, text: 'obs' }, { stage: 1, text: 'interp' }]
   }
 ];
@@ -29,7 +29,7 @@ const CONVERSATION: ConversationDefinition = {
       id: 'l1',
       speakerId: 'char_a',
       text: 'Line one',
-      grantsEvidenceIds: ['ev_a'],
+      grantsFragmentIds: ['ev_a'],
       journalUpdates: [{ entryId: 'journal_a', stage: 0 }],
       choices: [
         { id: 'c1', text: 'Ask more', nextLineId: 'l2' },
@@ -41,21 +41,29 @@ const CONVERSATION: ConversationDefinition = {
   ]
 };
 
+const CONVERSATION_WITH_TRANSITION: ConversationDefinition = {
+  id: 'conv_transition',
+  title: 'Test transition',
+  placeholder: true,
+  startLineId: 't1',
+  lines: [{ id: 't1', speakerId: 'char_a', text: 'Goodbye.', transitionToSceneId: 'scene_next' }]
+};
+
 function build() {
   const events = new EventBus();
   const state = new GameState();
-  const evidence = new EvidenceSystem(state, events, EVIDENCE);
+  const fragments = new FragmentSystem(state, events, FRAGMENTS);
   const journal = new InsightJournal(state, events, JOURNAL);
-  const dialogue = new DialogueSystem(state, events, evidence, journal, [CONVERSATION]);
-  return { events, state, evidence, journal, dialogue };
+  const dialogue = new DialogueSystem(state, events, fragments, journal, [CONVERSATION, CONVERSATION_WITH_TRANSITION]);
+  return { events, state, fragments, journal, dialogue };
 }
 
 describe('DialogueSystem', () => {
-  it('applies the start line effects immediately (flags/evidence/journal)', () => {
-    const { dialogue, evidence, journal } = build();
+  it('applies the start line effects immediately (flags/fragments/journal)', () => {
+    const { dialogue, fragments, journal } = build();
     dialogue.start('conv_a');
 
-    expect(evidence.hasCollected('ev_a')).toBe(true);
+    expect(fragments.hasCollected('ev_a')).toBe(true);
     expect(journal.getEntryView('journal_a')?.latestStage).toBe(0);
   });
 
@@ -97,5 +105,14 @@ describe('DialogueSystem', () => {
     const { dialogue } = build();
     dialogue.start('conv_a');
     expect(() => dialogue.advance()).toThrow(/requires a choiceId/i);
+  });
+
+  it('returns transitionToSceneId when a line ending the conversation carries one', () => {
+    const { dialogue } = build();
+    dialogue.start('conv_transition');
+    const result = dialogue.advance();
+
+    expect(result.ended).toBe(true);
+    if (result.ended) expect(result.transitionToSceneId).toBe('scene_next');
   });
 });

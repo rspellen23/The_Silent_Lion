@@ -33,7 +33,8 @@ export class DialogueBoxUI {
     private dialogue: DialogueSystem,
     private portraits: PortraitManager,
     private settings: SettingsManager,
-    private onPortraitChange: (assetId: string | null) => void
+    private onPortraitChange: (assetId: string | null) => void,
+    private onSceneTransition: (sceneId: string) => void
   ) {
     this.root = el('div', { class: 'sl-panel sl-transition', id: 'dialogue-box' });
     this.speakerEl = el('div', { id: 'dialogue-speaker' });
@@ -42,7 +43,7 @@ export class DialogueBoxUI {
     this.continueButton = el('button', { id: 'dialogue-continue', type: 'button' }, [
       'Continue'
     ]) as HTMLButtonElement;
-    this.continueButton.addEventListener('click', () => this.dialogue.advance());
+    this.continueButton.addEventListener('click', () => this.advanceAndHandleTransition());
 
     this.root.append(this.speakerEl, this.textEl, this.choicesEl, this.continueButton);
     this.root.style.display = 'none';
@@ -85,8 +86,15 @@ export class DialogueBoxUI {
 
     for (const choice of view.visibleChoices) {
       const button = el('button', { type: 'button' }, [choice.text]) as HTMLButtonElement;
-      button.addEventListener('click', () => this.dialogue.advance(choice.id));
+      button.addEventListener('click', () => this.advanceAndHandleTransition(choice.id));
       this.choicesEl.append(button);
+    }
+  }
+
+  private advanceAndHandleTransition(choiceId?: string): void {
+    const result = this.dialogue.advance(choiceId);
+    if (result.ended && result.transitionToSceneId) {
+      this.onSceneTransition(result.transitionToSceneId);
     }
   }
 

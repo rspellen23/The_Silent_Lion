@@ -1,6 +1,6 @@
 import type { EventBus } from '../EventBus';
 import type { GameState } from '../GameState';
-import type { EvidenceSystem } from '../evidence/EvidenceSystem';
+import type { FragmentSystem } from '../fragment/FragmentSystem';
 import type { InsightJournal } from '../journal/InsightJournal';
 import { conditionsMet } from '../conditions';
 import type { ConversationDefinition, DialogueChoice, DialogueLine } from '../types';
@@ -16,7 +16,7 @@ export type DialogueAdvanceResult =
 
 /**
  * Drives a single conversation at a time: line traversal, conditional
- * player choices, and applying each line's/choice's flag, evidence, and
+ * player choices, and applying each line's/choice's flag, fragment, and
  * journal effects as they are reached. Conversation content is entirely
  * data (see /src/content/dialogue/*.json) — this class contains no story
  * text of its own.
@@ -29,7 +29,7 @@ export class DialogueSystem {
   constructor(
     private state: GameState,
     private events: EventBus,
-    private evidence: EvidenceSystem,
+    private fragments: FragmentSystem,
     private journal: InsightJournal,
     definitions: ConversationDefinition[]
   ) {
@@ -139,13 +139,13 @@ export class DialogueSystem {
   private applyLineEffects(line: DialogueLine): void {
     if (!conditionsMet(line.conditions, this.state)) return;
     this.applyFlags(line.setFlags);
-    this.applyEvidence(line.grantsEvidenceIds);
+    this.applyFragments(line.grantsFragmentIds);
     this.applyJournalUpdates(line.journalUpdates);
   }
 
   private applyChoiceEffects(choice: DialogueChoice): void {
     this.applyFlags(choice.setFlags);
-    this.applyEvidence(choice.grantsEvidenceIds);
+    this.applyFragments(choice.grantsFragmentIds);
     this.applyJournalUpdates(choice.journalUpdates);
   }
 
@@ -157,9 +157,9 @@ export class DialogueSystem {
     }
   }
 
-  private applyEvidence(evidenceIds?: string[]): void {
-    if (!evidenceIds) return;
-    for (const id of evidenceIds) this.evidence.collect(id);
+  private applyFragments(fragmentIds?: string[]): void {
+    if (!fragmentIds) return;
+    for (const id of fragmentIds) this.fragments.collect(id);
   }
 
   private applyJournalUpdates(updates?: { entryId: string; stage: 0 | 1 | 2 }[]): void {

@@ -3,7 +3,7 @@
     "id": "journal_test_clue",
     "title": "[PLACEHOLDER] Test Clue",
     "placeholder": true,
-    "relatedEvidenceIds": ["ev_test_a", "ev_test_b"],
+    "relatedFragmentIds": ["ev_test_a", "ev_test_b"],
     "stages": [
       {
         "stage": 0,
@@ -15,7 +15,7 @@
       },
       {
         "stage": 2,
-        "text": "[PLACEHOLDER REALIZATION] Once the evidence is connected, Gloria understands what this clue was really pointing to all along."
+        "text": "[PLACEHOLDER REALIZATION] Once the fragments are connected, Gloria understands what this clue was really pointing to all along."
       }
     ]
   }

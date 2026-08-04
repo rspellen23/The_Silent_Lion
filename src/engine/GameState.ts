@@ -25,7 +25,8 @@ export class GameState {
       activeConversationId: null,
       activeConversationLineId: null,
       flags: {},
-      evidenceCollected: [],
+      fragmentsCollected: [],
+      readFragmentIds: [],
       journalProgress: {},
       deductionState: {},
       visitedSceneIds: [],
@@ -97,20 +98,30 @@ export class GameState {
     return this.snapshot.flags[flag];
   }
 
-  // --- Evidence ------------------------------------------------------------
+  // --- Fragments ------------------------------------------------------------
 
-  addEvidence(evidenceId: string): boolean {
-    if (this.snapshot.evidenceCollected.includes(evidenceId)) return false;
-    this.snapshot.evidenceCollected.push(evidenceId);
+  addFragment(fragmentId: string): boolean {
+    if (this.snapshot.fragmentsCollected.includes(fragmentId)) return false;
+    this.snapshot.fragmentsCollected.push(fragmentId);
     return true;
   }
 
-  hasEvidence(evidenceId: string): boolean {
-    return this.snapshot.evidenceCollected.includes(evidenceId);
+  hasFragment(fragmentId: string): boolean {
+    return this.snapshot.fragmentsCollected.includes(fragmentId);
   }
 
-  getCollectedEvidenceIds(): string[] {
-    return [...this.snapshot.evidenceCollected];
+  getCollectedFragmentIds(): string[] {
+    return [...this.snapshot.fragmentsCollected];
+  }
+
+  markFragmentRead(fragmentId: string): boolean {
+    if (this.snapshot.readFragmentIds.includes(fragmentId)) return false;
+    this.snapshot.readFragmentIds.push(fragmentId);
+    return true;
+  }
+
+  hasReadFragment(fragmentId: string): boolean {
+    return this.snapshot.readFragmentIds.includes(fragmentId);
   }
 
   // --- Journal ---------------------------------------------------------------

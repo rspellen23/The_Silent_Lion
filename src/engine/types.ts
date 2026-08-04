@@ -1,6 +1,6 @@
 /**
  * Shared type definitions for The Silent Lion engine.
- * These types define the CONTRACT between engine code and /src/content JSON data.
+ * These types define the CONTRACT between engine code and /src/content data.
  * Story content must conform to these shapes; the engine must not hardcode story content.
  */
 
@@ -25,16 +25,18 @@ export interface AssetManifestEntry {
 
 export type HotspotEffectType =
   | 'reveal_observation'
-  | 'add_evidence'
+  | 'add_fragment'
+  | 'read_fragment'
   | 'start_conversation'
   | 'update_journal'
   | 'unlock_scene'
+  | 'travel_to_scene'
   | 'change_visual_state'
   | 'trigger_deduction';
 
 export interface HotspotEffect {
   type: HotspotEffectType;
-  /** Target ID whose meaning depends on `type` (evidenceId, conversationId, journalEntryId, sceneId, deductionId, visualStateId). */
+  /** Target ID whose meaning depends on `type` (fragmentId, conversationId, journalEntryId, sceneId, deductionId, visualStateId). */
   targetId?: string;
   /** Free text shown for reveal_observation effects. */
   text?: string;
@@ -47,7 +49,7 @@ export interface Hotspot {
   label: string;
   /** Normalized rectangle (0..1) so hotspots scale with responsive background sizing. */
   region: { x: number; y: number; width: number; height: number };
-  /** Conditions required (flags/evidence/journal stages) for this hotspot to be active/visible. */
+  /** Conditions required (flags/fragments/journal stages) for this hotspot to be active/visible. */
   unlockConditions?: UnlockCondition[];
   effects: HotspotEffect[];
   /** Whether the hotspot remains interactive after first use. */
@@ -75,13 +77,18 @@ export interface SceneDefinition {
   ambientAssetId?: AssetId;
 }
 
+/** The scene "New Game" opens — see /src/content/gameConfig.json and adr/0007. */
+export interface GameConfig {
+  startSceneId: string;
+}
+
 // ---------------------------------------------------------------------------
 // Conditions & Flags
 // ---------------------------------------------------------------------------
 
 export type UnlockCondition =
   | { type: 'flag'; flag: string; equals: boolean | string | number }
-  | { type: 'evidence_collected'; evidenceId: string }
+  | { type: 'fragment_collected'; fragmentId: string }
   | { type: 'journal_stage'; entryId: string; minStage: JournalStage }
   | { type: 'deduction_completed'; deductionId: string };
 
@@ -112,7 +119,7 @@ export interface DialogueChoice {
   conditions?: UnlockCondition[];
   /** Effects applied when this choice is picked. */
   setFlags?: Record<string, boolean | string | number>;
-  grantsEvidenceIds?: string[];
+  grantsFragmentIds?: string[];
   journalUpdates?: { entryId: string; stage: JournalStage }[];
   /** Line ID to jump to next; if omitted, continues sequentially. */
   nextLineId?: string;
@@ -125,7 +132,7 @@ export interface DialogueLine {
   text: string;
   conditions?: UnlockCondition[];
   setFlags?: Record<string, boolean | string | number>;
-  grantsEvidenceIds?: string[];
+  grantsFragmentIds?: string[];
   journalUpdates?: { entryId: string; stage: JournalStage }[];
   choices?: DialogueChoice[];
   /** Explicit next line; if omitted, engine advances to the next array entry. */
@@ -143,14 +150,29 @@ export interface ConversationDefinition {
 }
 
 // ---------------------------------------------------------------------------
-// Evidence
+// Fragments — player-facing name for collectible clues (formerly "Evidence").
+// See docs/engineering/adr/0006-fragment-system.md.
 // ---------------------------------------------------------------------------
 
-export interface EvidenceDefinition {
+/** Narrative classification — what kind of clue this is. Optional; for content authoring/filtering. */
+export type FragmentCategory = 'physical' | 'testimonial' | 'historical' | 'behavioral' | 'reflective';
+
+/** Presentation mode — how the player experiences it when opened. Drives which UI renders it. */
+export type FragmentPresentation = 'card' | 'document' | 'photograph' | 'artifact' | 'testimony' | 'behavioral';
+
+export interface FragmentDefinition {
   id: string;
   name: string;
   description: string;
+  category?: FragmentCategory;
+  presentation: FragmentPresentation;
   imageAssetId: AssetId;
+  /** Markdown body — only meaningful when presentation === 'document'. */
+  documentBody?: string;
+  relatedJournalEntryIds?: string[];
+  relatedFragmentIds?: string[];
+  /** Informational cross-links only — actual unlocking is driven by DeductionDefinition.unlockConditions. */
+  deductionUnlockIds?: string[];
   placeholder: boolean;
 }
 
@@ -175,13 +197,13 @@ export interface JournalEntryDefinition {
   id: string;
   title: string;
   placeholder: boolean;
-  relatedEvidenceIds: string[];
+  relatedFragmentIds: string[];
   /** All three stages of text, authored up front; engine reveals them progressively. */
   stages: JournalEntryStageText[];
 }
 
 // ---------------------------------------------------------------------------
-// Deduction Framework — evidence connection, not multiple choice.
+// Deduction Framework — fragment connection, not multiple choice.
 // ---------------------------------------------------------------------------
 
 export interface DeductionHintStage {
@@ -194,8 +216,8 @@ export interface DeductionDefinition {
   title: string;
   placeholder: boolean;
   prompt: string;
-  requiredEvidenceIds: string[];
-  optionalSupportingEvidenceIds: string[];
+  requiredFragmentIds: string[];
+  optionalSupportingFragmentIds: string[];
   conclusionText: string;
   hintStages: DeductionHintStage[];
   successActions: {
@@ -203,7 +225,7 @@ export interface DeductionDefinition {
     journalUpdates?: { entryId: string; stage: JournalStage }[];
     unlockSceneIds?: string[];
   };
-  /** Shown when the player submits evidence that does not satisfy the requirement. */
+  /** Shown when the player submits fragments that do not satisfy the requirement. */
   failureFeedbackText: string;
   unlockConditions?: UnlockCondition[];
 }
@@ -238,7 +260,8 @@ export const DEFAULT_SETTINGS: GameSettings = {
 // Save System
 // ---------------------------------------------------------------------------
 
-export const SAVE_SCHEMA_VERSION = 1;
+/** Bumped from 1: evidenceCollected -> fragmentsCollected, added readFragmentIds. See adr/0006 and adr/0004. */
+export const SAVE_SCHEMA_VERSION = 2;
 
 export interface JournalProgressRecord {
   /** Ordered list of stages unlocked so far, oldest first — history is preserved, not overwritten. */
@@ -257,7 +280,8 @@ export interface GameStateSnapshot {
   activeConversationId: string | null;
   activeConversationLineId: string | null;
   flags: Record<string, boolean | string | number>;
-  evidenceCollected: string[];
+  fragmentsCollected: string[];
+  readFragmentIds: string[];
   journalProgress: Record<string, JournalProgressRecord>;
   deductionState: Record<string, DeductionAttemptRecord>;
   visitedSceneIds: string[];

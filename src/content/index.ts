@@ -2,29 +2,45 @@ import type {
   CharacterDefinition,
   ConversationDefinition,
   DeductionDefinition,
-  EvidenceDefinition,
+  FragmentDefinition,
+  GameConfig,
   JournalEntryDefinition,
   SceneDefinition
 } from '@engine/types';
 import type { PlaceholderTextureSpec } from '@engine/placeholder/PlaceholderTextureFactory';
 
+/**
+ * Single load point for all story/content data. Scenes and conversations
+ * are auto-loaded one-file-per-scene/conversation via import.meta.glob —
+ * adding a new file under scenes/ or dialogue/ is enough by itself, no
+ * edits needed here (see docs/engineering/adr/0008-content-auto-loading.md).
+ * Catalog-shaped content (fragments, journal entries, deductions,
+ * characters) stays in single flat files for now.
+ */
+
+const sceneModules = import.meta.glob('./scenes/*.json', {
+  eager: true,
+  import: 'default'
+}) as Record<string, SceneDefinition>;
+
+const dialogueModules = import.meta.glob('./dialogue/*.json', {
+  eager: true,
+  import: 'default'
+}) as Record<string, ConversationDefinition>;
+
+export const scenes: SceneDefinition[] = Object.values(sceneModules);
+export const conversations: ConversationDefinition[] = Object.values(dialogueModules);
+
 import charactersJson from './characters.json';
-import scenesJson from './scenes.json';
-import evidenceJson from './evidence.json';
+import fragmentsJson from './fragments.json';
 import journalEntriesJson from './journalEntries.json';
 import deductionsJson from './deductions.json';
 import placeholderAssetsJson from './placeholderAssets.json';
-import convTestIntroJson from './dialogue/conv_test_intro.json';
+import gameConfigJson from './gameConfig.json';
 
-/**
- * Single load point for all story/content data. Adding a new scene,
- * conversation, or evidence item to the vertical slice (or, later, real
- * content) means editing JSON here — never engine code.
- */
 export const characters = charactersJson as CharacterDefinition[];
-export const scenes = scenesJson as SceneDefinition[];
-export const evidenceDefinitions = evidenceJson as EvidenceDefinition[];
+export const fragmentDefinitions = fragmentsJson as FragmentDefinition[];
 export const journalEntries = journalEntriesJson as JournalEntryDefinition[];
 export const deductions = deductionsJson as DeductionDefinition[];
 export const placeholderAssetSpecs = placeholderAssetsJson as PlaceholderTextureSpec[];
-export const conversations = [convTestIntroJson] as ConversationDefinition[];
+export const gameConfig = gameConfigJson as GameConfig;

@@ -223,14 +223,14 @@ input:focus-visible {
   margin-bottom: 1em;
 }
 
-#deduction-evidence-list {
+#deduction-fragment-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 0.6em;
   margin-bottom: 1em;
 }
 
-.deduction-evidence-item {
+.deduction-fragment-item {
   border: 2px solid var(--sl-panel-border);
   border-radius: 8px;
   padding: 0.6em;
@@ -239,12 +239,12 @@ input:focus-visible {
   color: var(--sl-text);
 }
 
-.deduction-evidence-item[aria-pressed='true'] {
+.deduction-fragment-item[aria-pressed='true'] {
   background: var(--sl-accent);
   color: #04211d;
 }
 
-.deduction-evidence-item[aria-pressed='true']::before {
+.deduction-fragment-item[aria-pressed='true']::before {
   content: '✓ ';
   font-weight: 700;
 }
@@ -321,6 +321,58 @@ input:focus-visible {
 #title-screen button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+/* --- Fragments (document reader + inventory) --------------------------- */
+
+.document-reader-image {
+  max-width: 240px;
+  max-height: 240px;
+  display: block;
+  margin-bottom: 0.8em;
+  border: 1px solid var(--sl-panel-border);
+  border-radius: 6px;
+}
+
+.document-reader-markdown {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 1.6;
+}
+
+.document-reader-markdown h1,
+.document-reader-markdown h2,
+.document-reader-markdown h3 {
+  color: var(--sl-accent);
+}
+
+#fragment-inventory-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6em;
+}
+
+.fragment-inventory-item {
+  border: 2px solid var(--sl-panel-border);
+  border-radius: 8px;
+  padding: 0.6em;
+  text-align: left;
+  background: transparent;
+  color: var(--sl-text);
+}
+
+.fragment-unread-badge {
+  display: inline-block;
+  background: var(--sl-accent);
+  color: #04211d;
+  font-weight: 700;
+  font-size: 0.7em;
+  letter-spacing: 0.04em;
+  padding: 0.15em 0.5em;
+  border-radius: 3px;
+  margin-inline-end: 0.5em;
+  text-transform: uppercase;
 }
 
 /* --- Observation toast ------------------------------------------------------ */

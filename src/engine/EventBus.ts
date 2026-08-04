@@ -14,10 +14,13 @@ export interface GameEventMap {
   'dialogue:line': { conversationId: string; lineId: string };
   'dialogue:choiceMade': { conversationId: string; lineId: string; choiceId: string };
   'dialogue:ended': { conversationId: string };
-  'evidence:added': { evidenceId: string };
+  'fragment:added': { fragmentId: string };
+  'fragment:read': { fragmentId: string };
+  /** A fragment's presentation UI should open now (from a read_fragment hotspot, or the player re-opening it from their inventory). */
+  'fragment:present': { fragmentId: string };
   'journal:updated': { entryId: string; stage: number };
   'deduction:opened': { deductionId: string };
-  'deduction:attempt': { deductionId: string; selectedEvidenceIds: string[] };
+  'deduction:attempt': { deductionId: string; selectedFragmentIds: string[] };
   'deduction:success': { deductionId: string };
   'deduction:failure': { deductionId: string; hintStage: number; hintText: string };
   'flag:set': { flag: string; value: boolean | string | number };

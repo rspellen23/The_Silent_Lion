@@ -1,28 +1,28 @@
 import type { EventBus } from '@engine/EventBus';
 import type { DeductionFramework } from '@engine/deduction/DeductionFramework';
-import type { EvidenceSystem } from '@engine/evidence/EvidenceSystem';
+import type { FragmentSystem } from '@engine/fragment/FragmentSystem';
 import { el, placeholderBadge } from './dom';
 
 /**
- * The evidence-connection deduction screen. The player toggles two or more
- * collected evidence items and submits them; success/failure is
- * communicated with both an icon prefix and text (never color alone), per
- * the accessibility requirement that no deduction depend on color.
+ * The fragment-connection deduction screen. The player toggles two or more
+ * collected fragments and submits them; success/failure is communicated
+ * with both an icon prefix and text (never color alone), per the
+ * accessibility requirement that no deduction depend on color.
  */
 export class DeductionUI {
   private root: HTMLElement;
   private promptEl: HTMLElement;
-  private evidenceListEl: HTMLElement;
+  private fragmentListEl: HTMLElement;
   private feedbackEl: HTMLElement;
   private submitButton: HTMLButtonElement;
   private currentDeductionId: string | null = null;
-  private selectedEvidenceIds: Set<string> = new Set();
+  private selectedFragmentIds: Set<string> = new Set();
 
   constructor(
     container: HTMLElement,
     private events: EventBus,
     private deduction: DeductionFramework,
-    private evidence: EvidenceSystem,
+    private fragments: FragmentSystem,
     private resolveImageUrl: (assetId: string) => string | null
   ) {
     this.root = el('div', {
@@ -35,10 +35,10 @@ export class DeductionUI {
     closeButton.addEventListener('click', () => this.hide());
 
     this.promptEl = el('div', { id: 'deduction-prompt' });
-    this.evidenceListEl = el('div', {
-      id: 'deduction-evidence-list',
+    this.fragmentListEl = el('div', {
+      id: 'deduction-fragment-list',
       role: 'group',
-      'aria-label': 'Select evidence that supports your conclusion'
+      'aria-label': 'Select fragments that support your conclusion'
     });
     this.submitButton = el('button', { id: 'deduction-submit', type: 'button' }, [
       'Submit Deduction'
@@ -51,7 +51,7 @@ export class DeductionUI {
       closeButton,
       el('h2', {}, ['Form a Deduction']),
       this.promptEl,
-      this.evidenceListEl,
+      this.fragmentListEl,
       this.submitButton,
       this.feedbackEl
     );
@@ -59,8 +59,8 @@ export class DeductionUI {
     container.append(this.root);
 
     this.events.on('deduction:opened', ({ deductionId }) => this.show(deductionId));
-    this.events.on('evidence:added', () => {
-      if (this.currentDeductionId) this.renderEvidenceList();
+    this.events.on('fragment:added', () => {
+      if (this.currentDeductionId) this.renderFragmentList();
     });
   }
 
@@ -68,14 +68,14 @@ export class DeductionUI {
     const def = this.deduction.getDefinition(deductionId);
     if (!def) return;
     this.currentDeductionId = deductionId;
-    this.selectedEvidenceIds.clear();
+    this.selectedFragmentIds.clear();
     this.feedbackEl.style.display = 'none';
 
     this.promptEl.replaceChildren(
       ...(def.placeholder ? [placeholderBadge()] : []),
       el('p', {}, [def.prompt])
     );
-    this.renderEvidenceList();
+    this.renderFragmentList();
     this.root.style.display = 'block';
   }
 
@@ -84,22 +84,22 @@ export class DeductionUI {
     this.root.style.display = 'none';
   }
 
-  private renderEvidenceList(): void {
-    const collected = this.evidence.getCollectedDefinitions();
+  private renderFragmentList(): void {
+    const collected = this.fragments.getCollectedDefinitions();
     if (collected.length === 0) {
-      this.evidenceListEl.replaceChildren(
-        el('p', {}, ['No evidence collected yet — investigate the scene first.'])
+      this.fragmentListEl.replaceChildren(
+        el('p', {}, ['No fragments collected yet — investigate the scene first.'])
       );
       return;
     }
-    this.evidenceListEl.replaceChildren(
+    this.fragmentListEl.replaceChildren(
       ...collected.map((item) => {
-        const pressed = this.selectedEvidenceIds.has(item.id);
+        const pressed = this.selectedFragmentIds.has(item.id);
         const imageUrl = this.resolveImageUrl(item.imageAssetId);
         const button = el(
           'button',
           {
-            class: 'deduction-evidence-item',
+            class: 'deduction-fragment-item',
             type: 'button',
             'aria-pressed': String(pressed)
           },
@@ -110,9 +110,9 @@ export class DeductionUI {
           ]
         ) as HTMLButtonElement;
         button.addEventListener('click', () => {
-          if (this.selectedEvidenceIds.has(item.id)) this.selectedEvidenceIds.delete(item.id);
-          else this.selectedEvidenceIds.add(item.id);
-          this.renderEvidenceList();
+          if (this.selectedFragmentIds.has(item.id)) this.selectedFragmentIds.delete(item.id);
+          else this.selectedFragmentIds.add(item.id);
+          this.renderFragmentList();
         });
         return button;
       })
@@ -121,7 +121,7 @@ export class DeductionUI {
 
   private submit(): void {
     if (!this.currentDeductionId) return;
-    const result = this.deduction.attempt(this.currentDeductionId, Array.from(this.selectedEvidenceIds));
+    const result = this.deduction.attempt(this.currentDeductionId, Array.from(this.selectedFragmentIds));
     this.feedbackEl.style.display = 'block';
     if (result.success) {
       this.feedbackEl.dataset.outcome = 'success';

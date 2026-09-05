@@ -9,7 +9,13 @@ import { InterpretationPromptSystem } from '@engine/interpretation/Interpretatio
 import { SceneManager } from '@engine/scene/SceneManager';
 import type { BackgroundManager } from '@engine/background/BackgroundManager';
 import type { AudioManager } from '@engine/audio/AudioManager';
-import type { DeductionDefinition, FragmentDefinition, Hotspot, SceneDefinition } from '@engine/types';
+import type {
+  ConversationDefinition,
+  DeductionDefinition,
+  FragmentDefinition,
+  Hotspot,
+  SceneDefinition
+} from '@engine/types';
 
 /**
  * SceneManager's rendering is Phaser-specific (BackgroundManager/
@@ -41,13 +47,17 @@ function fakeAudioManager(): AudioManager {
 
 const FRAGMENTS: FragmentDefinition[] = [];
 
-function buildSceneManager(scenes: SceneDefinition[], deductions: DeductionDefinition[] = []) {
+function buildSceneManager(
+  scenes: SceneDefinition[],
+  deductions: DeductionDefinition[] = [],
+  conversations: ConversationDefinition[] = []
+) {
   const events = new EventBus();
   const state = new GameState();
   const fragments = new FragmentSystem(state, events, FRAGMENTS);
   const journal = new InsightJournal(state, events, []);
   const deduction = new DeductionFramework(state, events, fragments, journal, deductions);
-  const dialogue = new DialogueSystem(state, events, fragments, journal, []);
+  const dialogue = new DialogueSystem(state, events, fragments, journal, conversations);
   const interpretation = new InterpretationPromptSystem(state, events, fragments, journal, []);
   const { fake: background, renderCalls } = fakeBackgroundManager();
   const audio = fakeAudioManager();
@@ -67,13 +77,17 @@ function buildSceneManager(scenes: SceneDefinition[], deductions: DeductionDefin
 }
 
 function sceneWithHotspot(id: string, hotspot: Hotspot): SceneDefinition {
+  return sceneWithHotspots(id, [hotspot]);
+}
+
+function sceneWithHotspots(id: string, hotspots: Hotspot[]): SceneDefinition {
   return {
     id,
     title: id,
     placeholder: true,
     defaultVisualStateId: 'default',
     visualStates: [{ id: 'default', backgroundAssetId: `bg_${id}`, description: '' }],
-    hotspots: [hotspot]
+    hotspots
   };
 }
 
@@ -175,5 +189,64 @@ describe('SceneManager', () => {
     renderCalls[renderCalls.length - 1].onHotspotActivated('clue');
 
     expect(handler).toHaveBeenCalledWith({ deductionId: 'deduct_x' });
+  });
+
+  it('ignores a hotspot click while a conversation is already active, instead of clobbering it', () => {
+    const conversation: ConversationDefinition = {
+      id: 'conv_a',
+      title: 'Test',
+      placeholder: true,
+      startLineId: 'l1',
+      lines: [{ id: 'l1', speakerId: 'npc_a', text: 'Hello.' }]
+    };
+    const scene = sceneWithHotspots('scene_a', [
+      {
+        id: 'npc',
+        label: 'NPC',
+        region: { x: 0, y: 0, width: 0.5, height: 1 },
+        repeatable: true,
+        effects: [{ type: 'start_conversation', targetId: 'conv_a' }]
+      },
+      {
+        id: 'ambient',
+        label: 'Ambient',
+        region: { x: 0.5, y: 0, width: 0.5, height: 1 },
+        repeatable: true,
+        effects: [{ type: 'add_fragment', targetId: 'frag_x' }]
+      }
+    ]);
+    const fragmentDefs: FragmentDefinition[] = [
+      { id: 'frag_x', name: 'X', description: '', presentation: 'card', imageAssetId: 'img_x', placeholder: true }
+    ];
+    const events = new EventBus();
+    const state = new GameState();
+    const fragments = new FragmentSystem(state, events, fragmentDefs);
+    const journal = new InsightJournal(state, events, []);
+    const deduction = new DeductionFramework(state, events, fragments, journal, []);
+    const dialogue = new DialogueSystem(state, events, fragments, journal, [conversation]);
+    const interpretation = new InterpretationPromptSystem(state, events, fragments, journal, []);
+    const { fake: background, renderCalls } = fakeBackgroundManager();
+    const sceneManager = new SceneManager(
+      state,
+      events,
+      background,
+      fakeAudioManager(),
+      fragments,
+      journal,
+      deduction,
+      dialogue,
+      interpretation,
+      [scene]
+    );
+
+    sceneManager.goTo('scene_a');
+    renderCalls[renderCalls.length - 1].onHotspotActivated('npc');
+    expect(dialogue.getCurrentView()?.line.id).toBe('l1');
+
+    // Clicking the second hotspot while the conversation is still up must not fire.
+    renderCalls[renderCalls.length - 1].onHotspotActivated('ambient');
+
+    expect(fragments.hasCollected('frag_x')).toBe(false);
+    expect(dialogue.getCurrentView()?.line.id).toBe('l1'); // conversation untouched
   });
 });

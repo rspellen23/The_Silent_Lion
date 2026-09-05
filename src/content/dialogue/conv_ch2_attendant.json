@@ -26,44 +26,63 @@
       "id": "l9",
       "speakerId": "hogwarts_attendant",
       "text": "I sound like a man who has worked at Hogwarts long enough to distrust any sentence beginning with 'the report says.'",
-      "nextLineId": "l10"
+      "choices": [
+        { "id": "c_who", "text": "Who was Ashcombe?", "nextLineId": "l_who1" },
+        { "id": "c_why", "text": "Why me?", "nextLineId": "l_why1" },
+        { "id": "c_aurors", "text": "Where are the Aurors?", "nextLineId": "l_aurors1" },
+        { "id": "c_done", "text": "Let's keep walking.", "nextLineId": "l_walk1" }
+      ]
     },
+    { "id": "l_who1", "speakerId": "gloria", "text": "Did you know Ashcombe?", "nextLineId": "l_who2" },
     {
-      "id": "l10",
-      "speakerId": "hogwarts_attendant",
-      "text": "The Aurors had no reason to call it murder. Old stone failed. Professor was standing underneath. Tragic, but simple.",
-      "nextLineId": "l11"
-    },
-    {
-      "id": "l11",
-      "speakerId": "gloria",
-      "text": "And McGonagall doesn't believe simple.",
-      "nextLineId": "l12"
-    },
-    {
-      "id": "l12",
-      "speakerId": "hogwarts_attendant",
-      "text": "McGonagall believes simple after it survives difficult questions.",
-      "nextLineId": "l13"
-    },
-    { "id": "l13", "speakerId": "gloria", "text": "Did you know Ashcombe?", "nextLineId": "l14" },
-    {
-      "id": "l14",
+      "id": "l_who2",
       "speakerId": "hogwarts_attendant",
       "text": "Enough to know he could turn a walk to breakfast into an archaeological expedition.",
-      "nextLineId": "l15"
+      "nextLineId": "l_walk1"
+    },
+    { "id": "l_why1", "speakerId": "gloria", "text": "Why me?", "nextLineId": "l_why2" },
+    {
+      "id": "l_why2",
+      "speakerId": "hogwarts_attendant",
+      "text": "That's a fair question. I don't have a good answer for it.",
+      "nextLineId": "l_why3"
+    },
+    { "id": "l_why3", "speakerId": "gloria", "text": "That's not comforting.", "nextLineId": "l_why4" },
+    {
+      "id": "l_why4",
+      "speakerId": "hogwarts_attendant",
+      "text": "Neither was anything else I've told you today.",
+      "nextLineId": "l_walk1"
     },
     {
-      "id": "l15",
+      "id": "l_aurors1",
+      "speakerId": "hogwarts_attendant",
+      "text": "The Aurors had no reason to call it murder. Old stone failed. Professor was standing underneath. Tragic, but simple.",
+      "nextLineId": "l_aurors2"
+    },
+    {
+      "id": "l_aurors2",
+      "speakerId": "gloria",
+      "text": "And McGonagall doesn't believe simple.",
+      "nextLineId": "l_aurors3"
+    },
+    {
+      "id": "l_aurors3",
+      "speakerId": "hogwarts_attendant",
+      "text": "McGonagall believes simple after it survives difficult questions.",
+      "nextLineId": "l_walk1"
+    },
+    {
+      "id": "l_walk1",
       "speakerId": "gloria",
       "text": "I thought coming back would feel familiar.",
-      "nextLineId": "l16"
+      "nextLineId": "l_walk2"
     },
     {
-      "id": "l16",
+      "id": "l_walk2",
       "speakerId": "hogwarts_attendant",
       "text": "Hogwarts has a habit of remembering you differently than you remember it.",
-      "transitionToSceneId": "scene_mcgonagall_office"
+      "setFlags": { "ch2_attendant_done": true }
     }
   ]
 }

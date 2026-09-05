@@ -1,0 +1,9 @@
+{
+  "id": "conv_ch2_hogwarts_view",
+  "title": "Chapter 2 — Distant View of Hogwarts",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "There it is. I always forget how it just appears out of nowhere." }
+  ]
+}

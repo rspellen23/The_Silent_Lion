@@ -1,8 +1,8 @@
 # The Silent Lion — Project Status
 
-Last updated: 2026-08-16, after adding the locked Story Bible as canonical
-source and implementing the Prologue + Act I (Chapters 1–6) as real,
-playable content.
+Last updated: 2026-08-16, after resolving the two Chapter 2 content gaps
+(ambient hotspots + the optional-questions branch) and fixing a second
+real engine bug found while doing it.
 
 > **How to use this file**: this is the project dashboard, not a changelog.
 > Update it in place at the end of each major milestone (a new
@@ -27,15 +27,22 @@ verified in a real browser (see `docs/engineering/ARCHITECTURE.md`):
 - ✅ Pensieve/flashback scene support (`autoStartConversationId`,
   `isMemory` tint) and letter/photograph "present in conversation"
   handoffs (`DialogueLine.presentsFragmentId`)
-- ✅ **Fixed a real rendering bug this round**: character portraits could
-  be silently hidden behind a re-rendered background whenever a
-  non-repeatable hotspot triggered dialogue (Phaser draws by insertion
-  order; `BackgroundManager` recreates its background image on every
-  `render()` call). Fixed with explicit depth values
-  (background 0 / hotspot outlines 1 / portrait 10). This didn't surface
-  in the Phase 1 vertical slice because its one dialogue-triggering
-  hotspot happened to be `repeatable: true` — worth a broader look if any
-  other sprite layering issue turns up later.
+- ✅ **Fixed two real bugs this round**:
+  1. Character portraits could be silently hidden behind a re-rendered
+     background whenever a non-repeatable hotspot triggered dialogue
+     (Phaser draws by insertion order; `BackgroundManager` recreates its
+     background image on every `render()` call). Fixed with explicit
+     depth values (background 0 / hotspot outlines 1 / portrait 10).
+     Didn't surface in the vertical slice only because its one
+     dialogue-triggering hotspot happened to be `repeatable: true`.
+  2. A hotspot click landing outside the dialogue box while a
+     conversation was already active (e.g. an ambient hotspot clicked
+     mid-conversation) would call `DialogueSystem.start()` a second time
+     and silently clobber the conversation in progress.
+     `SceneManager.activateHotspot()` now ignores hotspot clicks entirely
+     while a conversation is on screen. Caught while wiring up Chapter
+     2's ambient hotspots, which sit in the same scene as an
+     auto-started, choice-bearing conversation.
 
 **What's not done**: presentation types other than `document` still
 render as a generic card. Bundle isn't code-split. No accessibility audit
@@ -90,18 +97,21 @@ Unchanged — SFX-only placeholder audio (one synthesized beep).
   Path visits (Godric/Helga/Rowena/Salazar/Covenant Hall), the Gideon
   false-solution case-board arc, the Pensieve memories, and the
   Reveal/Protect ending. This is the overwhelming majority of the game.
-- **Five ambient flavor hotspots skipped in Chapter 2** (station sign,
-  luggage trolley, owl perch, distant Hogwarts view, repaired stonework)
-  — the Story Bible names them as interactive but doesn't supply Gloria's
-  reaction text for any of them. Writing that text would be inventing
-  dialogue, so they were left out rather than guessed at. Low priority
-  (purely optional flavor, blocks nothing) but worth a decision: either
-  the Bible gets this text added, or Claude is authorized to draft it in
-  Gloria's established voice for review.
-- **Chapter 2's "optional questions" branch** (WHO WAS ASHCOMBE? / WHY
-  ME? / WHERE ARE THE AURORS?) was implemented as linear dialogue instead
-  of a real player choice, because the Bible only supplies an answer for
-  one of the three named topics. Same fix as above would resolve it.
+- ~~Five ambient flavor hotspots skipped in Chapter 2~~ **Resolved**: all
+  five (station sign, luggage trolley, owl perch, distant Hogwarts view,
+  repaired stonework) now have a one-line Gloria reaction, drafted in her
+  established voice and reviewed by the user. Implementing them surfaced
+  a real design gap — the attendant's conversation used to transition
+  straight to McGonagall's office on its last line, leaving no window to
+  ever click them — so that transition now waits behind an explicit
+  "Path to the Castle" hotspot (same pattern as Ashcombe's office door)
+  instead of firing automatically.
+- ~~Chapter 2's "optional questions" branch~~ **Resolved**: now a real
+  choice (`Who was Ashcombe?` / `Why me?` / `Where are the Aurors?` /
+  `Let's keep walking.`) on the attendant's line. Two of the three
+  answers are verbatim from the Bible; "Why me?" needed two drafted
+  lines from the attendant, written to deliberately not know the real
+  answer (which isn't revealed until Ch33) rather than invent one early.
 - Founders "identified through breadcrumbs, not introductions" still has
   no engine mechanism — deferred until an actual Founder-identity scene
   needs it (likely Act III).
@@ -123,15 +133,14 @@ Unchanged — SFX-only placeholder audio (one synthesized beep).
   split-into-directory + glob treatment scenes already got once any of
   them grow large (see `adr/0008`) — fragments.json in particular will
   grow fast given the Evidence Register spans the whole game.
-- No integration/UI-level automated tests exist — all 63 Vitest tests are
+- No integration/UI-level automated tests exist — all 64 Vitest tests are
   engine-logic unit tests. Browser verification is manual
   (Playwright-driven, ad hoc) each round, not part of CI.
 
 ## Next recommended task
 
 Continue into Act II (Chapter 7, Gideon at the Restoration Workshop) in
-story order. Before that, it would help to get a decision on the two
-Chapter 2 content gaps above (ambient hotspots + the optional-questions
-branch), since the same "Bible names a branch but doesn't supply all the
-answers" pattern will likely recur and it's worth settling the house
-style for handling it once rather than re-deciding it every time.
+story order. The "Bible names a branch but doesn't supply every answer"
+pattern is now resolved once as a house style (draft the missing lines
+in-voice, flag them clearly, get them reviewed) — apply the same
+approach if it recurs rather than re-deciding it each time.

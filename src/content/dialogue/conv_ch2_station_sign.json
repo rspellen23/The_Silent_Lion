@@ -1,0 +1,7 @@
+{
+  "id": "conv_ch2_station_sign",
+  "title": "Chapter 2 — Station Sign",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [{ "id": "l1", "speakerId": "gloria", "text": "Hogsmeade Station. Some things don't change." }]
+}

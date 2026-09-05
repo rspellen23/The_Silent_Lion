@@ -1,0 +1,9 @@
+{
+  "id": "conv_ch2_repaired_stonework",
+  "title": "Chapter 2 — Repaired Stonework",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Recent repair work. Someone's been patching the castle quietly." }
+  ]
+}

@@ -103,6 +103,11 @@ export class SceneManager {
   private activateHotspot(hotspotId: string): void {
     const def = this.currentScene;
     if (!def) return;
+    // World interaction is suspended while a conversation is on screen —
+    // otherwise a hotspot click landing outside the dialogue box (e.g. an
+    // ambient hotspot elsewhere in the scene) would call DialogueSystem.start()
+    // a second time and silently clobber the conversation already in progress.
+    if (this.dialogue.getCurrentView()) return;
     const hotspot = def.hotspots.find((h) => h.id === hotspotId);
     if (!hotspot) return;
 

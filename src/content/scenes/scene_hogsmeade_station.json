@@ -11,5 +11,49 @@
       "description": "The Hogwarts Express platform beneath a pale afternoon sky — steam, students, owls, and a distant view of the castle."
     }
   ],
-  "hotspots": []
+  "hotspots": [
+    {
+      "id": "hotspot_station_sign",
+      "label": "Station Sign",
+      "region": { "x": 0.05, "y": 0.1, "width": 0.14, "height": 0.15 },
+      "repeatable": true,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch2_station_sign" }]
+    },
+    {
+      "id": "hotspot_luggage_trolley",
+      "label": "Old Luggage Trolley",
+      "region": { "x": 0.22, "y": 0.68, "width": 0.14, "height": 0.2 },
+      "repeatable": true,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch2_luggage_trolley" }]
+    },
+    {
+      "id": "hotspot_owl_perch",
+      "label": "Owl Perch",
+      "region": { "x": 0.4, "y": 0.08, "width": 0.1, "height": 0.18 },
+      "repeatable": true,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch2_owl_perch" }]
+    },
+    {
+      "id": "hotspot_hogwarts_view",
+      "label": "Distant View of Hogwarts",
+      "region": { "x": 0.68, "y": 0.05, "width": 0.28, "height": 0.3 },
+      "repeatable": true,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch2_hogwarts_view" }]
+    },
+    {
+      "id": "hotspot_repaired_stonework",
+      "label": "Repaired Stonework",
+      "region": { "x": 0.6, "y": 0.65, "width": 0.16, "height": 0.22 },
+      "repeatable": true,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch2_repaired_stonework" }]
+    },
+    {
+      "id": "hotspot_path_to_castle",
+      "label": "The Path to the Castle",
+      "region": { "x": 0.42, "y": 0.82, "width": 0.16, "height": 0.15 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "flag", "flag": "ch2_attendant_done", "equals": true }],
+      "effects": [{ "type": "travel_to_scene", "targetId": "scene_mcgonagall_office" }]
+    }
+  ]
 }

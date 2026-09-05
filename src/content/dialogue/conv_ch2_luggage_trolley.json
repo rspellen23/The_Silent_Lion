@@ -1,0 +1,9 @@
+{
+  "id": "conv_ch2_luggage_trolley",
+  "title": "Chapter 2 — Old Luggage Trolley",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "One wheel squeaks. The other three have opinions about it." }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "conv_ch2_owl_perch",
+  "title": "Chapter 2 — Owl Perch",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Empty perch. Someone's expecting a delivery, or dreading one." }
+  ]
+}

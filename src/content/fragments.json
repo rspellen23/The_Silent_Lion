@@ -1,28 +1,85 @@
 [
   {
-    "id": "ev_test_a",
-    "name": "[PLACEHOLDER] Test Fragment A",
-    "description": "[PLACEHOLDER] Stand-in fragment opened directly from a scene hotspot, used only to test the read_fragment pipeline.",
-    "category": "physical",
+    "id": "frag_ashcombe_sealed_note",
+    "name": "Ashcombe's Sealed Note",
+    "description": "A note Professor Ashcombe left with McGonagall, to be given to Gloria on her arrival.",
+    "category": "historical",
     "presentation": "document",
-    "imageAssetId": "asset_fragment_test_a",
-    "documentBody": "[PLACEHOLDER DOCUMENT]\n\nThis is stand-in **document** text used only to test the DocumentReaderUI's Markdown rendering. It is not final story content.\n\nA second paragraph, to confirm paragraph breaks render correctly.",
-    "relatedJournalEntryIds": ["journal_test_clue"],
-    "relatedFragmentIds": ["ev_test_b"],
-    "deductionUnlockIds": ["deduct_test_conclusion"],
-    "placeholder": true
+    "imageAssetId": "asset_fragment_sealed_note",
+    "documentBody": "Ms. Spellen. If you are reading this, I have either become very dramatic in old age or very correct. I hope for the former.\n\nI require someone who can discover a thing and still ask whether discovery makes it true. More importantly, I require someone who can discover she was wrong and say so. If you've come this far, I believe you'll know where to begin.\n\nA ribbon marks one page of the notebook that comes with this note.\n\n**Some Questions Are Inherited.**\n\nBegin where everyone else stopped looking.",
+    "placeholder": false
   },
   {
-    "id": "ev_test_b",
-    "name": "[PLACEHOLDER] Test Fragment B",
-    "description": "[PLACEHOLDER] Stand-in fragment granted by a conversation, used only to test dialogue fragment rewards and the unread-until-opened state.",
+    "id": "frag_ashcombe_notebook",
+    "name": "Ashcombe's Working Notebook",
+    "description": "Professor Ashcombe's research notebook, entrusted to Gloria by McGonagall.",
+    "category": "historical",
+    "presentation": "artifact",
+    "imageAssetId": "asset_fragment_notebook",
+    "placeholder": false
+  },
+  {
+    "id": "frag_eagle_fragment",
+    "name": "Ancient Eagle Fragment",
+    "description": "A weathered eagle carving found in Ashcombe's office, unlike the modern Ravenclaw emblem but sharing important anatomy.",
+    "category": "historical",
+    "presentation": "artifact",
+    "imageAssetId": "asset_fragment_eagle",
+    "placeholder": false
+  },
+  {
+    "id": "frag_photograph_friends",
+    "name": "Photograph of Four Friends",
+    "description": "A moving photograph of a younger Ashcombe with Gideon, Elspeth, and Benedict, laughing together. Ashcombe isn't looking at the camera — he's looking at the people.",
     "category": "testimonial",
+    "presentation": "photograph",
+    "imageAssetId": "asset_fragment_photograph",
+    "placeholder": false
+  },
+  {
+    "id": "frag_pensieve_vial_a",
+    "name": "Pensieve Vial A",
+    "description": "A memory vial sealed with a personal ward. It cannot be opened yet.",
+    "category": "historical",
+    "presentation": "artifact",
+    "imageAssetId": "asset_fragment_pensieve_vial",
+    "placeholder": false
+  },
+  {
+    "id": "frag_gloria_notes",
+    "name": "Ashcombe's Notes About Gloria",
+    "description": "Three small cards among Ashcombe's papers, each referring to Gloria by name.",
+    "category": "reflective",
     "presentation": "document",
-    "imageAssetId": "asset_fragment_test_b",
-    "documentBody": "[PLACEHOLDER DOCUMENT]\n\nThis fragment is collected mid-conversation but stays **unread** until opened from the Fragments panel — used to test read/unread tracking.",
-    "relatedJournalEntryIds": ["journal_test_clue"],
-    "relatedFragmentIds": ["ev_test_a"],
-    "deductionUnlockIds": ["deduct_test_conclusion"],
-    "placeholder": true
+    "imageAssetId": "asset_fragment_gloria_notes",
+    "documentBody": "**G. SPELLEN — STILL THE BEST CANDIDATE.**\n\n**SPELLEN — RAVENCLAW. IRRELEVANT. METHOD MATTERS.**\n\n**SHE CHANGED HER ANSWER.**",
+    "placeholder": false
+  },
+  {
+    "id": "frag_metal_clasp",
+    "name": "Broken Clasp",
+    "description": "A metal clasp recovered from the fallen stone at the Founder relief.",
+    "category": "physical",
+    "presentation": "artifact",
+    "imageAssetId": "asset_fragment_clasp",
+    "placeholder": false
+  },
+  {
+    "id": "frag_fracture_photos",
+    "name": "Fracture Site Photographs",
+    "description": "Documentation of the fracture lines at the collapsed Founder relief.",
+    "category": "physical",
+    "presentation": "photograph",
+    "imageAssetId": "asset_fragment_fracture_photos",
+    "placeholder": false
+  },
+  {
+    "id": "frag_spell_residue",
+    "name": "Magical Residue Analysis",
+    "description": "Faint magical residue recovered at the point of impact — spellwork struck the stone exactly where the fatal fracture starts.",
+    "category": "physical",
+    "presentation": "card",
+    "imageAssetId": "asset_fragment_residue",
+    "placeholder": false
   }
 ]

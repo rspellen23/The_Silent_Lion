@@ -1,0 +1,30 @@
+{
+  "id": "scene_mcgonagall_office",
+  "title": "The Headmistress's Office",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_mcgonagall_office",
+      "description": "Portraits of former Headmasters and Headmistresses line the walls. Fawkes's old perch stands empty. The Sorting Hat rests quietly."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "hotspot_mcgonagall_intro",
+      "label": "Headmistress McGonagall",
+      "region": { "x": 0.4, "y": 0.25, "width": 0.24, "height": 0.6 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch3_mcgonagall" }]
+    },
+    {
+      "id": "hotspot_mcgonagall_to_relief",
+      "label": "Ask to see the relief",
+      "region": { "x": 0.4, "y": 0.25, "width": 0.24, "height": 0.6 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "flag", "flag": "ashcombe_office_visited", "equals": true }],
+      "effects": [{ "type": "travel_to_scene", "targetId": "scene_founder_relief" }]
+    }
+  ]
+}

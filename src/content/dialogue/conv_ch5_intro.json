@@ -1,0 +1,22 @@
+{
+  "id": "conv_ch5_intro",
+  "title": "Chapter 5 — The Founder Relief (Arrival)",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "mcgonagall", "text": "Do not touch the unstable sections.", "nextLineId": "l2" },
+    {
+      "id": "l2",
+      "speakerId": "gloria",
+      "text": "You say that like you already know I was going to.",
+      "nextLineId": "l3"
+    },
+    {
+      "id": "l3",
+      "speakerId": "mcgonagall",
+      "text": "I read Professor Ashcombe's notes about you.",
+      "nextLineId": "l4"
+    },
+    { "id": "l4", "speakerId": "gloria", "text": "Apparently everyone has." }
+  ]
+}

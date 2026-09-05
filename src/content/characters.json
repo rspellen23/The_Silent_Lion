@@ -1,11 +1,65 @@
 [
   {
-    "id": "char_test_a",
-    "displayName": "[PLACEHOLDER] Test Character A",
-    "placeholder": true,
+    "id": "gloria",
+    "displayName": "Gloria Spellen",
+    "placeholder": false,
     "defaultExpressionId": "neutral",
     "expressions": [
-      { "id": "neutral", "portraitAssetId": "asset_portrait_test_a_neutral" }
+      { "id": "neutral", "portraitAssetId": "asset_portrait_gloria_neutral" }
+    ]
+  },
+  {
+    "id": "mcgonagall",
+    "displayName": "Minerva McGonagall",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_mcgonagall_neutral" }
+    ]
+  },
+  {
+    "id": "hogwarts_attendant",
+    "displayName": "Hogwarts Attendant",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_attendant_neutral" }
+    ]
+  },
+  {
+    "id": "harry",
+    "displayName": "Harry Potter",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_harry_neutral" }
+    ]
+  },
+  {
+    "id": "ashcombe",
+    "displayName": "Professor Elias Ashcombe",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_ashcombe_neutral" }
+    ]
+  },
+  {
+    "id": "unknown_visitor",
+    "displayName": "???",
+    "placeholder": false,
+    "defaultExpressionId": "silhouette",
+    "expressions": [
+      { "id": "silhouette", "portraitAssetId": "asset_portrait_unknown_silhouette" }
+    ]
+  },
+  {
+    "id": "unnamed_portrait",
+    "displayName": "A Portrait",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_unnamed_neutral" }
     ]
   }
 ]

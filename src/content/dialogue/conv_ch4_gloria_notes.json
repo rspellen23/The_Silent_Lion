@@ -1,0 +1,25 @@
+{
+  "id": "conv_ch4_gloria_notes",
+  "title": "Chapter 4 — Ashcombe's Notes About Gloria",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "ashcombe", "text": "G. Spellen — still the best candidate.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "Candidate for what?", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "ashcombe",
+      "text": "Spellen — Ravenclaw. Irrelevant. Method matters.",
+      "nextLineId": "l4"
+    },
+    { "id": "l4", "speakerId": "gloria", "text": "Excuse me?", "nextLineId": "l5" },
+    { "id": "l5", "speakerId": "ashcombe", "text": "She changed her answer.", "nextLineId": "l6" },
+    {
+      "id": "l6",
+      "speakerId": "gloria",
+      "text": "...What did you know about me?",
+      "grantsFragmentIds": ["frag_gloria_notes"],
+      "journalUpdates": [{ "entryId": "journal_why_gloria", "stage": 0 }]
+    }
+  ]
+}

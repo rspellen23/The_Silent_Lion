@@ -1,0 +1,15 @@
+{
+  "id": "scene_hogsmeade_station",
+  "title": "Chapter 2 — Hogsmeade Station",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch2_attendant",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_hogsmeade_station",
+      "description": "The Hogwarts Express platform beneath a pale afternoon sky — steam, students, owls, and a distant view of the castle."
+    }
+  ],
+  "hotspots": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "scene_glorias_home",
+  "title": "Chapter 1 — The Letter from Hogwarts",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_glorias_home",
+      "description": "A quiet room: books stacked beside a chair, a cold mug of tea, a notebook open beside a half-finished sketch."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "hotspot_window",
+      "label": "The Window",
+      "region": { "x": 0.38, "y": 0.15, "width": 0.24, "height": 0.4 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch1_letter" }]
+    }
+  ]
+}

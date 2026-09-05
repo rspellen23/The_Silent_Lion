@@ -1,34 +1,178 @@
 [
   {
-    "assetId": "asset_background_test_room",
+    "assetId": "asset_background_glorias_home",
     "kind": "background",
     "width": 1920,
     "height": 1080,
-    "color": "#233247",
-    "label": "Test Investigation Room (background)"
+    "color": "#3a3226",
+    "label": "Gloria's Home"
   },
   {
-    "assetId": "asset_portrait_test_a_neutral",
+    "assetId": "asset_background_hogsmeade_station",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#4a5a63",
+    "label": "Hogsmeade Station"
+  },
+  {
+    "assetId": "asset_background_mcgonagall_office",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#4a3b2a",
+    "label": "Headmistress's Office"
+  },
+  {
+    "assetId": "asset_background_ashcombe_office",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#5a4a2e",
+    "label": "Ashcombe's Office"
+  },
+  {
+    "assetId": "asset_background_founder_relief",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#333844",
+    "label": "The Founder Relief"
+  },
+  {
+    "assetId": "asset_background_founder_corridor_night",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#14161d",
+    "label": "Founder Corridor at Night (Prologue)"
+  },
+  {
+    "assetId": "asset_portrait_gloria_neutral",
     "kind": "portrait",
     "width": 700,
     "height": 1000,
-    "color": "#5a3a6e",
-    "label": "Test Character A - neutral"
+    "color": "#2f4d6b",
+    "label": "Gloria Spellen - neutral"
   },
   {
-    "assetId": "asset_fragment_test_a",
+    "assetId": "asset_portrait_mcgonagall_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#3d1f1f",
+    "label": "Minerva McGonagall - neutral"
+  },
+  {
+    "assetId": "asset_portrait_attendant_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#4a4a3a",
+    "label": "Hogwarts Attendant - neutral"
+  },
+  {
+    "assetId": "asset_portrait_harry_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#1f2f1f",
+    "label": "Harry Potter - neutral"
+  },
+  {
+    "assetId": "asset_portrait_ashcombe_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#4a3f2a",
+    "label": "Elias Ashcombe - neutral"
+  },
+  {
+    "assetId": "asset_portrait_unknown_silhouette",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#0a0a0a",
+    "label": "Unknown Visitor - silhouette"
+  },
+  {
+    "assetId": "asset_portrait_unnamed_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#3a3a3a",
+    "label": "A Portrait - neutral"
+  },
+  {
+    "assetId": "asset_fragment_sealed_note",
     "kind": "fragment",
     "width": 512,
     "height": 512,
-    "color": "#3a5a40",
-    "label": "Test Fragment A"
+    "color": "#6b5a3a",
+    "label": "Ashcombe's Sealed Note"
   },
   {
-    "assetId": "asset_fragment_test_b",
+    "assetId": "asset_fragment_notebook",
     "kind": "fragment",
     "width": 512,
     "height": 512,
-    "color": "#5a4a3a",
-    "label": "Test Fragment B"
+    "color": "#5a4530",
+    "label": "Ashcombe's Notebook"
+  },
+  {
+    "assetId": "asset_fragment_eagle",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#6b6b50",
+    "label": "Ancient Eagle Fragment"
+  },
+  {
+    "assetId": "asset_fragment_photograph",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#7a6b4a",
+    "label": "Photograph of Four Friends"
+  },
+  {
+    "assetId": "asset_fragment_pensieve_vial",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#3a5a6b",
+    "label": "Pensieve Vial A"
+  },
+  {
+    "assetId": "asset_fragment_gloria_notes",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#5a3a4a",
+    "label": "Ashcombe's Notes About Gloria"
+  },
+  {
+    "assetId": "asset_fragment_clasp",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#555555",
+    "label": "Broken Clasp"
+  },
+  {
+    "assetId": "asset_fragment_fracture_photos",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#444455",
+    "label": "Fracture Site Photographs"
+  },
+  {
+    "assetId": "asset_fragment_residue",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#3a5540",
+    "label": "Magical Residue Analysis"
   }
 ]

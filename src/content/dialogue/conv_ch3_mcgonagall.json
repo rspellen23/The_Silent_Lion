@@ -1,0 +1,99 @@
+{
+  "id": "conv_ch3_mcgonagall",
+  "title": "Chapter 3 — Professor McGonagall",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "mcgonagall", "text": "Ms. Spellen.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "Professor.", "nextLineId": "l3" },
+    { "id": "l3", "speakerId": "mcgonagall", "text": "Headmistress, technically.", "nextLineId": "l4" },
+    { "id": "l4", "speakerId": "gloria", "text": "I thought you disliked ceremony.", "nextLineId": "l5" },
+    {
+      "id": "l5",
+      "speakerId": "mcgonagall",
+      "text": "I dislike unnecessary ceremony. Accuracy is another matter.",
+      "nextLineId": "l6"
+    },
+    {
+      "id": "l6",
+      "speakerId": "mcgonagall",
+      "text": "Professor Ashcombe left this to you.",
+      "grantsFragmentIds": ["frag_ashcombe_notebook"],
+      "nextLineId": "l7"
+    },
+    { "id": "l7", "speakerId": "gloria", "text": "Why?", "nextLineId": "l8" },
+    { "id": "l8", "speakerId": "mcgonagall", "text": "I asked him that once.", "nextLineId": "l9" },
+    { "id": "l9", "speakerId": "gloria", "text": "And?", "nextLineId": "l10" },
+    {
+      "id": "l10",
+      "speakerId": "mcgonagall",
+      "text": "He said, 'If she ever comes, let her discover that for herself.'",
+      "nextLineId": "l11"
+    },
+    { "id": "l11", "speakerId": "gloria", "text": "He sounds irritating.", "nextLineId": "l12" },
+    { "id": "l12", "speakerId": "mcgonagall", "text": "Profoundly.", "nextLineId": "l13" },
+    {
+      "id": "l13",
+      "speakerId": "gloria",
+      "text": "So, I'm not here to investigate his death.",
+      "nextLineId": "l14"
+    },
+    {
+      "id": "l14",
+      "speakerId": "mcgonagall",
+      "text": "You are here because he entrusted private research to you. What you do with what you discover is another matter.",
+      "nextLineId": "l15"
+    },
+    {
+      "id": "l15",
+      "speakerId": "gloria",
+      "text": "And if I discover the report is wrong?",
+      "nextLineId": "l16"
+    },
+    {
+      "id": "l16",
+      "speakerId": "mcgonagall",
+      "text": "Then bring me evidence, not intuition.",
+      "presentsFragmentId": "frag_ashcombe_sealed_note",
+      "nextLineId": "l17"
+    },
+    { "id": "l17", "speakerId": "mcgonagall", "text": "That means something to you.", "nextLineId": "l18" },
+    { "id": "l18", "speakerId": "gloria", "text": "Maybe.", "nextLineId": "l19" },
+    {
+      "id": "l19",
+      "speakerId": "mcgonagall",
+      "text": "Good. That is precisely why he chose you instead of me. Keep 'maybe' until you have earned something stronger.",
+      "nextLineId": "l20"
+    },
+    {
+      "id": "l20",
+      "speakerId": "gloria",
+      "text": "You really are going to make me work for every sentence, aren't you?",
+      "nextLineId": "l21"
+    },
+    {
+      "id": "l21",
+      "speakerId": "mcgonagall",
+      "text": "I believe Professor Ashcombe would have approved. You can begin your investigation by investigating Professor Ashcombe's room. When you're finished come back here to see me and I will take you to the crime scene.",
+      "nextLineId": "l22"
+    },
+    {
+      "id": "l22",
+      "speakerId": "mcgonagall",
+      "text": "Ms. Spellen, a word of caution. Don't try to become Professor Ashcombe. He spent a lifetime becoming himself. Become the investigator only you can become.",
+      "nextLineId": "l23"
+    },
+    {
+      "id": "l23",
+      "speakerId": "unnamed_portrait",
+      "text": "Do you believe she is ready?",
+      "nextLineId": "l24"
+    },
+    {
+      "id": "l24",
+      "speakerId": "mcgonagall",
+      "text": "No.....Neither was he.",
+      "transitionToSceneId": "scene_ashcombe_office"
+    }
+  ]
+}

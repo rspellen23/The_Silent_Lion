@@ -170,6 +170,12 @@ export class SceneManager {
       case 'trigger_deduction':
         if (effect.targetId) this.deduction.open(effect.targetId);
         break;
+      case 'set_flag':
+        if (effect.flag !== undefined && effect.value !== undefined) {
+          this.state.setFlag(effect.flag, effect.value);
+          this.events.emit('flag:set', { flag: effect.flag, value: effect.value });
+        }
+        break;
       case 'trigger_interpretation_prompt':
         if (effect.targetId) this.interpretation.open(effect.targetId);
         break;

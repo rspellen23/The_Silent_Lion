@@ -1,0 +1,15 @@
+{
+  "id": "conv_ch4_leave",
+  "title": "Chapter 4 — Leaving Ashcombe's Office",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "gloria",
+      "text": "I think I've found all I can find about the Professor. I should meet back with the headmistress.",
+      "setFlags": { "ashcombe_office_visited": true },
+      "transitionToSceneId": "scene_mcgonagall_office"
+    }
+  ]
+}

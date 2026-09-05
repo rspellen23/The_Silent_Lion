@@ -1,0 +1,15 @@
+{
+  "id": "conv_ch4_quill",
+  "title": "Chapter 4 — Broken Quill",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Snapped, not worn out.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "The ink dried mid-line.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "gloria",
+      "text": "He stopped writing suddenly. Why stop in the middle of a thought?"
+    }
+  ]
+}

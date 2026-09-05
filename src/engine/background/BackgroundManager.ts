@@ -30,7 +30,12 @@ export class BackgroundManager {
 
     this.backgroundImage = this.scene.add
       .image(DESIGN_WIDTH / 2, DESIGN_HEIGHT / 2, backgroundAssetKey)
-      .setDisplaySize(DESIGN_WIDTH, DESIGN_HEIGHT);
+      .setDisplaySize(DESIGN_WIDTH, DESIGN_HEIGHT)
+      // Explicit depth: render() recreates this image on every call (e.g.
+      // after a non-repeatable hotspot's post-effect refresh), and without
+      // a fixed depth a later re-render would paint over anything added
+      // earlier at the default depth — notably PortraitRenderer's sprite.
+      .setDepth(0);
 
     // Pensieve/flashback scenes get a cool bluish-silver tint, per the
     // Story Bible's "silver light fills the room" description — purely
@@ -41,7 +46,7 @@ export class BackgroundManager {
 
     // Debug outline for hotspot regions — helpful while backgrounds are
     // placeholders and hotspot regions have no visual cue in the art yet.
-    this.hotspotGraphics = this.scene.add.graphics();
+    this.hotspotGraphics = this.scene.add.graphics().setDepth(1);
 
     for (const hotspot of hotspots) {
       if (!isHotspotActive(hotspot)) continue;

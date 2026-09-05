@@ -24,6 +24,12 @@ export class PortraitRenderer {
     if (!this.sprite) {
       this.sprite = this.scene.add.image(DESIGN_WIDTH * 0.22, DESIGN_HEIGHT * 0.98, assetKey);
       this.sprite.setOrigin(0.5, 1);
+      // BackgroundManager recreates its background image object on every
+      // render() call (e.g. after a non-repeatable hotspot's post-effect
+      // refresh) — Phaser's default draw order is insertion order, so
+      // without an explicit depth a later background re-render would
+      // silently paint over an already-visible portrait.
+      this.sprite.setDepth(10);
     } else {
       this.sprite.setTexture(assetKey);
     }

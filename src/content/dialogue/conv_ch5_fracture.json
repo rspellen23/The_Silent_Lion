@@ -1,0 +1,17 @@
+{
+  "id": "conv_ch5_fracture",
+  "title": "Chapter 5 — Fracture Lines",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "gloria",
+      "text": "The crack spreads from here.",
+      "grantsFragmentIds": ["frag_fracture_photos"],
+      "nextLineId": "l2"
+    },
+    { "id": "l2", "speakerId": "mcgonagall", "text": "A weak seam.", "nextLineId": "l3" },
+    { "id": "l3", "speakerId": "gloria", "text": "No. A point of impact." }
+  ]
+}

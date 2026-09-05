@@ -1,0 +1,21 @@
+{
+  "id": "conv_ch5_scuffs",
+  "title": "Chapter 5 — Two Sets of Scuffs",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Ashcombe wasn't alone.", "nextLineId": "l2" },
+    {
+      "id": "l2",
+      "speakerId": "mcgonagall",
+      "text": "The official report already records a visitor earlier that evening.",
+      "nextLineId": "l3"
+    },
+    {
+      "id": "l3",
+      "speakerId": "gloria",
+      "text": "Earlier. These marks are at the relief.",
+      "journalUpdates": [{ "entryId": "journal_ashcombe_death", "stage": 1 }]
+    }
+  ]
+}

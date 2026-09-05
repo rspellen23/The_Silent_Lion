@@ -1,0 +1,61 @@
+{
+  "id": "conv_prologue",
+  "title": "Prologue — The Last Question",
+  "placeholder": false,
+  "startLineId": "p1",
+  "lines": [
+    {
+      "id": "p1",
+      "speakerId": "ashcombe",
+      "text": "You were never silent. We simply forgot how to listen.",
+      "nextLineId": "p2"
+    },
+    { "id": "p2", "speakerId": "unknown_visitor", "text": "Elias.", "nextLineId": "p3" },
+    {
+      "id": "p3",
+      "speakerId": "ashcombe",
+      "text": "I wondered whether you would understand before I did.",
+      "nextLineId": "p4"
+    },
+    {
+      "id": "p4",
+      "speakerId": "unknown_visitor",
+      "text": "I understood enough to know you have to stop.",
+      "nextLineId": "p5"
+    },
+    { "id": "p5", "speakerId": "ashcombe", "text": "That is not the same thing.", "nextLineId": "p6" },
+    {
+      "id": "p6",
+      "speakerId": "unknown_visitor",
+      "text": "For once in your life, do not make curiosity sound like virtue.",
+      "nextLineId": "p7"
+    },
+    {
+      "id": "p7",
+      "speakerId": "ashcombe",
+      "text": "And do not make fear sound like wisdom.",
+      "nextLineId": "p8"
+    },
+    {
+      "id": "p8",
+      "speakerId": "unknown_visitor",
+      "text": "Patterns are worse. People trust patterns.",
+      "nextLineId": "p9"
+    },
+    { "id": "p9", "speakerId": "ashcombe", "text": "People also deserve truth.", "nextLineId": "p10" },
+    { "id": "p10", "speakerId": "unknown_visitor", "text": "Walk away.", "nextLineId": "p11" },
+    { "id": "p11", "speakerId": "ashcombe", "text": "No.", "nextLineId": "p12" },
+    {
+      "id": "p12",
+      "speakerId": "unknown_visitor",
+      "text": "I'm sorry.",
+      "nextLineId": "p13"
+    },
+    {
+      "id": "p13",
+      "speakerId": "ashcombe",
+      "text": "I know.",
+      "transitionToSceneId": "scene_glorias_home"
+    }
+  ]
+}

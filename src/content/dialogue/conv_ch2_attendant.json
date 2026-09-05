@@ -1,0 +1,69 @@
+{
+  "id": "conv_ch2_attendant",
+  "title": "Chapter 2 — Hogsmeade Station",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "hogwarts_attendant", "text": "Ms. Spellen?", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "Gloria is fine.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "hogwarts_attendant",
+      "text": "Then Gloria it is. Headmistress McGonagall asked me to bring you up.",
+      "nextLineId": "l4"
+    },
+    { "id": "l4", "speakerId": "gloria", "text": "She didn't say much in the letter.", "nextLineId": "l5" },
+    { "id": "l5", "speakerId": "hogwarts_attendant", "text": "That sounds like her.", "nextLineId": "l6" },
+    {
+      "id": "l6",
+      "speakerId": "gloria",
+      "text": "Did Professor Ashcombe really die in an accident?",
+      "nextLineId": "l7"
+    },
+    { "id": "l7", "speakerId": "hogwarts_attendant", "text": "That is what the report says.", "nextLineId": "l8" },
+    { "id": "l8", "speakerId": "gloria", "text": "You don't sound convinced.", "nextLineId": "l9" },
+    {
+      "id": "l9",
+      "speakerId": "hogwarts_attendant",
+      "text": "I sound like a man who has worked at Hogwarts long enough to distrust any sentence beginning with 'the report says.'",
+      "nextLineId": "l10"
+    },
+    {
+      "id": "l10",
+      "speakerId": "hogwarts_attendant",
+      "text": "The Aurors had no reason to call it murder. Old stone failed. Professor was standing underneath. Tragic, but simple.",
+      "nextLineId": "l11"
+    },
+    {
+      "id": "l11",
+      "speakerId": "gloria",
+      "text": "And McGonagall doesn't believe simple.",
+      "nextLineId": "l12"
+    },
+    {
+      "id": "l12",
+      "speakerId": "hogwarts_attendant",
+      "text": "McGonagall believes simple after it survives difficult questions.",
+      "nextLineId": "l13"
+    },
+    { "id": "l13", "speakerId": "gloria", "text": "Did you know Ashcombe?", "nextLineId": "l14" },
+    {
+      "id": "l14",
+      "speakerId": "hogwarts_attendant",
+      "text": "Enough to know he could turn a walk to breakfast into an archaeological expedition.",
+      "nextLineId": "l15"
+    },
+    {
+      "id": "l15",
+      "speakerId": "gloria",
+      "text": "I thought coming back would feel familiar.",
+      "nextLineId": "l16"
+    },
+    {
+      "id": "l16",
+      "speakerId": "hogwarts_attendant",
+      "text": "Hogwarts has a habit of remembering you differently than you remember it.",
+      "transitionToSceneId": "scene_mcgonagall_office"
+    }
+  ]
+}

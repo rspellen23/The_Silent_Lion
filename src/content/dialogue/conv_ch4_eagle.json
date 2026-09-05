@@ -1,0 +1,14 @@
+{
+  "id": "conv_ch4_eagle",
+  "title": "Chapter 4 — Ancient Eagle Fragment",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "gloria",
+      "text": "Ravenclaw... maybe.",
+      "grantsFragmentIds": ["frag_eagle_fragment"]
+    }
+  ]
+}

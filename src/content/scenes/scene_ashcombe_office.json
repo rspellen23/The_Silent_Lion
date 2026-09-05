@@ -1,0 +1,71 @@
+{
+  "id": "scene_ashcombe_office",
+  "title": "Chapter 4 — Ashcombe's Office",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_ashcombe_office",
+      "description": "Warm amber light, dust, books, scattered notes, two cups, an open notebook, and a shelf of damaged historical objects. Nothing screams murder. Everything whispers that someone was just there."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "hotspot_teacups",
+      "label": "Two Teacups",
+      "region": { "x": 0.06, "y": 0.55, "width": 0.16, "height": 0.22 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_teacups" }]
+    },
+    {
+      "id": "hotspot_quill",
+      "label": "Broken Quill",
+      "region": { "x": 0.24, "y": 0.55, "width": 0.13, "height": 0.18 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_quill" }]
+    },
+    {
+      "id": "hotspot_notebook",
+      "label": "Working Notebook",
+      "region": { "x": 0.4, "y": 0.5, "width": 0.16, "height": 0.22 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_notebook" }]
+    },
+    {
+      "id": "hotspot_eagle_fragment",
+      "label": "Ancient Eagle Fragment",
+      "region": { "x": 0.6, "y": 0.14, "width": 0.15, "height": 0.2 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_eagle" }]
+    },
+    {
+      "id": "hotspot_photograph",
+      "label": "Photograph",
+      "region": { "x": 0.78, "y": 0.18, "width": 0.16, "height": 0.2 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_photograph" }]
+    },
+    {
+      "id": "hotspot_pensieve_vial",
+      "label": "Pensieve Vial A",
+      "region": { "x": 0.6, "y": 0.6, "width": 0.13, "height": 0.16 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_pensieve_vial" }]
+    },
+    {
+      "id": "hotspot_gloria_notes",
+      "label": "Ashcombe's Notes About Gloria",
+      "region": { "x": 0.78, "y": 0.55, "width": 0.16, "height": 0.2 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_gloria_notes" }]
+    },
+    {
+      "id": "hotspot_door",
+      "label": "Leave the Office",
+      "region": { "x": 0.01, "y": 0.05, "width": 0.08, "height": 0.3 },
+      "repeatable": true,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_leave" }]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "scene_prologue",
+  "title": "Prologue — The Last Question",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_prologue",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_founder_corridor_night",
+      "description": "A weathered Founder-era relief in an unused corridor, late at night, rain against the high windows."
+    }
+  ],
+  "hotspots": []
+}

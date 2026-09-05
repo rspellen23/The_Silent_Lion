@@ -33,7 +33,8 @@ export type HotspotEffectType =
   | 'travel_to_scene'
   | 'change_visual_state'
   | 'trigger_deduction'
-  | 'trigger_interpretation_prompt';
+  | 'trigger_interpretation_prompt'
+  | 'set_flag';
 
 export interface HotspotEffect {
   type: HotspotEffectType;
@@ -43,6 +44,9 @@ export interface HotspotEffect {
   text?: string;
   /** Required alongside targetId for update_journal effects. */
   journalStage?: JournalStage;
+  /** Required alongside `value` for set_flag effects. */
+  flag?: string;
+  value?: boolean | string | number;
 }
 
 export interface Hotspot {
@@ -126,6 +130,8 @@ export interface DialogueChoice {
   /** Effects applied when this choice is picked. */
   setFlags?: Record<string, boolean | string | number>;
   grantsFragmentIds?: string[];
+  /** Collects (if needed) and immediately opens this fragment's presentation UI — for in-conversation handoffs (a letter, a photograph) rather than silent collection. */
+  presentsFragmentId?: string;
   journalUpdates?: { entryId: string; stage: JournalStage }[];
   /** Line ID to jump to next; if omitted, continues sequentially. */
   nextLineId?: string;
@@ -139,6 +145,8 @@ export interface DialogueLine {
   conditions?: UnlockCondition[];
   setFlags?: Record<string, boolean | string | number>;
   grantsFragmentIds?: string[];
+  /** Collects (if needed) and immediately opens this fragment's presentation UI — for in-conversation handoffs (a letter, a photograph) rather than silent collection. */
+  presentsFragmentId?: string;
   journalUpdates?: { entryId: string; stage: JournalStage }[];
   choices?: DialogueChoice[];
   /** Explicit next line; if omitted, engine advances to the next array entry. */

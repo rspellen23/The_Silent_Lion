@@ -1,0 +1,183 @@
+{
+  "id": "conv_ch6_harry_and_mcgonagall",
+  "title": "Chapter 6 — Questions, Not Proof",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "harry", "text": "Ms. Spellen.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "You can call me Gloria.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "harry",
+      "text": "Then call me Harry, or this gets awkward very quickly.",
+      "nextLineId": "l4"
+    },
+    { "id": "l4", "speakerId": "gloria", "text": "The collapse was triggered.", "nextLineId": "l5" },
+    { "id": "l5", "speakerId": "harry", "text": "Possibly.", "nextLineId": "l6" },
+    { "id": "l6", "speakerId": "gloria", "text": "Someone was with him.", "nextLineId": "l7" },
+    {
+      "id": "l7",
+      "speakerId": "harry",
+      "text": "The report already says Ashcombe had company earlier.",
+      "nextLineId": "l8"
+    },
+    { "id": "l8", "speakerId": "gloria", "text": "At the relief.", "nextLineId": "l9" },
+    { "id": "l9", "speakerId": "harry", "text": "That part is newer.", "nextLineId": "l10" },
+    { "id": "l10", "speakerId": "gloria", "text": "So, reopen it.", "nextLineId": "l11" },
+    {
+      "id": "l11",
+      "speakerId": "harry",
+      "text": "You've found questions. That's not the same thing as finding a crime.",
+      "nextLineId": "l12"
+    },
+    {
+      "id": "l12",
+      "speakerId": "gloria",
+      "text": "Someone cast magic at the thing that killed him.",
+      "nextLineId": "l13"
+    },
+    {
+      "id": "l13",
+      "speakerId": "harry",
+      "text": "At Hogwarts. I can find unexplained spell residue in half the corridors before lunch.",
+      "nextLineId": "l14"
+    },
+    { "id": "l14", "speakerId": "gloria", "text": "You don't think I'm right.", "nextLineId": "l15" },
+    {
+      "id": "l15",
+      "speakerId": "harry",
+      "text": "I think being right early is one of the most dangerous feelings in an investigation.",
+      "nextLineId": "l16"
+    },
+    {
+      "id": "l16",
+      "speakerId": "harry",
+      "text": "If you believe the report is wrong, don't bring me suspicion.",
+      "nextLineId": "l17"
+    },
+    {
+      "id": "l17",
+      "speakerId": "harry",
+      "text": "Bring me the contradiction it can't explain.",
+      "nextLineId": "l18"
+    },
+    { "id": "l18", "speakerId": "gloria", "text": "Fine.", "nextLineId": "l19" },
+    { "id": "l19", "speakerId": "mcgonagall", "text": "That sounded personal.", "nextLineId": "l20" },
+    { "id": "l20", "speakerId": "gloria", "text": "It is now.", "nextLineId": "l21" },
+    {
+      "id": "l21",
+      "speakerId": "gloria",
+      "text": "Profes…. I mean Headmistress, do you know any of the people in this photo?",
+      "presentsFragmentId": "frag_photograph_friends",
+      "nextLineId": "l22"
+    },
+    {
+      "id": "l22",
+      "speakerId": "mcgonagall",
+      "text": "Why yes. They are Gideon Alderwick, Elspeth Rowan, and Benedict Hale. Gideon is an older Hogwarts historian and scholar specializing in artifacts, heraldry, and Founder-era history. Elspeth is an Ancient Runes professor and Benedict is a senior Healer at St. Mungo's. They are old friends of Professor Ashcombe.",
+      "nextLineId": "l23"
+    },
+    { "id": "l23", "speakerId": "gloria", "text": "Do you know where I can find them?", "nextLineId": "l24" },
+    {
+      "id": "l24",
+      "speakerId": "mcgonagall",
+      "text": "Gideon Alderwick can be found at the Restoration Workshop, Elspeth Rowan can be found at the Ancient Runes classroom, and Benedict Hale can be found at St. Mungo's hospital.",
+      "nextLineId": "l25"
+    },
+    {
+      "id": "l25",
+      "speakerId": "gloria",
+      "text": "Thank you. I think I will start with Gideon first.",
+      "nextLineId": "l26"
+    },
+    { "id": "l26", "speakerId": "mcgonagall", "text": "Any reason for choosing him first?", "nextLineId": "l27" },
+    {
+      "id": "l27",
+      "speakerId": "gloria",
+      "text": "You said Gideon is a Hogwarts historian and specializes in artifacts. Perhaps he could tell me more about the relief and the eagle fragment I found in Professor Ashcombe's office.",
+      "nextLineId": "l28"
+    },
+    {
+      "id": "l28",
+      "speakerId": "mcgonagall",
+      "text": "A sensible place to begin. If anyone can tell you whether that relief and eagle fragment was significant to Professor Ashcombe, it would be Gideon.",
+      "nextLineId": "l29"
+    },
+    { "id": "l29", "speakerId": "gloria", "text": "Then I'll speak with him today.", "nextLineId": "l30" },
+    { "id": "l30", "speakerId": "mcgonagall", "text": "Gloria.", "nextLineId": "l31" },
+    {
+      "id": "l31",
+      "speakerId": "mcgonagall",
+      "text": "Curiosity is one of Hogwarts' finest qualities. It has also been responsible for a remarkable number of catastrophes.",
+      "nextLineId": "l32"
+    },
+    {
+      "id": "l32",
+      "speakerId": "gloria",
+      "text": "I'll try to avoid the catastrophic version.",
+      "nextLineId": "l33"
+    },
+    { "id": "l33", "speakerId": "mcgonagall", "text": "Do.", "nextLineId": "l34" },
+    { "id": "l34", "speakerId": "gloria", "text": "You think Harry's right, don't you?", "nextLineId": "l35" },
+    { "id": "l35", "speakerId": "mcgonagall", "text": "About which part?", "nextLineId": "l36" },
+    {
+      "id": "l36",
+      "speakerId": "gloria",
+      "text": "That I'm chasing questions instead of facts.",
+      "nextLineId": "l37"
+    },
+    {
+      "id": "l37",
+      "speakerId": "mcgonagall",
+      "text": "I think Mr. Potter has spent most of his life learning the difference.",
+      "nextLineId": "l38"
+    },
+    { "id": "l38", "speakerId": "gloria", "text": "That's not exactly encouraging.", "nextLineId": "l39" },
+    {
+      "id": "l39",
+      "speakerId": "mcgonagall",
+      "text": "It is if you listen carefully. He did not tell you to stop.",
+      "nextLineId": "l40"
+    },
+    { "id": "l40", "speakerId": "gloria", "text": "No. He told me to find a contradiction.", "nextLineId": "l41" },
+    { "id": "l41", "speakerId": "mcgonagall", "text": "Then find one.", "nextLineId": "l42" },
+    {
+      "id": "l42",
+      "speakerId": "gloria",
+      "text": "Ashcombe kept this on his desk. Not family. Not colleagues. Just three friends.",
+      "nextLineId": "l43"
+    },
+    {
+      "id": "l43",
+      "speakerId": "mcgonagall",
+      "text": "Sometimes those are the people who know us best.",
+      "nextLineId": "l44"
+    },
+    {
+      "id": "l44",
+      "speakerId": "gloria",
+      "text": "And sometimes they're the people hiding the most.",
+      "nextLineId": "l45"
+    },
+    {
+      "id": "l45",
+      "speakerId": "mcgonagall",
+      "text": "Let us hope, for everyone's sake, that the first explanation proves true.",
+      "nextLineId": "l46"
+    },
+    {
+      "id": "l46",
+      "speakerId": "gloria",
+      "text": "Hope's never been much use in an investigation.",
+      "nextLineId": "l47"
+    },
+    { "id": "l47", "speakerId": "mcgonagall", "text": "No. But perspective is.", "nextLineId": "l48" },
+    {
+      "id": "l48",
+      "speakerId": "gloria",
+      "text": "I'll let you know what Gideon says.",
+      "nextLineId": "l49"
+    },
+    { "id": "l49", "speakerId": "mcgonagall", "text": "See that you do." }
+  ]
+}

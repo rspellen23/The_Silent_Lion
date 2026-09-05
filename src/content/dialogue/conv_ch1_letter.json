@@ -1,0 +1,44 @@
+{
+  "id": "conv_ch1_letter",
+  "title": "Chapter 1 — The Letter from Hogwarts",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Of course it has.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "That had better not be a branch.", "nextLineId": "l3" },
+    { "id": "l3", "speakerId": "gloria", "text": "You are definitely not a branch.", "nextLineId": "l4" },
+    { "id": "l4", "speakerId": "gloria", "text": "Hogwarts.", "nextLineId": "l5" },
+    {
+      "id": "l5",
+      "speakerId": "mcgonagall",
+      "text": "Ms. Gloria Spellen. I am writing regarding the recent death of Professor Elias Ashcombe. Professor Ashcombe left explicit instructions that, should anything prevent him from completing his current work, certain materials were to be placed in your hands.",
+      "nextLineId": "l6"
+    },
+    {
+      "id": "l6",
+      "speakerId": "mcgonagall",
+      "text": "You are under no obligation to accept. If you do, accommodations and travel have been arranged. I would prefer to explain the remainder in person.",
+      "nextLineId": "l7"
+    },
+    {
+      "id": "l7",
+      "speakerId": "gloria",
+      "text": "I have never met Professor Elias Ashcombe.",
+      "nextLineId": "l8"
+    },
+    {
+      "id": "l8",
+      "speakerId": "mcgonagall",
+      "text": "He was, however, quite certain that you would know what to do once you began looking.",
+      "nextLineId": "l9"
+    },
+    { "id": "l9", "speakerId": "gloria", "text": "That is not comforting.", "nextLineId": "l10" },
+    { "id": "l10", "speakerId": "gloria", "text": "You agree?", "nextLineId": "l11" },
+    {
+      "id": "l11",
+      "speakerId": "gloria",
+      "text": "All right, Professor. You have my attention.",
+      "transitionToSceneId": "scene_hogsmeade_station"
+    }
+  ]
+}

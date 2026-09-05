@@ -1,0 +1,14 @@
+{
+  "id": "conv_ch4_photograph",
+  "title": "Chapter 4 — Photograph",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "gloria",
+      "text": "Must be the Professor's friends. I should ask the headmistress about them.",
+      "grantsFragmentIds": ["frag_photograph_friends"]
+    }
+  ]
+}

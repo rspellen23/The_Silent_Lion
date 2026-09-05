@@ -1,0 +1,15 @@
+{
+  "id": "conv_ch4_teacups",
+  "title": "Chapter 4 — Two Teacups",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Two cups.", "nextLineId": "l2" },
+    {
+      "id": "l2",
+      "speakerId": "gloria",
+      "text": "One black tea. One herbal. Someone expected company.",
+      "journalUpdates": [{ "entryId": "journal_ashcombe_death", "stage": 0 }]
+    }
+  ]
+}

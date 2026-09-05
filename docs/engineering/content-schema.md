@@ -46,6 +46,7 @@ in order. `HotspotEffectType` values and what `targetId` means for each:
 | `change_visual_state` | a `SceneVisualState.id` (within the current scene) | |
 | `trigger_deduction` | a `DeductionDefinition.id` | opens the deduction UI; does not require fragments to already be selected |
 | `trigger_interpretation_prompt` | an `InterpretationPromptDefinition.id` | opens the single-select interpretation quiz UI |
+| `set_flag` | (unused) | uses `effect.flag` + `effect.value` instead — parity with the flag-setting already available on dialogue/deduction/prompt effects |
 
 `SceneDefinition.autoStartConversationId` (not a hotspot effect) starts a
 conversation immediately when the scene loads — used for Pensieve/memory

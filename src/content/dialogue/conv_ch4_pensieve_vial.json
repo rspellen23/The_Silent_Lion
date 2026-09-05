@@ -1,0 +1,14 @@
+{
+  "id": "conv_ch4_pensieve_vial",
+  "title": "Chapter 4 — Pensieve Vial A",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "gloria",
+      "text": "You left me a memory I can't open. That feels very on-brand.",
+      "grantsFragmentIds": ["frag_pensieve_vial_a"]
+    }
+  ]
+}

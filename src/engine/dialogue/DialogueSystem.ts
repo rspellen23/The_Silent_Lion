@@ -140,12 +140,14 @@ export class DialogueSystem {
     if (!conditionsMet(line.conditions, this.state)) return;
     this.applyFlags(line.setFlags);
     this.applyFragments(line.grantsFragmentIds);
+    this.applyPresentedFragment(line.presentsFragmentId);
     this.applyJournalUpdates(line.journalUpdates);
   }
 
   private applyChoiceEffects(choice: DialogueChoice): void {
     this.applyFlags(choice.setFlags);
     this.applyFragments(choice.grantsFragmentIds);
+    this.applyPresentedFragment(choice.presentsFragmentId);
     this.applyJournalUpdates(choice.journalUpdates);
   }
 
@@ -160,6 +162,12 @@ export class DialogueSystem {
   private applyFragments(fragmentIds?: string[]): void {
     if (!fragmentIds) return;
     for (const id of fragmentIds) this.fragments.collect(id);
+  }
+
+  private applyPresentedFragment(fragmentId?: string): void {
+    if (!fragmentId) return;
+    this.fragments.markRead(fragmentId);
+    this.events.emit('fragment:present', { fragmentId });
   }
 
   private applyJournalUpdates(updates?: { entryId: string; stage: 0 | 1 | 2 }[]): void {

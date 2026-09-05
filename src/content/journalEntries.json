@@ -1,22 +1,26 @@
 [
   {
-    "id": "journal_test_clue",
-    "title": "[PLACEHOLDER] Test Clue",
-    "placeholder": true,
-    "relatedFragmentIds": ["ev_test_a", "ev_test_b"],
+    "id": "journal_ashcombe_death",
+    "title": "What Happened to Ashcombe?",
+    "placeholder": false,
+    "relatedFragmentIds": ["frag_metal_clasp", "frag_fracture_photos", "frag_spell_residue"],
     "stages": [
-      {
-        "stage": 0,
-        "text": "[PLACEHOLDER OBSERVATION] Gloria notices something at the desk, but hasn't drawn any conclusions yet."
-      },
-      {
-        "stage": 1,
-        "text": "[PLACEHOLDER INTERPRETATION] After speaking with the test character, Gloria begins to suspect this detail means more than it first appeared."
-      },
-      {
-        "stage": 2,
-        "text": "[PLACEHOLDER REALIZATION] Once the fragments are connected, Gloria understands what this clue was really pointing to all along."
-      }
+      { "stage": 0, "text": "Ashcombe had a visitor." },
+      { "stage": 1, "text": "Official accident theory — incomplete, not yet disproven." }
     ]
+  },
+  {
+    "id": "journal_silent_lion",
+    "title": "What Is the Silent Lion?",
+    "placeholder": false,
+    "relatedFragmentIds": ["frag_eagle_fragment"],
+    "stages": [{ "stage": 0, "text": "What is the Silent Lion?" }]
+  },
+  {
+    "id": "journal_why_gloria",
+    "title": "Why Gloria?",
+    "placeholder": false,
+    "relatedFragmentIds": ["frag_gloria_notes"],
+    "stages": [{ "stage": 0, "text": "Why Gloria?" }]
   }
 ]

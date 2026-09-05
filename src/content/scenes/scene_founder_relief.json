@@ -1,0 +1,47 @@
+{
+  "id": "scene_founder_relief",
+  "title": "Chapter 5 — The Founder Relief",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch5_intro",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_founder_relief",
+      "description": "The partially collapsed Founder-era relief, dust still lingering in the damaged stone."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "hotspot_fracture_lines",
+      "label": "Fracture Lines",
+      "region": { "x": 0.1, "y": 0.2, "width": 0.22, "height": 0.3 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch5_fracture" }]
+    },
+    {
+      "id": "hotspot_residue",
+      "label": "Magical Residue",
+      "region": { "x": 0.38, "y": 0.2, "width": 0.22, "height": 0.3 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch5_residue" }]
+    },
+    {
+      "id": "hotspot_scuffs",
+      "label": "Shoe Scuffs",
+      "region": { "x": 0.66, "y": 0.55, "width": 0.22, "height": 0.3 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch5_scuffs" }]
+    },
+    {
+      "id": "hotspot_metal_clasp",
+      "label": "Metal Clasp",
+      "region": { "x": 0.1, "y": 0.6, "width": 0.18, "height": 0.22 },
+      "repeatable": false,
+      "effects": [
+        { "type": "add_fragment", "targetId": "frag_metal_clasp" },
+        { "type": "start_conversation", "targetId": "conv_ch6_harry_and_mcgonagall" }
+      ]
+    }
+  ]
+}

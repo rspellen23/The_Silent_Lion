@@ -1,0 +1,26 @@
+{
+  "id": "conv_ch5_residue",
+  "title": "Chapter 5 — Magical Residue",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "gloria",
+      "text": "Something hit the stone.",
+      "grantsFragmentIds": ["frag_spell_residue"],
+      "nextLineId": "l2"
+    },
+    {
+      "id": "l2",
+      "speakerId": "mcgonagall",
+      "text": "Spellwork at Hogwarts is hardly unusual.",
+      "nextLineId": "l3"
+    },
+    {
+      "id": "l3",
+      "speakerId": "gloria",
+      "text": "Spellwork that starts exactly where the fatal fracture starts is less ordinary."
+    }
+  ]
+}

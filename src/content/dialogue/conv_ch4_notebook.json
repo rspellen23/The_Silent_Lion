@@ -1,0 +1,15 @@
+{
+  "id": "conv_ch4_notebook",
+  "title": "Chapter 4 — Working Notebook",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Not a manuscript. A fight with himself.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "ashcombe", "text": "The lion is not alone.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "ashcombe",
+      "text": "Do not confuse House inheritance with original meaning."
+    }
+  ]
+}

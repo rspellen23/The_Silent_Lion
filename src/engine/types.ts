@@ -32,7 +32,8 @@ export type HotspotEffectType =
   | 'unlock_scene'
   | 'travel_to_scene'
   | 'change_visual_state'
-  | 'trigger_deduction';
+  | 'trigger_deduction'
+  | 'trigger_interpretation_prompt';
 
 export interface HotspotEffect {
   type: HotspotEffectType;
@@ -75,6 +76,10 @@ export interface SceneDefinition {
   unlockConditions?: UnlockCondition[];
   musicAssetId?: AssetId;
   ambientAssetId?: AssetId;
+  /** Pensieve/flashback scenes: starts this conversation immediately on entry, no hotspot needed. Fired once per goTo(). */
+  autoStartConversationId?: string;
+  /** Applies a bluish memory tint to the background — for Pensieve/flashback scenes. Purely visual. */
+  isMemory?: boolean;
 }
 
 /** The scene "New Game" opens — see /src/content/gameConfig.json and adr/0007. */
@@ -90,7 +95,8 @@ export type UnlockCondition =
   | { type: 'flag'; flag: string; equals: boolean | string | number }
   | { type: 'fragment_collected'; fragmentId: string }
   | { type: 'journal_stage'; entryId: string; minStage: JournalStage }
-  | { type: 'deduction_completed'; deductionId: string };
+  | { type: 'deduction_completed'; deductionId: string }
+  | { type: 'interpretation_completed'; promptId: string };
 
 // ---------------------------------------------------------------------------
 // Characters & Portraits
@@ -231,6 +237,62 @@ export interface DeductionDefinition {
 }
 
 // ---------------------------------------------------------------------------
+// Interpretation Prompts — single-select "what does this mean" quizzes,
+// distinct from DeductionFramework's fragment-connection mechanic. Used
+// for moments like "was the spell Attack/Warn/Restrain?" — one correct
+// reading among plausible options, retried gently on a wrong pick, never
+// a fail state. See docs/engineering/adr/0009-interpretation-prompts.md.
+// ---------------------------------------------------------------------------
+
+export interface InterpretationPromptOption {
+  id: string;
+  text: string;
+}
+
+export interface InterpretationPromptDefinition {
+  id: string;
+  placeholder: boolean;
+  prompt: string;
+  options: InterpretationPromptOption[];
+  correctOptionId: string;
+  /** Gloria's reaction line(s) shown on a correct pick. */
+  successText: string;
+  /** Gentle nudge shown on an incorrect pick — never a fail state. */
+  failureText: string;
+  successActions: {
+    setFlags?: Record<string, boolean | string | number>;
+    journalUpdates?: { entryId: string; stage: JournalStage }[];
+    grantsFragmentIds?: string[];
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Case Board — a presentation layer over Fragments, grouping the
+// connections a suspect accumulates (presence/opportunity/motive/
+// concealment/contradiction) across many chapters. Purely derived from
+// existing state via unlockConditions; adds no new GameState of its own.
+// ---------------------------------------------------------------------------
+
+export type CaseBoardConnectionCategory =
+  | 'presence'
+  | 'opportunity'
+  | 'motive'
+  | 'concealment'
+  | 'contradiction';
+
+export interface CaseBoardConnectionDefinition {
+  id: string;
+  /** Character ID this connection is filed under (e.g. "gideon", "benedict"). */
+  subjectId: string;
+  category: CaseBoardConnectionCategory;
+  summaryText: string;
+  relatedFragmentIds?: string[];
+  /** Visible on the board once these are satisfied — typically fragment_collected / flag / journal_stage. */
+  unlockConditions?: UnlockCondition[];
+  placeholder: boolean;
+}
+
+// ---------------------------------------------------------------------------
 // Settings
 // ---------------------------------------------------------------------------
 
@@ -260,8 +322,8 @@ export const DEFAULT_SETTINGS: GameSettings = {
 // Save System
 // ---------------------------------------------------------------------------
 
-/** Bumped from 1: evidenceCollected -> fragmentsCollected, added readFragmentIds. See adr/0006 and adr/0004. */
-export const SAVE_SCHEMA_VERSION = 2;
+/** Bumped from 2: added completedPromptIds for InterpretationPromptSystem. See adr/0009 and adr/0004. */
+export const SAVE_SCHEMA_VERSION = 3;
 
 export interface JournalProgressRecord {
   /** Ordered list of stages unlocked so far, oldest first — history is preserved, not overwritten. */
@@ -284,6 +346,7 @@ export interface GameStateSnapshot {
   readFragmentIds: string[];
   journalProgress: Record<string, JournalProgressRecord>;
   deductionState: Record<string, DeductionAttemptRecord>;
+  completedPromptIds: string[];
   visitedSceneIds: string[];
   unlockedSceneIds: string[];
 }

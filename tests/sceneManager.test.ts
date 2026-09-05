@@ -5,6 +5,7 @@ import { FragmentSystem } from '@engine/fragment/FragmentSystem';
 import { InsightJournal } from '@engine/journal/InsightJournal';
 import { DeductionFramework } from '@engine/deduction/DeductionFramework';
 import { DialogueSystem } from '@engine/dialogue/DialogueSystem';
+import { InterpretationPromptSystem } from '@engine/interpretation/InterpretationPromptSystem';
 import { SceneManager } from '@engine/scene/SceneManager';
 import type { BackgroundManager } from '@engine/background/BackgroundManager';
 import type { AudioManager } from '@engine/audio/AudioManager';
@@ -47,9 +48,21 @@ function buildSceneManager(scenes: SceneDefinition[], deductions: DeductionDefin
   const journal = new InsightJournal(state, events, []);
   const deduction = new DeductionFramework(state, events, fragments, journal, deductions);
   const dialogue = new DialogueSystem(state, events, fragments, journal, []);
+  const interpretation = new InterpretationPromptSystem(state, events, fragments, journal, []);
   const { fake: background, renderCalls } = fakeBackgroundManager();
   const audio = fakeAudioManager();
-  const sceneManager = new SceneManager(state, events, background, audio, fragments, journal, deduction, dialogue, scenes);
+  const sceneManager = new SceneManager(
+    state,
+    events,
+    background,
+    audio,
+    fragments,
+    journal,
+    deduction,
+    dialogue,
+    interpretation,
+    scenes
+  );
   return { events, state, sceneManager, renderCalls };
 }
 

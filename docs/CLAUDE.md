@@ -16,9 +16,20 @@ Those are defined by the documentation inside `/docs`.
 
 ## Source of Truth
 
+**The single locked narrative source of truth is
+`docs/Harry_Potter_and_the_Silent_Lion_Complete_Story_Bible_ULTIMATE_FINAL.docx`.**
+Its own final production note states it "supersedes earlier versions
+wherever they conflict" — including the compressed summaries in
+`00`–`05` and anything in `docs/scenes/`. Read it in full before making
+any narrative-facing implementation decision; do not rely on the short
+summary files in `/docs` as a substitute, since they predate it and are
+not guaranteed to stay in sync.
+
 Always read the `/docs` folder before making changes.
 
-If documentation conflicts, stop and ask for clarification.
+If documentation conflicts, the docx wins. For anything the docx itself
+doesn't specify, stop and ask for clarification rather than inventing or
+altering narrative content.
 
 Documentation always overrides assumptions.
 

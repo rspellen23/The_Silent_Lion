@@ -54,9 +54,27 @@ function migrateV1ToV2(old: LegacySaveGameV1): SaveGame {
   } as SaveGame;
 }
 
+/**
+ * v2 -> v3: added completedPromptIds for InterpretationPromptSystem
+ * (adr/0009). No prior save ever had prompts, so the migration is simply
+ * an empty list — nothing to backfill.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function migrateV2ToV3(old: any): SaveGame {
+  return {
+    ...old,
+    schemaVersion: 3,
+    state: {
+      ...old.state,
+      completedPromptIds: []
+    }
+  } as SaveGame;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const MIGRATIONS: Record<number, (old: any) => any> = {
-  1: migrateV1ToV2
+  1: migrateV1ToV2,
+  2: migrateV2ToV3
 };
 
 /**

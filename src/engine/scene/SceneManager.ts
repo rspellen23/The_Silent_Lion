@@ -6,6 +6,7 @@ import type { FragmentSystem } from '../fragment/FragmentSystem';
 import type { InsightJournal } from '../journal/InsightJournal';
 import type { DeductionFramework } from '../deduction/DeductionFramework';
 import type { DialogueSystem } from '../dialogue/DialogueSystem';
+import type { InterpretationPromptSystem } from '../interpretation/InterpretationPromptSystem';
 import { conditionsMet } from '../conditions';
 import type { Hotspot, SceneDefinition } from '../types';
 
@@ -30,6 +31,7 @@ export class SceneManager {
     private journal: InsightJournal,
     private deduction: DeductionFramework,
     private dialogue: DialogueSystem,
+    private interpretation: InterpretationPromptSystem,
     definitions: SceneDefinition[]
   ) {
     for (const def of definitions) {
@@ -61,6 +63,9 @@ export class SceneManager {
     if (def.ambientAssetId) this.audio.playAmbient(def.ambientAssetId);
     this.renderCurrentVisualState();
     this.events.emit('scene:loaded', { sceneId });
+    if (def.autoStartConversationId) {
+      this.dialogue.start(def.autoStartConversationId);
+    }
   }
 
   private renderCurrentVisualState(): void {
@@ -73,7 +78,8 @@ export class SceneManager {
       visualState.backgroundAssetId,
       def.hotspots,
       (hotspot) => this.isHotspotActive(hotspot, visualStateId),
-      (hotspotId) => this.activateHotspot(hotspotId)
+      (hotspotId) => this.activateHotspot(hotspotId),
+      Boolean(def.isMemory)
     );
   }
 
@@ -163,6 +169,9 @@ export class SceneManager {
         break;
       case 'trigger_deduction':
         if (effect.targetId) this.deduction.open(effect.targetId);
+        break;
+      case 'trigger_interpretation_prompt':
+        if (effect.targetId) this.interpretation.open(effect.targetId);
         break;
     }
   }

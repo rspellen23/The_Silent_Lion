@@ -29,6 +29,7 @@ export class GameState {
       readFragmentIds: [],
       journalProgress: {},
       deductionState: {},
+      completedPromptIds: [],
       visitedSceneIds: [],
       unlockedSceneIds: []
     };
@@ -162,5 +163,17 @@ export class GameState {
     }
     this.snapshot.deductionState[deductionId] = record;
     return record;
+  }
+
+  // --- Interpretation Prompts ------------------------------------------------
+
+  markPromptCompleted(promptId: string): boolean {
+    if (this.snapshot.completedPromptIds.includes(promptId)) return false;
+    this.snapshot.completedPromptIds.push(promptId);
+    return true;
+  }
+
+  isPromptCompleted(promptId: string): boolean {
+    return this.snapshot.completedPromptIds.includes(promptId);
   }
 }

@@ -88,6 +88,39 @@ describe('SaveManager', () => {
     // Migrated fragments are marked read so returning players don't see
     // "Unread" badges on things they'd already encountered under v1.
     expect(loaded?.state.readFragmentIds).toEqual(['ev_a', 'ev_b']);
+    // Walks the full chain (v1->v2->v3): no prior save ever had prompts.
+    expect(loaded?.state.completedPromptIds).toEqual([]);
+  });
+
+  it('migrates a v2 save (missing completedPromptIds) to v3 on load', () => {
+    const { storage, saveManager } = buildManager();
+    const v2Save = {
+      schemaVersion: 2,
+      slotId: 'slot1',
+      savedAtIso: new Date().toISOString(),
+      sceneTitleAtSave: 'Old Save',
+      state: {
+        currentSceneId: 'scene_test_room',
+        currentVisualStateIdByScene: {},
+        activeConversationId: null,
+        activeConversationLineId: null,
+        flags: {},
+        fragmentsCollected: ['ev_a'],
+        readFragmentIds: ['ev_a'],
+        journalProgress: {},
+        deductionState: {},
+        visitedSceneIds: ['scene_test_room'],
+        unlockedSceneIds: ['scene_test_room']
+      },
+      settings: DEFAULT_SETTINGS
+    };
+    storage.setItem('silentLion:save:slot1', JSON.stringify(v2Save));
+
+    const loaded = saveManager.load('slot1');
+
+    expect(loaded?.schemaVersion).toBe(SAVE_SCHEMA_VERSION);
+    expect(loaded?.state.completedPromptIds).toEqual([]);
+    expect(loaded?.state.fragmentsCollected).toEqual(['ev_a']);
   });
 
   it('includes migratable legacy saves when computing getMostRecentSave', () => {

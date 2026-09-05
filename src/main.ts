@@ -7,6 +7,8 @@ import { SaveManager } from '@engine/save/SaveManager';
 import { FragmentSystem } from '@engine/fragment/FragmentSystem';
 import { InsightJournal } from '@engine/journal/InsightJournal';
 import { DeductionFramework } from '@engine/deduction/DeductionFramework';
+import { InterpretationPromptSystem } from '@engine/interpretation/InterpretationPromptSystem';
+import { CaseBoardSystem } from '@engine/caseboard/CaseBoardSystem';
 import { DialogueSystem } from '@engine/dialogue/DialogueSystem';
 import { PortraitManager } from '@engine/portrait/PortraitManager';
 import { PortraitRenderer } from '@engine/portrait/PortraitRenderer';
@@ -23,17 +25,21 @@ import { JournalUI } from '@ui/JournalUI';
 import { DeductionUI } from '@ui/DeductionUI';
 import { DocumentReaderUI } from '@ui/DocumentReaderUI';
 import { FragmentInventoryUI } from '@ui/FragmentInventoryUI';
+import { InterpretationPromptUI } from '@ui/InterpretationPromptUI';
+import { CaseBoardUI } from '@ui/CaseBoardUI';
 import { SettingsUI } from '@ui/SettingsUI';
 import { HudBar } from '@ui/HudBar';
 import { TitleScreenUI } from '@ui/TitleScreenUI';
 import { ObservationToastUI } from '@ui/ObservationToastUI';
 
 import {
+  caseBoardConnections,
   characters,
   conversations,
   deductions,
   fragmentDefinitions,
   gameConfig,
+  interpretationPrompts,
   journalEntries,
   placeholderAssetSpecs,
   scenes
@@ -51,6 +57,14 @@ const saveManager = new SaveManager(state, events, () => settings.getAll());
 const fragmentSystem = new FragmentSystem(state, events, fragmentDefinitions);
 const journal = new InsightJournal(state, events, journalEntries);
 const deductionFramework = new DeductionFramework(state, events, fragmentSystem, journal, deductions);
+const interpretationPromptSystem = new InterpretationPromptSystem(
+  state,
+  events,
+  fragmentSystem,
+  journal,
+  interpretationPrompts
+);
+const caseBoardSystem = new CaseBoardSystem(state, caseBoardConnections);
 const dialogueSystem = new DialogueSystem(state, events, fragmentSystem, journal, conversations);
 const portraitManager = new PortraitManager(characters);
 
@@ -76,6 +90,7 @@ function onGameReady(scene: Phaser.Scene): void {
     journal,
     deductionFramework,
     dialogueSystem,
+    interpretationPromptSystem,
     scenes
   );
 
@@ -109,6 +124,9 @@ function onGameReady(scene: Phaser.Scene): void {
   );
   void documentReader;
   const fragmentInventory = new FragmentInventoryUI(uiOverlay, events, fragmentSystem);
+  const interpretationPromptUI = new InterpretationPromptUI(uiOverlay, events, interpretationPromptSystem);
+  void interpretationPromptUI;
+  const caseBoardUI = new CaseBoardUI(uiOverlay, events, caseBoardSystem);
   const observationToast = new ObservationToastUI(uiOverlay, events);
   void observationToast;
 
@@ -124,10 +142,11 @@ function onGameReady(scene: Phaser.Scene): void {
         events,
         () => journalUI.toggle(),
         () => fragmentInventory.toggle(),
+        () => caseBoardUI.toggle(),
         () => settingsUI.toggle(),
         saveManager,
         deductionFramework,
-        deductions[0].id,
+        deductions[0]?.id,
         currentSceneTitle,
         () => window.alert(`Saved — ${currentSceneTitle()}`)
       );

@@ -23,6 +23,10 @@ export interface GameEventMap {
   'deduction:attempt': { deductionId: string; selectedFragmentIds: string[] };
   'deduction:success': { deductionId: string };
   'deduction:failure': { deductionId: string; hintStage: number; hintText: string };
+  'prompt:opened': { promptId: string };
+  'prompt:attempt': { promptId: string; selectedOptionId: string };
+  'prompt:success': { promptId: string };
+  'prompt:failure': { promptId: string; selectedOptionId: string };
   'flag:set': { flag: string; value: boolean | string | number };
   'save:completed': { slotId: string };
   'save:loaded': { slotId: string };

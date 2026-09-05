@@ -23,13 +23,21 @@ export class BackgroundManager {
     backgroundAssetKey: string,
     hotspots: Hotspot[],
     isHotspotActive: (hotspot: Hotspot) => boolean,
-    onHotspotActivated: (hotspotId: string) => void
+    onHotspotActivated: (hotspotId: string) => void,
+    isMemory = false
   ): void {
     this.clear();
 
     this.backgroundImage = this.scene.add
       .image(DESIGN_WIDTH / 2, DESIGN_HEIGHT / 2, backgroundAssetKey)
       .setDisplaySize(DESIGN_WIDTH, DESIGN_HEIGHT);
+
+    // Pensieve/flashback scenes get a cool bluish-silver tint, per the
+    // Story Bible's "silver light fills the room" description — purely
+    // visual, no placeholder/final art dependency.
+    if (isMemory) {
+      this.backgroundImage.setTint(0x9fb8ff);
+    }
 
     // Debug outline for hotspot regions — helpful while backgrounds are
     // placeholders and hotspot regions have no visual cue in the art yet.

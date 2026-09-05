@@ -1,9 +1,11 @@
 import type {
+  CaseBoardConnectionDefinition,
   CharacterDefinition,
   ConversationDefinition,
   DeductionDefinition,
   FragmentDefinition,
   GameConfig,
+  InterpretationPromptDefinition,
   JournalEntryDefinition,
   SceneDefinition
 } from '@engine/types';
@@ -35,6 +37,8 @@ import charactersJson from './characters.json';
 import fragmentsJson from './fragments.json';
 import journalEntriesJson from './journalEntries.json';
 import deductionsJson from './deductions.json';
+import interpretationPromptsJson from './interpretationPrompts.json';
+import caseBoardConnectionsJson from './caseBoardConnections.json';
 import placeholderAssetsJson from './placeholderAssets.json';
 import gameConfigJson from './gameConfig.json';
 
@@ -42,5 +46,7 @@ export const characters = charactersJson as CharacterDefinition[];
 export const fragmentDefinitions = fragmentsJson as FragmentDefinition[];
 export const journalEntries = journalEntriesJson as JournalEntryDefinition[];
 export const deductions = deductionsJson as DeductionDefinition[];
+export const interpretationPrompts = interpretationPromptsJson as InterpretationPromptDefinition[];
+export const caseBoardConnections = caseBoardConnectionsJson as CaseBoardConnectionDefinition[];
 export const placeholderAssetSpecs = placeholderAssetsJson as PlaceholderTextureSpec[];
 export const gameConfig = gameConfigJson as GameConfig;

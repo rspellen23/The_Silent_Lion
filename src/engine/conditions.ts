@@ -22,6 +22,8 @@ function conditionMet(condition: UnlockCondition, state: GameState): boolean {
     }
     case 'deduction_completed':
       return state.getDeductionState(condition.deductionId).completed;
+    case 'interpretation_completed':
+      return state.isPromptCompleted(condition.promptId);
     default:
       return false;
   }

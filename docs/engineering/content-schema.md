@@ -13,6 +13,8 @@ TypeScript).
 | `fragments.json` | `FragmentDefinition[]` | Player-facing name: Fragment (formerly "Evidence" — see `adr/0006`). Referenced by ID from hotspot effects, dialogue rewards, and deductions. |
 | `journalEntries.json` | `JournalEntryDefinition[]` | `stages[]` must include authored text for every stage (`0`/`1`/`2`) a piece of content will ever unlock — `InsightJournal.advanceStage()` throws if asked to unlock a stage with no text. |
 | `deductions.json` | `DeductionDefinition[]` | See `adr/0003-deduction-framework-schema.md` for the mechanic; field names there are historical — current fields are `requiredFragmentIds`/`optionalSupportingFragmentIds` per `adr/0006`. |
+| `interpretationPrompts.json` | `InterpretationPromptDefinition[]` | Single-select "what does this mean" quizzes, distinct from `deductions.json`'s fragment-connection mechanic. See `adr/0009`. |
+| `caseBoardConnections.json` | `CaseBoardConnectionDefinition[]` | Per-suspect (`subjectId`) presence/opportunity/motive/concealment/contradiction entries, gated by `unlockConditions`. Pure presentation over existing state — see `adr/0009`. |
 | `gameConfig.json` | `{ startSceneId: string }` | The scene "New Game" opens. See `adr/0007`. |
 | `placeholderAssets.json` | `PlaceholderTextureSpec[]` (Phase 1 only) | Maps an asset ID to a generated placeholder texture's size/color/label. Not part of the story-content schema — this is scaffolding, replaced entirely when final art arrives (see `adr/0005`). |
 
@@ -43,13 +45,20 @@ in order. `HotspotEffectType` values and what `targetId` means for each:
 | `travel_to_scene` | a `SceneDefinition.id` | unlocks (if needed) **and** navigates there immediately |
 | `change_visual_state` | a `SceneVisualState.id` (within the current scene) | |
 | `trigger_deduction` | a `DeductionDefinition.id` | opens the deduction UI; does not require fragments to already be selected |
+| `trigger_interpretation_prompt` | an `InterpretationPromptDefinition.id` | opens the single-select interpretation quiz UI |
+
+`SceneDefinition.autoStartConversationId` (not a hotspot effect) starts a
+conversation immediately when the scene loads — used for Pensieve/memory
+scenes, which have no hotspots. `SceneDefinition.isMemory: true` applies
+a bluish flashback tint to the background.
 
 ## Unlock conditions
 
-`UnlockCondition` (used by hotspots, dialogue choices, and deductions) is
-a discriminated union — `flag`, `fragment_collected`, `journal_stage`
-(passes once *any* unlocked stage is `>=` the given minimum), or
-`deduction_completed`. A condition list is always AND'd together
+`UnlockCondition` (used by hotspots, dialogue choices, deductions, and
+interpretation prompts) is a discriminated union — `flag`,
+`fragment_collected`, `journal_stage` (passes once *any* unlocked stage is
+`>=` the given minimum), `deduction_completed`, or
+`interpretation_completed`. A condition list is always AND'd together
 (`conditionsMet()` in `src/engine/conditions.ts`); there is no OR — model
 alternative unlock paths as separate hotspots/choices if needed.
 

@@ -58,12 +58,23 @@ touches Phaser).
 | FragmentSystem | `engine/fragment/FragmentSystem.ts` | GameState, EventBus |
 | InsightJournal | `engine/journal/InsightJournal.ts` | GameState, EventBus |
 | DeductionFramework | `engine/deduction/DeductionFramework.ts` | GameState, EventBus, FragmentSystem, InsightJournal |
+| InterpretationPromptSystem | `engine/interpretation/InterpretationPromptSystem.ts` | GameState, EventBus, FragmentSystem, InsightJournal |
+| CaseBoardSystem | `engine/caseboard/CaseBoardSystem.ts` | GameState only (pure derived view, no new persisted state) |
 | SaveManager | `engine/save/SaveManager.ts` | GameState, EventBus, SettingsManager |
 | SettingsManager | `engine/settings/SettingsManager.ts` | EventBus |
 
 See `adr/0006-fragment-system.md` for what a Fragment is and why the
 system was renamed from "Evidence." See `adr/0007-scene-navigation.md`
-for how `SceneManager.goTo()` gets called beyond the initial scene.
+for how `SceneManager.goTo()` gets called beyond the initial scene. See
+`adr/0009-interpretation-prompts-and-case-board.md` for why
+`InterpretationPromptSystem` is a separate mechanic from
+`DeductionFramework`, and for Pensieve/memory scene support
+(`SceneDefinition.autoStartConversationId` / `.isMemory`).
+
+**Narrative source of truth**: the full locked script lives in
+`docs/Harry_Potter_and_the_Silent_Lion_Complete_Story_Bible_ULTIMATE_FINAL.docx`
+— see `docs/CLAUDE.md`'s Source of Truth section. This architecture doc
+covers engineering only and is intentionally silent on plot.
 
 SceneManager is the only system that depends on nearly everything else —
 it is the orchestrator that routes a hotspot's effects (see

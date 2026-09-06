@@ -18,7 +18,8 @@ export class TitleScreenUI {
     private saveManager: SaveManager,
     private onNewGame: () => void,
     private onLoad: (saveGame: SaveGame) => void,
-    private onOpenSettings: () => void
+    private onOpenSettings: () => void,
+    private onNavigate: () => void
   ) {
     this.root = el('div', { id: 'title-screen' });
     this.root.style.backgroundImage = `url(${titleBackgroundUrl})`;
@@ -35,6 +36,14 @@ export class TitleScreenUI {
     this.root.style.display = 'none';
   }
 
+  /** Plays the menu-navigation tone on hover and keyboard focus alike, so
+   * mouse and keyboard/screen-reader users get the same feedback moving
+   * between buttons. */
+  private attachNavSound(button: HTMLButtonElement): void {
+    button.addEventListener('mouseenter', () => this.onNavigate());
+    button.addEventListener('focus', () => this.onNavigate());
+  }
+
   private render(): void {
     const mostRecent = this.saveManager.getMostRecentSave();
     const manualSlots = this.saveManager.listManualSlots();
@@ -43,6 +52,7 @@ export class TitleScreenUI {
       'New Game'
     ]) as HTMLButtonElement;
     newGameButton.addEventListener('click', () => this.onNewGame());
+    this.attachNavSound(newGameButton);
 
     const continueButton = el('button', { type: 'button', class: 'title-primary-button' }, [
       mostRecent ? `Continue — ${mostRecent.sceneTitleAtSave}` : 'Continue'
@@ -51,11 +61,13 @@ export class TitleScreenUI {
     if (mostRecent) {
       continueButton.addEventListener('click', () => this.onLoad(mostRecent));
     }
+    this.attachNavSound(continueButton);
 
     const settingsButton = el('button', { type: 'button', class: 'title-primary-button' }, [
       'Settings'
     ]) as HTMLButtonElement;
     settingsButton.addEventListener('click', () => this.onOpenSettings());
+    this.attachNavSound(settingsButton);
 
     const slotButtons = manualSlots.map((slot) => {
       const button = el('button', { type: 'button', class: 'title-slot-button' }, [
@@ -67,6 +79,7 @@ export class TitleScreenUI {
           const saveGame = this.saveManager.load(slot.slotId);
           if (saveGame) this.onLoad(saveGame);
         });
+        this.attachNavSound(button);
       }
       return button;
     });

@@ -18,7 +18,7 @@ import { SceneManager } from '@engine/scene/SceneManager';
 import { loadPlaceholderTextures } from '@engine/placeholder/PlaceholderAssetLoader';
 import { getTextureDataUrl } from '@engine/placeholder/PlaceholderTextureFactory';
 
-import { GameScene, PLACEHOLDER_CLICK_SFX_KEY } from './phaser/GameScene';
+import { GameScene, MENU_NAV_SFX_KEY, PLACEHOLDER_CLICK_SFX_KEY, TITLE_THEME_MUSIC_KEY } from './phaser/GameScene';
 
 import { DialogueBoxUI } from '@ui/DialogueBoxUI';
 import { JournalUI } from '@ui/JournalUI';
@@ -147,6 +147,7 @@ function onGameReady(scene: Phaser.Scene): void {
 
   function showGameplay(): void {
     titleScreen.hide();
+    audio.stopMusic();
     if (!hud) {
       hud = new HudBar(
         uiOverlay,
@@ -178,6 +179,7 @@ function onGameReady(scene: Phaser.Scene): void {
 
   settingsUI = new SettingsUI(uiOverlay, settings, saveManager, () => {
     titleScreen.show();
+    audio.playMusic(TITLE_THEME_MUSIC_KEY);
     hud = null;
     document.getElementById('hud-bar')?.remove();
   });
@@ -187,8 +189,13 @@ function onGameReady(scene: Phaser.Scene): void {
     saveManager,
     startNewGame,
     loadSaveGame,
-    () => settingsUI.show()
+    () => settingsUI.show(),
+    () => audio.playSfx(MENU_NAV_SFX_KEY)
   );
+
+  // The title screen is visible from first paint (see main.css), so its
+  // theme starts as soon as the scene — and therefore AudioManager — exists.
+  audio.playMusic(TITLE_THEME_MUSIC_KEY);
 }
 
 new Phaser.Game({

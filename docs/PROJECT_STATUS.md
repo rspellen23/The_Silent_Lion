@@ -1,8 +1,10 @@
 # The Silent Lion — Project Status
 
-Last updated: 2026-09-05, after implementing Act II (Chapters 7–12) and
-fixing two real engine bugs uncovered by giving `InterpretationPromptSystem`
-and `CaseBoardSystem` their first real content workout.
+Last updated: 2026-09-06, after restyling the title screen around supplied
+key art and adding its first real audio (title theme + menu-navigation
+SFX). Previous milestone: Act II (Chapters 7–12), which fixed two real
+engine bugs uncovered by giving `InterpretationPromptSystem` and
+`CaseBoardSystem` their first real content workout.
 
 > **How to use this file**: this is the project dashboard, not a changelog.
 > Update it in place at the end of each major milestone (a new
@@ -96,9 +98,20 @@ All content here is real, final dialogue transcribed from the locked
 script (`placeholder: false` throughout). Only the *art* is
 placeholder-quality (flat-color generated textures).
 
-## Art completed: 0% · Music completed: 0%
+## Art completed: 0% · Music completed: 1 track
 
-Unchanged — no final art or music supplied yet; SFX-only placeholder audio.
+Title screen now uses real supplied key art
+(`assets/imgs/harry-potter-the-silent-lion-title-screen.jpg`) and a real
+title-theme track (`assets/audio/a-window-to-the-past.mp3`, looping,
+`TITLE_THEME_MUSIC_KEY`), stopped on New Game/Continue and restarted on
+returning to the title screen. No in-scene art or music yet. Menu
+navigation (hover/focus across New Game / Continue / Settings) has a
+short synthesized "tick" (`MENU_NAV_SFX_KEY`) — kept as a generated tone
+rather than a downloaded "royalty-free" file, since sourcing and
+redistributing third-party audio without the user reviewing its actual
+license terms isn't a call to make unilaterally. Drop a real SFX file in
+`assets/audio/` and it's a one-line swap (same pattern as the title
+theme) to replace it.
 
 ## Outstanding TODOs
 

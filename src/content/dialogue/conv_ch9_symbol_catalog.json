@@ -1,0 +1,17 @@
+{
+  "id": "conv_ch9_symbol_catalog",
+  "title": "Chapter 9 — Ancient Symbol Catalog",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "There you are.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "This isn't the same symbol.", "nextLineId": "l3" },
+    { "id": "l3", "speakerId": "gloria", "text": "It's related...", "nextLineId": "l4" },
+    {
+      "id": "l4",
+      "speakerId": "gloria",
+      "text": "But whoever created it wanted something very different.",
+      "setFlags": { "ch9_symbol_catalog_seen": true }
+    }
+  ]
+}

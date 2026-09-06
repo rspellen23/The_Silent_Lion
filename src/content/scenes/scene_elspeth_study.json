@@ -1,0 +1,15 @@
+{
+  "id": "scene_elspeth_study",
+  "title": "Chapter 8 — What Words Remember",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch8_elspeth",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_elspeth_study",
+      "description": "A scholar's sanctuary: scrolls, manuscripts, floating reference books, dictionaries, and ink bottles arranged in a system only Elspeth fully understands."
+    }
+  ],
+  "hotspots": []
+}

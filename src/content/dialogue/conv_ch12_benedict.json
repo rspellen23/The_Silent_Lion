@@ -1,0 +1,197 @@
+{
+  "id": "conv_ch12_benedict",
+  "title": "Chapter 12 — The Healer's Hands",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "st_mungos_patient",
+      "text": "You're saying it may never heal properly?",
+      "nextLineId": "l2"
+    },
+    {
+      "id": "l2",
+      "speakerId": "benedict",
+      "text": "I'm saying it may heal differently than it did before.",
+      "nextLineId": "l3"
+    },
+    {
+      "id": "l3",
+      "speakerId": "st_mungos_patient",
+      "text": "That's a polite way of saying it's broken.",
+      "nextLineId": "l4"
+    },
+    { "id": "l4", "speakerId": "benedict", "text": "No.", "nextLineId": "l5" },
+    {
+      "id": "l5",
+      "speakerId": "benedict",
+      "text": "It's a polite way of saying you're frightened.",
+      "nextLineId": "l6"
+    },
+    { "id": "l6", "speakerId": "st_mungos_patient", "text": "Same difference.", "nextLineId": "l7" },
+    { "id": "l7", "speakerId": "benedict", "text": "Not to me.", "nextLineId": "l8" },
+    { "id": "l8", "speakerId": "benedict", "text": "You must be Ms. Spellen.", "nextLineId": "l9" },
+    { "id": "l9", "speakerId": "gloria", "text": "Gloria.", "nextLineId": "l10" },
+    { "id": "l10", "speakerId": "benedict", "text": "Benedict.", "nextLineId": "l11" },
+    {
+      "id": "l11",
+      "speakerId": "benedict",
+      "text": "Now let's see what trouble you've managed to find.",
+      "nextLineId": "l12"
+    },
+    { "id": "l12", "speakerId": "gloria", "text": "The magical kind.", "nextLineId": "l13" },
+    {
+      "id": "l13",
+      "speakerId": "benedict",
+      "text": "In my experience, that's usually the worst kind.",
+      "nextLineId": "l14"
+    },
+    { "id": "l14", "speakerId": "benedict", "text": "Interesting.", "nextLineId": "l15" },
+    { "id": "l15", "speakerId": "gloria", "text": "That's rarely reassuring.", "nextLineId": "l16" },
+    {
+      "id": "l16",
+      "speakerId": "benedict",
+      "text": "No. Reassuring sounds more like \"harmless\" or \"boring.\"",
+      "nextLineId": "l17"
+    },
+    { "id": "l17", "speakerId": "gloria", "text": "And this?", "nextLineId": "l18" },
+    { "id": "l18", "speakerId": "benedict", "text": "Neither.", "nextLineId": "l19" },
+    { "id": "l19", "speakerId": "benedict", "text": "Does it hurt?", "nextLineId": "l20" },
+    { "id": "l20", "speakerId": "gloria", "text": "Not exactly.", "nextLineId": "l21" },
+    { "id": "l21", "speakerId": "benedict", "text": "Tingle?", "nextLineId": "l22" },
+    { "id": "l22", "speakerId": "gloria", "text": "Yes.", "nextLineId": "l23" },
+    { "id": "l23", "speakerId": "benedict", "text": "Flash of warmth?", "nextLineId": "l24" },
+    { "id": "l24", "speakerId": "gloria", "text": "Also, yes.", "nextLineId": "l25" },
+    { "id": "l25", "speakerId": "benedict", "text": "Good.", "nextLineId": "l26" },
+    { "id": "l26", "speakerId": "gloria", "text": "Good?", "nextLineId": "l27" },
+    {
+      "id": "l27",
+      "speakerId": "benedict",
+      "text": "If it were dangerous, we'd be having a much less pleasant conversation.",
+      "nextLineId": "l28"
+    },
+    { "id": "l28", "speakerId": "gloria", "text": "Professor Ashcombe knew you well.", "nextLineId": "l29" },
+    { "id": "l29", "speakerId": "benedict", "text": "Very.", "nextLineId": "l30" },
+    { "id": "l30", "speakerId": "gloria", "text": "Were you close?", "nextLineId": "l31" },
+    { "id": "l31", "speakerId": "benedict", "text": "Closer than either of us understood.", "nextLineId": "l32" },
+    {
+      "id": "l32",
+      "speakerId": "benedict",
+      "text": "I knew him well enough to know he spent years searching for his glasses while wearing them.",
+      "nextLineId": "l33"
+    },
+    { "id": "l33", "speakerId": "gloria", "text": "That sounds difficult.", "nextLineId": "l34" },
+    {
+      "id": "l34",
+      "speakerId": "benedict",
+      "text": "It was exhausting.",
+      "journalUpdates": [{ "entryId": "journal_benedict", "stage": 0 }],
+      "nextLineId": "l35"
+    },
+    {
+      "id": "l35",
+      "speakerId": "gloria",
+      "text": "Why would a historian spend so much time in a hospital?",
+      "nextLineId": "l36"
+    },
+    { "id": "l36", "speakerId": "benedict", "text": "Historians ask dangerous questions.", "nextLineId": "l37" },
+    { "id": "l37", "speakerId": "gloria", "text": "Dangerous to whom?", "nextLineId": "l38" },
+    { "id": "l38", "speakerId": "benedict", "text": "Often themselves.", "nextLineId": "l39" },
+    {
+      "id": "l39",
+      "speakerId": "benedict",
+      "text": "Elias had a remarkable talent for ignoring common sense whenever curiosity was involved.",
+      "nextLineId": "l40"
+    },
+    { "id": "l40", "speakerId": "gloria", "text": "That seems to be a pattern.", "nextLineId": "l41" },
+    { "id": "l41", "speakerId": "benedict", "text": "You're smiling.", "nextLineId": "l42" },
+    { "id": "l42", "speakerId": "gloria", "text": "You're describing me, aren't you?", "nextLineId": "l43" },
+    { "id": "l43", "speakerId": "benedict", "text": "A little.", "nextLineId": "l44" },
+    { "id": "l44", "speakerId": "benedict", "text": "Healing isn't convincing someone nothing is broken.", "nextLineId": "l45" },
+    {
+      "id": "l45",
+      "speakerId": "benedict",
+      "text": "It's helping them live with what cannot be restored.",
+      "nextLineId": "l46"
+    },
+    { "id": "l46", "speakerId": "gloria", "text": "Never thought of it that way.", "nextLineId": "l47" },
+    { "id": "l47", "speakerId": "benedict", "text": "Most people don't until they need to.", "nextLineId": "l48" },
+    { "id": "l48", "speakerId": "gloria", "text": "When did you last speak with him?", "nextLineId": "l49" },
+    { "id": "l49", "speakerId": "benedict", "text": "Several weeks before he died.", "nextLineId": "l50" },
+    { "id": "l50", "speakerId": "gloria", "text": "Did he contact you after that?", "nextLineId": "l51" },
+    {
+      "id": "l51",
+      "speakerId": "benedict",
+      "text": "Not about anything important.",
+      "journalUpdates": [{ "entryId": "journal_benedict", "stage": 1 }],
+      "nextLineId": "l52"
+    },
+    { "id": "l52", "speakerId": "gloria", "text": "Did he ever mention the Silent Lion?", "nextLineId": "l53" },
+    { "id": "l53", "speakerId": "benedict", "text": "Elias liked names.", "nextLineId": "l54" },
+    { "id": "l54", "speakerId": "gloria", "text": "That's not an answer.", "nextLineId": "l55" },
+    { "id": "l55", "speakerId": "benedict", "text": "No.", "nextLineId": "l56" },
+    { "id": "l56", "speakerId": "gloria", "text": "You know the phrase.", "nextLineId": "l57" },
+    {
+      "id": "l57",
+      "speakerId": "benedict",
+      "text": "I know Elias collected phrases.",
+      "setFlags": { "benedict_recognized_silent_lion": true },
+      "nextLineId": "l58"
+    },
+    { "id": "l58", "speakerId": "gloria", "text": "That's still not an answer.", "nextLineId": "l59" },
+    { "id": "l59", "speakerId": "benedict", "text": "You're persistent.", "nextLineId": "l60" },
+    { "id": "l60", "speakerId": "gloria", "text": "Occupational hazard.", "nextLineId": "l61" },
+    { "id": "l61", "speakerId": "benedict", "text": "There.", "nextLineId": "l62" },
+    { "id": "l62", "speakerId": "gloria", "text": "That's it?", "nextLineId": "l63" },
+    { "id": "l63", "speakerId": "benedict", "text": "That's it.", "nextLineId": "l64" },
+    {
+      "id": "l64",
+      "speakerId": "gloria",
+      "text": "Honestly, I expected more dramatic magic.",
+      "nextLineId": "l65"
+    },
+    {
+      "id": "l65",
+      "speakerId": "benedict",
+      "text": "That's because you've been spending time with historians.",
+      "nextLineId": "l66"
+    },
+    { "id": "l66", "speakerId": "benedict", "text": "Historians love drama.", "nextLineId": "l67" },
+    { "id": "l67", "speakerId": "gloria", "text": "They do?", "nextLineId": "l68" },
+    {
+      "id": "l68",
+      "speakerId": "benedict",
+      "text": "They spend decades arguing about things that happened centuries ago.",
+      "nextLineId": "l69"
+    },
+    { "id": "l69", "speakerId": "gloria", "text": "Everyone keeps giving me pieces.", "nextLineId": "l70" },
+    { "id": "l70", "speakerId": "benedict", "text": "Good mysteries usually come that way.", "nextLineId": "l71" },
+    { "id": "l71", "speakerId": "gloria", "text": "Then I'm still missing several.", "nextLineId": "l72" },
+    { "id": "l72", "speakerId": "benedict", "text": "Elias once told me something strange.", "nextLineId": "l73" },
+    { "id": "l73", "speakerId": "gloria", "text": "That's a very long list.", "nextLineId": "l74" },
+    { "id": "l74", "speakerId": "benedict", "text": "Fair.", "nextLineId": "l75" },
+    {
+      "id": "l75",
+      "speakerId": "benedict",
+      "text": "He said Hogwarts remembers things differently than people do.",
+      "nextLineId": "l76"
+    },
+    { "id": "l76", "speakerId": "gloria", "text": "What does that mean?", "nextLineId": "l77" },
+    { "id": "l77", "speakerId": "benedict", "text": "I asked him the same question.", "nextLineId": "l78" },
+    { "id": "l78", "speakerId": "gloria", "text": "And?", "nextLineId": "l79" },
+    { "id": "l79", "speakerId": "benedict", "text": "He pointed at a portrait and changed the subject.", "nextLineId": "l80" },
+    { "id": "l80", "speakerId": "gloria", "text": "A portrait?", "nextLineId": "l81" },
+    { "id": "l81", "speakerId": "benedict", "text": "Apparently it was very important.", "nextLineId": "l82" },
+    { "id": "l82", "speakerId": "gloria", "text": "Which portrait?", "nextLineId": "l83" },
+    { "id": "l83", "speakerId": "benedict", "text": "I never asked.", "nextLineId": "l84" },
+    {
+      "id": "l84",
+      "speakerId": "benedict",
+      "text": "Or perhaps I did and forgot the answer.",
+      "nextLineId": "l85"
+    },
+    { "id": "l85", "speakerId": "gloria", "text": "A portrait.", "nextLineId": "l86" },
+    { "id": "l86", "speakerId": "gloria", "text": "Time to find that painting." }
+  ]
+}

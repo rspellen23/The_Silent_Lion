@@ -101,6 +101,17 @@ function onGameReady(scene: Phaser.Scene): void {
   events.on('scene:loaded', () => saveManager.autosave(currentSceneTitle()));
   events.on('deduction:success', () => saveManager.autosave(currentSceneTitle()));
 
+  // Re-evaluate hotspot visibility whenever anything an UnlockCondition can
+  // reference changes. Without this, a hotspot gated on a flag set mid-
+  // conversation (or by a completed prompt/deduction/journal stage) stays
+  // invisible until the scene is reloaded, since SceneManager only renders
+  // hotspots on scene load or a non-repeatable hotspot's own click.
+  events.on('flag:set', () => sceneManager.refresh());
+  events.on('fragment:added', () => sceneManager.refresh());
+  events.on('journal:updated', () => sceneManager.refresh());
+  events.on('deduction:success', () => sceneManager.refresh());
+  events.on('prompt:success', () => sceneManager.refresh());
+
   // --- DOM UI -------------------------------------------------------------
 
   const dialogueBox = new DialogueBoxUI(

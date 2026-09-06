@@ -1,0 +1,15 @@
+{
+  "id": "conv_ch9_heraldry",
+  "title": "Chapter 9 — Heraldry Collection",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Wrong lion.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "And another wrong lion.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "gloria",
+      "text": "If this thing mattered, why is it so difficult to find?"
+    }
+  ]
+}

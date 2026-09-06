@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": "conn_gideon_presence",
+    "subjectId": "gideon",
+    "category": "presence",
+    "summaryText": "Gideon admitted he stabilized a fitting at the relief days before Ashcombe died.",
+    "relatedFragmentIds": ["frag_metal_clasp"],
+    "unlockConditions": [{ "type": "flag", "flag": "gideon_admitted_relief_work", "equals": true }],
+    "placeholder": false
+  },
+  {
+    "id": "conn_gideon_concealment",
+    "subjectId": "gideon",
+    "category": "concealment",
+    "summaryText": "Gideon initially claimed he hadn't worked at the relief at all — a lie, until the resin on the clasp proved otherwise.",
+    "relatedFragmentIds": ["frag_metal_clasp"],
+    "unlockConditions": [{ "type": "flag", "flag": "gideon_admitted_relief_work", "equals": true }],
+    "placeholder": false
+  },
+  {
+    "id": "conn_gideon_peeves_sighting",
+    "subjectId": "gideon",
+    "category": "presence",
+    "summaryText": "Peeves recalls seeing Gideon near the old corridor shortly before Ashcombe's death — timing uncertain, a possible lead only.",
+    "unlockConditions": [{ "type": "flag", "flag": "peeves_saw_gideon_near_corridor", "equals": true }],
+    "placeholder": false
+  },
+  {
+    "id": "conn_benedict_silent_lion_recognition",
+    "subjectId": "benedict",
+    "category": "concealment",
+    "summaryText": "Brief hesitation, physical tension, evasive wording — Benedict recognizes the phrase \"Silent Lion\" but won't confirm it outright. Significance unknown.",
+    "unlockConditions": [{ "type": "flag", "flag": "benedict_recognized_silent_lion", "equals": true }],
+    "placeholder": false
+  }
+]

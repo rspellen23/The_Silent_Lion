@@ -1,0 +1,157 @@
+{
+  "id": "conv_ch7_gideon",
+  "title": "Chapter 7 — The Restoration Workshop",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Wouldn't magic be faster?", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gideon", "text": "Usually…. Not always better though.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "gideon",
+      "text": "If Minerva sent you to ask whether Elias ignored restoration protocol, the answer is yes.",
+      "nextLineId": "l4"
+    },
+    {
+      "id": "l4",
+      "speakerId": "gloria",
+      "text": "I was going to ask if you worked on the relief and if you knew anything about this eagle fragment.",
+      "nextLineId": "l5"
+    },
+    { "id": "l5", "speakerId": "gideon", "text": "I wondered where Elias had hidden that.", "nextLineId": "l6" },
+    { "id": "l6", "speakerId": "gloria", "text": "You recognize it?", "nextLineId": "l7" },
+    { "id": "l7", "speakerId": "gideon", "text": "Of course.", "nextLineId": "l8" },
+    { "id": "l8", "speakerId": "gloria", "text": "Then what is it?", "nextLineId": "l9" },
+    { "id": "l9", "speakerId": "gideon", "text": "A piece.", "nextLineId": "l10" },
+    { "id": "l10", "speakerId": "gloria", "text": "A piece of what?", "nextLineId": "l11" },
+    {
+      "id": "l11",
+      "speakerId": "gideon",
+      "text": "That's the question Elias spent thirty years trying to answer. As for your first question about the relief, the answer is no.",
+      "nextLineId": "l12"
+    },
+    { "id": "l12", "speakerId": "gloria", "text": "What is that?", "nextLineId": "l13" },
+    {
+      "id": "l13",
+      "speakerId": "gideon",
+      "text": "A consolidant. Holds old metal to older stone without pretending either is new.",
+      "nextLineId": "l14"
+    },
+    {
+      "id": "l14",
+      "speakerId": "gloria",
+      "text": "This clasp has the same resin.",
+      "nextLineId": "l15"
+    },
+    { "id": "l15", "speakerId": "gideon", "text": "That proves nothing.", "nextLineId": "l16" },
+    {
+      "id": "l16",
+      "speakerId": "gloria",
+      "text": "It proves you lied when you said you hadn't worked there.",
+      "nextLineId": "l17"
+    },
+    {
+      "id": "l17",
+      "speakerId": "gideon",
+      "text": "Fine. Elias asked me to stabilize one fitting. Days before he died.",
+      "setFlags": { "gideon_admitted_relief_work": true },
+      "nextLineId": "l18"
+    },
+    { "id": "l18", "speakerId": "gloria", "text": "Why hide that?", "nextLineId": "l19" },
+    {
+      "id": "l19",
+      "speakerId": "gideon",
+      "text": "Because the section was closed. Because Minerva told us not to touch it. Because Elias had a way of making bad ideas feel historically necessary.",
+      "nextLineId": "l20"
+    },
+    { "id": "l20", "speakerId": "gloria", "text": "And what did you find?", "nextLineId": "l21" },
+    { "id": "l21", "speakerId": "gideon", "text": "A lion.", "nextLineId": "l22" },
+    { "id": "l22", "speakerId": "gloria", "text": "The Silent Lion.", "nextLineId": "l23" },
+    { "id": "l23", "speakerId": "gideon", "text": "So, he left you that too.", "nextLineId": "l24" },
+    { "id": "l24", "speakerId": "gloria", "text": "You know what it means?", "nextLineId": "l25" },
+    { "id": "l25", "speakerId": "gideon", "text": "I know what Elias thought it meant.", "nextLineId": "l26" },
+    { "id": "l26", "speakerId": "gloria", "text": "And what did he think?", "nextLineId": "l27" },
+    { "id": "l27", "speakerId": "gideon", "text": "That depends on which week you asked him.", "nextLineId": "l28" },
+    { "id": "l28", "speakerId": "gloria", "text": "That's a convenient answer.", "nextLineId": "l29" },
+    { "id": "l29", "speakerId": "gideon", "text": "It's an honest one.", "nextLineId": "l30" },
+    {
+      "id": "l30",
+      "speakerId": "gloria",
+      "text": "You don't seem surprised by any of this.",
+      "nextLineId": "l31"
+    },
+    {
+      "id": "l31",
+      "speakerId": "gideon",
+      "text": "I've spent thirty years being surprised by Elias Ashcombe.",
+      "nextLineId": "l32"
+    },
+    {
+      "id": "l32",
+      "speakerId": "gloria",
+      "text": "Did he ever tell you why he was at the relief that night?",
+      "nextLineId": "l33"
+    },
+    { "id": "l33", "speakerId": "gideon", "text": "No.", "nextLineId": "l34" },
+    { "id": "l34", "speakerId": "gloria", "text": "And you never asked?", "nextLineId": "l35" },
+    {
+      "id": "l35",
+      "speakerId": "gideon",
+      "text": "Historians learn not to ask questions they're not supposed to hear answered.",
+      "nextLineId": "l36"
+    },
+    {
+      "id": "l36",
+      "speakerId": "gideon",
+      "text": "People think restoration is putting something back together. Sometimes it's understanding why it broke.",
+      "nextLineId": "l37"
+    },
+    { "id": "l37", "speakerId": "gloria", "text": "What's that supposed to mean?", "nextLineId": "l38" },
+    { "id": "l38", "speakerId": "gideon", "text": "Only that damage tells its own story.", "nextLineId": "l39" },
+    { "id": "l39", "speakerId": "gideon", "text": "You're looking for a murderer.", "nextLineId": "l40" },
+    { "id": "l40", "speakerId": "gloria", "text": "Maybe.", "nextLineId": "l41" },
+    {
+      "id": "l41",
+      "speakerId": "gideon",
+      "text": "Then stop staring at artifacts and start looking at people.",
+      "nextLineId": "l42"
+    },
+    { "id": "l42", "speakerId": "gloria", "text": "Including you?", "nextLineId": "l43" },
+    { "id": "l43", "speakerId": "gideon", "text": "Especially me, if you'd like.", "nextLineId": "l44" },
+    {
+      "id": "l44",
+      "speakerId": "gloria",
+      "text": "I think there's something you're not telling me.",
+      "nextLineId": "l45"
+    },
+    { "id": "l45", "speakerId": "gideon", "text": "There usually is.", "nextLineId": "l46" },
+    { "id": "l46", "speakerId": "gloria", "text": "Is that a confession?", "nextLineId": "l47" },
+    { "id": "l47", "speakerId": "gideon", "text": "No. It's age.", "nextLineId": "l48" },
+    {
+      "id": "l48",
+      "speakerId": "gideon",
+      "text": "If you want answers, ask Elspeth Rowan.",
+      "nextLineId": "l49"
+    },
+    { "id": "l49", "speakerId": "gloria", "text": "Why?", "nextLineId": "l50" },
+    {
+      "id": "l50",
+      "speakerId": "gideon",
+      "text": "Because Elias trusted her with things he never trusted me with.",
+      "nextLineId": "l51"
+    },
+    { "id": "l51", "speakerId": "gloria", "text": "Thank you for your time.", "nextLineId": "l52" },
+    {
+      "id": "l52",
+      "speakerId": "gideon",
+      "text": "I have a feeling that wasn't gratitude.",
+      "nextLineId": "l53"
+    },
+    {
+      "id": "l53",
+      "speakerId": "gloria",
+      "text": "It wasn't.",
+      "transitionToSceneId": "scene_elspeth_study"
+    }
+  ]
+}

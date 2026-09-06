@@ -1,0 +1,18 @@
+{
+  "id": "conv_ch9_intro",
+  "title": "Chapter 9 — Courage Without Audience",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "Courage without audience.", "nextLineId": "l2" },
+    {
+      "id": "l2",
+      "speakerId": "gloria",
+      "text": "A lion that doesn't need to roar to prove it's a lion.",
+      "nextLineId": "l3"
+    },
+    { "id": "l3", "speakerId": "gloria", "text": "What does that mean?", "nextLineId": "l4" },
+    { "id": "l4", "speakerId": "gloria", "text": "Secrecy? Restraint? A warning?", "nextLineId": "l5" },
+    { "id": "l5", "speakerId": "gloria", "text": "Those are three very different things." }
+  ]
+}

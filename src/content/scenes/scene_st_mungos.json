@@ -1,0 +1,15 @@
+{
+  "id": "scene_st_mungos",
+  "title": "Chapter 12 — The Healer's Hands",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch12_benedict",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_st_mungos",
+      "description": "St. Mungo's Hospital for Magical Maladies and Injuries, busy even by wizarding standards."
+    }
+  ],
+  "hotspots": []
+}

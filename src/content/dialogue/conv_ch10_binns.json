@@ -1,0 +1,244 @@
+{
+  "id": "conv_ch10_binns",
+  "title": "Chapter 10 — History's Longest Lesson",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "binns",
+      "text": "And so, the 1689 Committee on Stairwell Safety recommended, unsuccessfully, that Hogwarts stairs remain stationary for no less than three consecutive days at a time.",
+      "nextLineId": "l2"
+    },
+    {
+      "id": "l2",
+      "speakerId": "binns",
+      "text": "The eastern corridor has had seven official names, thirteen unofficial names, and one regrettable period during which students called it \"The Damp Way.\"",
+      "nextLineId": "l3"
+    },
+    { "id": "l3", "speakerId": "binns", "text": "Quite.", "nextLineId": "l4" },
+    {
+      "id": "l4",
+      "speakerId": "binns",
+      "text": "Names are curious things. The reasons for them are often forgotten long before the names themselves.",
+      "nextLineId": "l5"
+    },
+    { "id": "l5", "speakerId": "binns", "text": "Most disappear eventually.", "nextLineId": "l6" },
+    { "id": "l6", "speakerId": "binns", "text": "The interesting ones do not.", "nextLineId": "l7" },
+    {
+      "id": "l7",
+      "speakerId": "binns",
+      "text": "For instance, the Common Portrait Corridor in the North Gallery was once known by another name entirely.",
+      "nextLineId": "l8"
+    },
+    { "id": "l8", "speakerId": "gloria", "text": "What name?", "nextLineId": "l9" },
+    { "id": "l9", "speakerId": "binns", "text": "The Path.", "nextLineId": "l10" },
+    { "id": "l10", "speakerId": "gloria", "text": "Why?", "nextLineId": "l11" },
+    { "id": "l11", "speakerId": "binns", "text": "No surviving record explains it.", "nextLineId": "l12" },
+    { "id": "l12", "speakerId": "gloria", "text": "That's convenient.", "nextLineId": "l13" },
+    {
+      "id": "l13",
+      "speakerId": "binns",
+      "text": "History rarely concerns itself with convenience.",
+      "nextLineId": "l14"
+    },
+    {
+      "id": "l14",
+      "speakerId": "binns",
+      "text": "In any event, the name persisted for nearly two centuries before falling out of common use.",
+      "nextLineId": "l15"
+    },
+    {
+      "id": "l15",
+      "speakerId": "binns",
+      "text": "Curious.",
+      "journalUpdates": [{ "entryId": "journal_silent_lion", "stage": 0 }],
+      "nextLineId": "l16"
+    },
+    {
+      "id": "l16",
+      "speakerId": "binns",
+      "text": "The decline in corridor naming conventions remains one of Hogwarts' least appreciated tragedies.",
+      "nextLineId": "l17"
+    },
+    { "id": "l17", "speakerId": "gloria", "text": "Professor Binns.", "nextLineId": "l18" },
+    { "id": "l18", "speakerId": "binns", "text": "Mm?", "nextLineId": "l19" },
+    {
+      "id": "l19",
+      "speakerId": "gloria",
+      "text": "I'd like to ask about the Silent Lion.",
+      "nextLineId": "l20"
+    },
+    { "id": "l20", "speakerId": "binns", "text": "Yes, yes. Medieval marginalia.", "nextLineId": "l21" },
+    { "id": "l21", "speakerId": "gloria", "text": "You've heard of it?", "nextLineId": "l22" },
+    { "id": "l22", "speakerId": "binns", "text": "Naturally.", "nextLineId": "l23" },
+    { "id": "l23", "speakerId": "gloria", "text": "Professor Binns.", "nextLineId": "l24" },
+    {
+      "id": "l24",
+      "speakerId": "binns",
+      "text": "Several references survive, though regrettably fragmented.",
+      "nextLineId": "l25"
+    },
+    { "id": "l25", "speakerId": "gloria", "text": "Professor.", "nextLineId": "l26" },
+    {
+      "id": "l26",
+      "speakerId": "binns",
+      "text": "One appears in a monastery inventory from approximately—",
+      "nextLineId": "l27"
+    },
+    { "id": "l27", "speakerId": "gloria", "text": "Professor!", "nextLineId": "l28" },
+    {
+      "id": "l28",
+      "speakerId": "binns",
+      "text": "—the late fourteenth century…….",
+      "nextLineId": "l29"
+    },
+    { "id": "l29", "speakerId": "binns", "text": "There is no need to shout.", "nextLineId": "l30" },
+    { "id": "l30", "speakerId": "gloria", "text": "Apparently there was.", "nextLineId": "l31" },
+    { "id": "l31", "speakerId": "binns", "text": "Ah yes. The Silent Lion.", "nextLineId": "l32" },
+    { "id": "l32", "speakerId": "binns", "text": "Curious symbol.", "nextLineId": "l33" },
+    { "id": "l33", "speakerId": "gloria", "text": "What was it?", "nextLineId": "l34" },
+    { "id": "l34", "speakerId": "binns", "text": "Historians disagree.", "nextLineId": "l35" },
+    { "id": "l35", "speakerId": "gloria", "text": "Of course they do.", "nextLineId": "l36" },
+    { "id": "l36", "speakerId": "binns", "text": "Quite.", "nextLineId": "l37" },
+    { "id": "l37", "speakerId": "binns", "text": "One reference survives.", "nextLineId": "l38" },
+    {
+      "id": "l38",
+      "speakerId": "binns",
+      "text": "\"And when the Silent Lion watches, wisdom waits before the door.\"",
+      "nextLineId": "l39"
+    },
+    { "id": "l39", "speakerId": "gloria", "text": "What does that mean?", "nextLineId": "l40" },
+    { "id": "l40", "speakerId": "binns", "text": "Unknown.", "nextLineId": "l41" },
+    { "id": "l41", "speakerId": "gloria", "text": "That's your professional opinion?", "nextLineId": "l42" },
+    { "id": "l42", "speakerId": "binns", "text": "No.", "nextLineId": "l43" },
+    {
+      "id": "l43",
+      "speakerId": "binns",
+      "text": "My professional opinion is that historians should avoid trusting quotations without context.",
+      "nextLineId": "l44"
+    },
+    { "id": "l44", "speakerId": "gloria", "text": "That's actually helpful.", "nextLineId": "l45" },
+    { "id": "l45", "speakerId": "binns", "text": "Thank you.", "nextLineId": "l46" },
+    {
+      "id": "l46",
+      "speakerId": "gloria",
+      "text": "Did Professor Ashcombe ever ask you about it?",
+      "nextLineId": "l47"
+    },
+    { "id": "l47", "speakerId": "binns", "text": "Repeatedly.", "nextLineId": "l48" },
+    {
+      "id": "l48",
+      "speakerId": "gloria",
+      "text": "Did he tell you what he thought it meant?",
+      "nextLineId": "l49"
+    },
+    { "id": "l49", "speakerId": "binns", "text": "Several different things.", "nextLineId": "l50" },
+    { "id": "l50", "speakerId": "gloria", "text": "Such as?", "nextLineId": "l51" },
+    { "id": "l51", "speakerId": "binns", "text": "A warning.", "nextLineId": "l52" },
+    { "id": "l52", "speakerId": "binns", "text": "A philosophy.", "nextLineId": "l53" },
+    { "id": "l53", "speakerId": "binns", "text": "A location.", "nextLineId": "l54" },
+    { "id": "l54", "speakerId": "gloria", "text": "A location?", "nextLineId": "l55" },
+    { "id": "l55", "speakerId": "binns", "text": "He changed his mind often.", "nextLineId": "l56" },
+    {
+      "id": "l56",
+      "speakerId": "gloria",
+      "text": "Did any of those theories convince you?",
+      "nextLineId": "l57"
+    },
+    { "id": "l57", "speakerId": "binns", "text": "No.", "nextLineId": "l58" },
+    { "id": "l58", "speakerId": "gloria", "text": "Why not?", "nextLineId": "l59" },
+    {
+      "id": "l59",
+      "speakerId": "binns",
+      "text": "Because historians become suspicious when evidence conveniently agrees with them.",
+      "nextLineId": "l60"
+    },
+    {
+      "id": "l60",
+      "speakerId": "gloria",
+      "text": "Bring me the contradiction it can't explain.",
+      "nextLineId": "l61"
+    },
+    { "id": "l61", "speakerId": "gloria", "text": "One more thing.", "nextLineId": "l62" },
+    {
+      "id": "l62",
+      "speakerId": "gloria",
+      "text": "Did you see Professor Ashcombe near the collapsed corridor before his death?",
+      "nextLineId": "l63"
+    },
+    {
+      "id": "l63",
+      "speakerId": "binns",
+      "text": "Certainly.",
+      "journalUpdates": [{ "entryId": "journal_binns_testimony", "stage": 0 }],
+      "nextLineId": "l64"
+    },
+    { "id": "l64", "speakerId": "gloria", "text": "You're sure?", "nextLineId": "l65" },
+    { "id": "l65", "speakerId": "binns", "text": "Reasonably sure.", "nextLineId": "l66" },
+    { "id": "l66", "speakerId": "gloria", "text": "How sure is \"reasonably\"?", "nextLineId": "l67" },
+    { "id": "l67", "speakerId": "binns", "text": "Less sure than \"certainly.\"", "nextLineId": "l68" },
+    { "id": "l68", "speakerId": "gloria", "text": "Professor.", "nextLineId": "l69" },
+    { "id": "l69", "speakerId": "binns", "text": "Ah.", "nextLineId": "l70" },
+    { "id": "l70", "speakerId": "gloria", "text": "Did you see his face?", "nextLineId": "l71" },
+    { "id": "l71", "speakerId": "binns", "text": "No.", "nextLineId": "l72" },
+    { "id": "l72", "speakerId": "gloria", "text": "Hear his voice?", "nextLineId": "l73" },
+    { "id": "l73", "speakerId": "binns", "text": "No.", "nextLineId": "l74" },
+    { "id": "l74", "speakerId": "gloria", "text": "Then how did you identify him?", "nextLineId": "l75" },
+    { "id": "l75", "speakerId": "binns", "text": "The cloak.", "nextLineId": "l76" },
+    { "id": "l76", "speakerId": "gloria", "text": "A dark academic cloak.", "nextLineId": "l77" },
+    { "id": "l77", "speakerId": "binns", "text": "Yes.", "nextLineId": "l78" },
+    { "id": "l78", "speakerId": "gloria", "text": "At Hogwarts.", "nextLineId": "l79" },
+    {
+      "id": "l79",
+      "speakerId": "binns",
+      "text": "When you phrase it that way, it does sound less distinctive.",
+      "journalUpdates": [{ "entryId": "journal_binns_testimony", "stage": 1 }],
+      "nextLineId": "l80"
+    },
+    {
+      "id": "l80",
+      "speakerId": "gloria",
+      "text": "So we've established that the symbol is old, nobody agrees what it means, and your eyewitness account may not actually be an eyewitness account.",
+      "nextLineId": "l81"
+    },
+    { "id": "l81", "speakerId": "binns", "text": "An excellent summary.", "nextLineId": "l82" },
+    { "id": "l82", "speakerId": "gloria", "text": "That's not encouraging.", "nextLineId": "l83" },
+    { "id": "l83", "speakerId": "binns", "text": "Most history isn't.", "nextLineId": "l84" },
+    {
+      "id": "l84",
+      "speakerId": "gloria",
+      "text": "Is there anyone at Hogwarts who might know more?",
+      "nextLineId": "l85"
+    },
+    { "id": "l85", "speakerId": "binns", "text": "Peeves.", "nextLineId": "l86" },
+    { "id": "l86", "speakerId": "gloria", "text": "I'm sorry?", "nextLineId": "l87" },
+    { "id": "l87", "speakerId": "binns", "text": "Peeves.", "nextLineId": "l88" },
+    { "id": "l88", "speakerId": "gloria", "text": "The poltergeist.", "nextLineId": "l89" },
+    { "id": "l89", "speakerId": "binns", "text": "The very same.", "nextLineId": "l90" },
+    {
+      "id": "l90",
+      "speakerId": "gloria",
+      "text": "Why would Peeves know anything about medieval history?",
+      "nextLineId": "l91"
+    },
+    {
+      "id": "l91",
+      "speakerId": "binns",
+      "text": "Because unlike historians, he was actually present for quite a lot of it.",
+      "nextLineId": "l92"
+    },
+    {
+      "id": "l92",
+      "speakerId": "gloria",
+      "text": "That's... annoyingly difficult to argue with.",
+      "nextLineId": "l93"
+    },
+    {
+      "id": "l93",
+      "speakerId": "binns",
+      "text": "Quite.",
+      "transitionToSceneId": "scene_hogwarts_corridor"
+    }
+  ]
+}

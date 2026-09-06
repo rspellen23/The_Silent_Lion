@@ -1,0 +1,203 @@
+{
+  "id": "conv_ch8_elspeth",
+  "title": "Chapter 8 — What Words Remember",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    {
+      "id": "l1",
+      "speakerId": "elspeth",
+      "text": "If you're selling cauldrons, I already have one.",
+      "nextLineId": "l2"
+    },
+    { "id": "l2", "speakerId": "gloria", "text": "I'm not.", "nextLineId": "l3" },
+    { "id": "l3", "speakerId": "elspeth", "text": "Good. Because it's leaking.", "nextLineId": "l4" },
+    { "id": "l4", "speakerId": "elspeth", "text": "You have Elias's notebook.", "nextLineId": "l5" },
+    { "id": "l5", "speakerId": "gloria", "text": "You recognize it.", "nextLineId": "l6" },
+    {
+      "id": "l6",
+      "speakerId": "elspeth",
+      "text": "I recognize the coffee stain. He insisted it was tea.",
+      "nextLineId": "l7"
+    },
+    {
+      "id": "l7",
+      "speakerId": "gloria",
+      "text": "Professor Rowan, did you know Professor Ashcombe well?",
+      "nextLineId": "l8"
+    },
+    { "id": "l8", "speakerId": "elspeth", "text": "Yes….", "nextLineId": "l9" },
+    { "id": "l9", "speakerId": "elspeth", "text": "Thank you.", "nextLineId": "l10" },
+    { "id": "l10", "speakerId": "gloria", "text": "For what?", "nextLineId": "l11" },
+    { "id": "l11", "speakerId": "elspeth", "text": "For waiting.", "nextLineId": "l12" },
+    {
+      "id": "l12",
+      "speakerId": "gloria",
+      "text": "What were his final weeks like?",
+      "nextLineId": "l13"
+    },
+    { "id": "l13", "speakerId": "elspeth", "text": "He was frightened.", "nextLineId": "l14" },
+    { "id": "l14", "speakerId": "gloria", "text": "Of what?", "nextLineId": "l15" },
+    { "id": "l15", "speakerId": "elspeth", "text": "Of being right.", "nextLineId": "l16" },
+    {
+      "id": "l16",
+      "speakerId": "elspeth",
+      "text": "I had not seen him that excited in years.",
+      "nextLineId": "l17"
+    },
+    {
+      "id": "l17",
+      "speakerId": "gloria",
+      "text": "You just said he was frightened.",
+      "nextLineId": "l18"
+    },
+    { "id": "l18", "speakerId": "elspeth", "text": "Different days. I'm sorry.", "nextLineId": "l19" },
+    {
+      "id": "l19",
+      "speakerId": "gloria",
+      "text": "You don't have to apologize for remembering out of order.",
+      "nextLineId": "l20"
+    },
+    {
+      "id": "l20",
+      "speakerId": "elspeth",
+      "text": "What is known may be carried. What is understood must be chosen.",
+      "nextLineId": "l21"
+    },
+    {
+      "id": "l21",
+      "speakerId": "gloria",
+      "text": "Why didn't you give this to him?",
+      "nextLineId": "l22"
+    },
+    {
+      "id": "l22",
+      "speakerId": "elspeth",
+      "text": "Because I realized I wasn't translating a sentence anymore. I was helping him decide whether to continue.",
+      "nextLineId": "l23"
+    },
+    { "id": "l23", "speakerId": "gloria", "text": "Did you tell him to stop?", "nextLineId": "l24" },
+    {
+      "id": "l24",
+      "speakerId": "elspeth",
+      "text": "I told him, 'If you continue this, Elias, I will stop you myself.'",
+      "nextLineId": "l25"
+    },
+    { "id": "l25", "speakerId": "gloria", "text": "That sounds like a threat.", "nextLineId": "l26" },
+    { "id": "l26", "speakerId": "elspeth", "text": "It was.", "nextLineId": "l27" },
+    { "id": "l27", "speakerId": "gloria", "text": "So, you did threaten him.", "nextLineId": "l28" },
+    {
+      "id": "l28",
+      "speakerId": "elspeth",
+      "text": "In the scholarly sense. Far less dramatic, but occasionally more effective.",
+      "nextLineId": "l29"
+    },
+    { "id": "l29", "speakerId": "gloria", "text": "What made him different?", "nextLineId": "l30" },
+    {
+      "id": "l30",
+      "speakerId": "elspeth",
+      "text": "Most scholars wanted the correct translation. Elias wanted the truthful one.",
+      "nextLineId": "l31"
+    },
+    { "id": "l31", "speakerId": "gloria", "text": "There's a difference?", "nextLineId": "l32" },
+    { "id": "l32", "speakerId": "elspeth", "text": "Always.", "nextLineId": "l33" },
+    {
+      "id": "l33",
+      "speakerId": "elspeth",
+      "text": "Language is never just what people wrote. It's what they intended another person to understand.",
+      "nextLineId": "l34"
+    },
+    { "id": "l34", "speakerId": "gloria", "text": "Were you two—", "nextLineId": "l35" },
+    { "id": "l35", "speakerId": "elspeth", "text": "No.", "nextLineId": "l36" },
+    {
+      "id": "l36",
+      "speakerId": "elspeth",
+      "text": "Not because we didn't care for each other. We simply assumed there would be more time.",
+      "nextLineId": "l37"
+    },
+    { "id": "l37", "speakerId": "gloria", "text": "I'm sorry.", "nextLineId": "l38" },
+    { "id": "l38", "speakerId": "elspeth", "text": "So am I.", "nextLineId": "l39" },
+    {
+      "id": "l39",
+      "speakerId": "gloria",
+      "text": "You couldn't translate it?",
+      "presentsFragmentId": "frag_elspeth_tracing",
+      "nextLineId": "l40"
+    },
+    { "id": "l40", "speakerId": "elspeth", "text": "I refused.", "nextLineId": "l41" },
+    { "id": "l41", "speakerId": "gloria", "text": "Why?", "nextLineId": "l42" },
+    {
+      "id": "l42",
+      "speakerId": "elspeth",
+      "text": "Because I realized I wasn't translating words anymore. I was translating a choice.",
+      "nextLineId": "l43"
+    },
+    { "id": "l43", "speakerId": "gloria", "text": "This symbol again.", "nextLineId": "l44" },
+    { "id": "l44", "speakerId": "elspeth", "text": "The lion?", "nextLineId": "l45" },
+    {
+      "id": "l45",
+      "speakerId": "gloria",
+      "text": "It keeps appearing in Ashcombe's notes.",
+      "nextLineId": "l46"
+    },
+    { "id": "l46", "speakerId": "elspeth", "text": "Then stop looking for the lion.", "nextLineId": "l47" },
+    { "id": "l47", "speakerId": "gloria", "text": "I'm sorry?", "nextLineId": "l48" },
+    {
+      "id": "l48",
+      "speakerId": "elspeth",
+      "text": "Symbols rarely matter because of what they are. They matter because of where they appear.",
+      "nextLineId": "l49"
+    },
+    {
+      "id": "l49",
+      "speakerId": "gloria",
+      "text": "And where does this one appear?",
+      "nextLineId": "l50"
+    },
+    { "id": "l50", "speakerId": "elspeth", "text": "That's the problem.", "nextLineId": "l51" },
+    { "id": "l51", "speakerId": "gloria", "text": "You don't know?", "nextLineId": "l52" },
+    { "id": "l52", "speakerId": "elspeth", "text": "I know too many possibilities.", "nextLineId": "l53" },
+    {
+      "id": "l53",
+      "speakerId": "elspeth",
+      "text": "If you want certainty, stop asking professors.",
+      "nextLineId": "l54"
+    },
+    { "id": "l54", "speakerId": "gloria", "text": "Who should I ask?", "nextLineId": "l55" },
+    { "id": "l55", "speakerId": "elspeth", "text": "Ask librarians.", "nextLineId": "l56" },
+    {
+      "id": "l56",
+      "speakerId": "elspeth",
+      "text": "Hogwarts has six centuries of architectural surveys, restoration records, excavation notes, and restricted indexes.",
+      "nextLineId": "l57"
+    },
+    { "id": "l57", "speakerId": "gloria", "text": "You're sending me to the library?", "nextLineId": "l58" },
+    { "id": "l58", "speakerId": "elspeth", "text": "Every mystery eventually ends up there.", "nextLineId": "l59" },
+    { "id": "l59", "speakerId": "gloria", "text": "That sounds disappointing.", "nextLineId": "l60" },
+    {
+      "id": "l60",
+      "speakerId": "elspeth",
+      "text": "Only to people who've never met a good library.",
+      "nextLineId": "l61"
+    },
+    { "id": "l61", "speakerId": "gloria", "text": "Thank you, Professor.", "nextLineId": "l62" },
+    {
+      "id": "l62",
+      "speakerId": "elspeth",
+      "text": "If you find out what Elias was looking for...",
+      "nextLineId": "l63"
+    },
+    {
+      "id": "l63",
+      "speakerId": "elspeth",
+      "text": "I'd very much like to know whether I was right to worry.",
+      "nextLineId": "l64"
+    },
+    {
+      "id": "l64",
+      "speakerId": "elspeth",
+      "text": "What did you find, Elias?",
+      "transitionToSceneId": "scene_library"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "conv_ch11_alignment_accident",
+  "title": "Chapter 11 — The Mechanism",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "No way.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "It's part of the mechanism.", "nextLineId": "l3" },
+    {
+      "id": "l3",
+      "speakerId": "gloria",
+      "text": "Uh oh.",
+      "journalUpdates": [{ "entryId": "journal_hidden_mechanism", "stage": 1 }],
+      "nextLineId": "l4"
+    },
+    {
+      "id": "l4",
+      "speakerId": "gloria",
+      "text": "That could have gone worse…….probably.",
+      "nextLineId": "l5"
+    },
+    { "id": "l5", "speakerId": "mcgonagall", "text": "What happened?", "nextLineId": "l6" },
+    { "id": "l6", "speakerId": "gloria", "text": "In my defense—", "nextLineId": "l7" },
+    { "id": "l7", "speakerId": "mcgonagall", "text": "Miss Spellen.", "nextLineId": "l8" },
+    { "id": "l8", "speakerId": "gloria", "text": "I touched the suspicious magical artifact.", "nextLineId": "l9" },
+    {
+      "id": "l9",
+      "speakerId": "mcgonagall",
+      "text": "After it was specifically marked \"Do not activate.\"",
+      "nextLineId": "l10"
+    },
+    { "id": "l10", "speakerId": "gloria", "text": "...yes.", "nextLineId": "l11" },
+    { "id": "l11", "speakerId": "mcgonagall", "text": "I see.", "nextLineId": "l12" },
+    { "id": "l12", "speakerId": "gloria", "text": "It was only a small activation.", "nextLineId": "l13" },
+    { "id": "l13", "speakerId": "gloria", "text": "Relatively speaking.", "nextLineId": "l14" },
+    { "id": "l14", "speakerId": "mcgonagall", "text": "And has it done that before?", "nextLineId": "l15" },
+    { "id": "l15", "speakerId": "gloria", "text": "Define \"before.\"", "nextLineId": "l16" },
+    {
+      "id": "l16",
+      "speakerId": "mcgonagall",
+      "text": "Let me be perfectly clear. Ancient magical mechanisms are not puzzles to be solved through direct physical contact.",
+      "nextLineId": "l17"
+    },
+    { "id": "l17", "speakerId": "gloria", "text": "The lesson has been received.", "nextLineId": "l18" },
+    { "id": "l18", "speakerId": "mcgonagall", "text": "I am not convinced it has.", "nextLineId": "l19" },
+    { "id": "l19", "speakerId": "mcgonagall", "text": "You're going to St. Mungo's.", "nextLineId": "l20" },
+    { "id": "l20", "speakerId": "gloria", "text": "Headmistress—", "nextLineId": "l21" },
+    { "id": "l21", "speakerId": "mcgonagall", "text": "That was not a suggestion.", "nextLineId": "l22" },
+    { "id": "l22", "speakerId": "gloria", "text": "If it's cursed—", "nextLineId": "l23" },
+    { "id": "l23", "speakerId": "mcgonagall", "text": "Then St. Mungo's is where you belong.", "nextLineId": "l24" },
+    { "id": "l24", "speakerId": "gloria", "text": "And if it isn't?", "nextLineId": "l25" },
+    {
+      "id": "l25",
+      "speakerId": "mcgonagall",
+      "text": "Then they will have the pleasure of informing you that you endangered yourself unnecessarily.",
+      "nextLineId": "l26"
+    },
+    { "id": "l26", "speakerId": "gloria", "text": "Fair.", "nextLineId": "l27" },
+    { "id": "l27", "speakerId": "mcgonagall", "text": "Present this when you arrive.", "nextLineId": "l28" },
+    {
+      "id": "l28",
+      "speakerId": "gloria",
+      "text": "You think they'll know what caused this?",
+      "nextLineId": "l29"
+    },
+    {
+      "id": "l29",
+      "speakerId": "mcgonagall",
+      "text": "If anyone can identify unusual magical injuries connected to ancient artifacts, it will be Benedict Hale.",
+      "nextLineId": "l30"
+    },
+    { "id": "l30", "speakerId": "gloria", "text": "Convenient.", "nextLineId": "l31" },
+    { "id": "l31", "speakerId": "mcgonagall", "text": "How so?", "nextLineId": "l32" },
+    {
+      "id": "l32",
+      "speakerId": "gloria",
+      "text": "He was already on my list of people to speak with.",
+      "nextLineId": "l33"
+    },
+    {
+      "id": "l33",
+      "speakerId": "mcgonagall",
+      "text": "Then try not to treat the appointment as an interrogation.",
+      "nextLineId": "l34"
+    },
+    { "id": "l34", "speakerId": "gloria", "text": "No promises.", "nextLineId": "l35" },
+    { "id": "l35", "speakerId": "mcgonagall", "text": "I was afraid of that.", "nextLineId": "l36" },
+    { "id": "l36", "speakerId": "mcgonagall", "text": "Go.", "nextLineId": "l37" },
+    {
+      "id": "l37",
+      "speakerId": "gloria",
+      "text": "Yes, Headmistress.",
+      "transitionToSceneId": "scene_st_mungos"
+    }
+  ]
+}

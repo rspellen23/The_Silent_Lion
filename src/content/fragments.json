@@ -81,5 +81,26 @@
     "presentation": "card",
     "imageAssetId": "asset_fragment_residue",
     "placeholder": false
+  },
+  {
+    "id": "frag_elspeth_tracing",
+    "name": "Elspeth's Tracing",
+    "description": "A tracing of an inscription Ashcombe once asked Elspeth to translate. One phrase remains incomplete — she refused to finish it.",
+    "category": "historical",
+    "presentation": "photograph",
+    "imageAssetId": "asset_fragment_elspeth_tracing",
+    "relatedFragmentIds": ["frag_ashcombe_notebook"],
+    "placeholder": false
+  },
+  {
+    "id": "frag_notebook_page_mechanism",
+    "name": "Recovered Notebook Page",
+    "description": "A page stolen from Ashcombe's notebook by Peeves. A detailed sketch: a circular metal fitting, ancient runes around the edge, the Silent Lion at the center.",
+    "category": "historical",
+    "presentation": "document",
+    "imageAssetId": "asset_fragment_notebook_page_mechanism",
+    "documentBody": "A circular metal fitting. Ancient runes surround the edge. At the center sits the Silent Lion.\n\nBeneath the drawing, in Ashcombe's hand:\n\n**Central mechanism intact.**\n\n**Do not activate.**",
+    "relatedFragmentIds": ["frag_eagle_fragment", "frag_ashcombe_notebook"],
+    "placeholder": false
   }
 ]

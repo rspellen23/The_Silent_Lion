@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "id": "prompt_silent_lion_characteristic",
+    "placeholder": false,
+    "prompt": "What characteristic best describes the Silent Lion?",
+    "options": [
+      { "id": "opt_secrecy", "text": "Secrecy" },
+      { "id": "opt_warning", "text": "Warning" },
+      { "id": "opt_restraint", "text": "Restraint" }
+    ],
+    "correctOptionId": "opt_restraint",
+    "successText": "A lion that doesn't need attention. A lion that doesn't need recognition. Restraint.",
+    "failureText": "Not quite. Remember Ashcombe's notes: later lions roar, earlier lions watch.",
+    "successActions": {
+      "journalUpdates": [{ "entryId": "journal_silent_lion", "stage": 1 }]
+    }
+  },
+  {
+    "id": "prompt_next_lead",
+    "placeholder": false,
+    "prompt": "Who would know more about Hogwarts history than the books themselves?",
+    "options": [
+      { "id": "opt_gideon", "text": "Gideon Alderwick" },
+      { "id": "opt_harry", "text": "Harry Potter" },
+      { "id": "opt_pince", "text": "Madam Pince" },
+      { "id": "opt_binns", "text": "Professor Binns" }
+    ],
+    "correctOptionId": "opt_binns",
+    "successText": "Either nobody knows what the Silent Lion was... or everyone forgot. Except one person. Most historians rely on books. Fortunately, Hogwarts employs one. A very old one.",
+    "failureText": "Not this time — the books have already given what they can.",
+    "successActions": {
+      "setFlags": { "ch9_library_research_done": true }
+    }
+  },
+  {
+    "id": "prompt_peeves_rhyme",
+    "placeholder": false,
+    "prompt": "Peeves: \"Lion waits and eagle sees. Badger keeps and serpent weighs—\"",
+    "options": [
+      { "id": "opt_walk", "text": "Four may knock but one may walk" },
+      { "id": "opt_wisdom", "text": "Wisdom waits beside the door" },
+      { "id": "opt_roars", "text": "Lion roars and eagle flies" }
+    ],
+    "correctOptionId": "opt_walk",
+    "successText": "Peeves freezes. \"Who told you that?\" \"You did.\" \"Terrible source. Never trust him.\" He reluctantly hands over the page.",
+    "failureText": "Peeves cackles and clutches the page tighter. You've heard this rhyme before — somewhere in this castle.",
+    "successActions": {
+      "grantsFragmentIds": ["frag_notebook_page_mechanism"],
+      "journalUpdates": [{ "entryId": "journal_hidden_mechanism", "stage": 0 }]
+    }
+  }
+]

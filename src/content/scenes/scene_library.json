@@ -1,0 +1,68 @@
+{
+  "id": "scene_library",
+  "title": "Chapter 9 — The Lion With No Voice",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_library",
+      "description": "Quiet and largely empty. Afternoon light filters through stained-glass windows. Books float between shelves under their own enchantments."
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "hotspot_study_table",
+      "label": "Study Table",
+      "region": { "x": 0.4, "y": 0.6, "width": 0.2, "height": 0.25 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch9_intro" }]
+    },
+    {
+      "id": "hotspot_heraldry_collection",
+      "label": "Heraldry Collection",
+      "region": { "x": 0.05, "y": 0.15, "width": 0.16, "height": 0.35 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch9_heraldry" }]
+    },
+    {
+      "id": "hotspot_symbol_catalog",
+      "label": "Ancient Symbol Catalogs",
+      "region": { "x": 0.25, "y": 0.15, "width": 0.16, "height": 0.35 },
+      "repeatable": false,
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch9_symbol_catalog" }]
+    },
+    {
+      "id": "hotspot_deduction_puzzle",
+      "label": "Ashcombe's Notes",
+      "region": { "x": 0.4, "y": 0.15, "width": 0.16, "height": 0.35 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "flag", "flag": "ch9_symbol_catalog_seen", "equals": true }],
+      "effects": [{ "type": "trigger_interpretation_prompt", "targetId": "prompt_silent_lion_characteristic" }]
+    },
+    {
+      "id": "hotspot_architecture_records",
+      "label": "Architecture and Restoration Records",
+      "region": { "x": 0.6, "y": 0.15, "width": 0.16, "height": 0.35 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "interpretation_completed", "promptId": "prompt_silent_lion_characteristic" }],
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch9_missing_records" }]
+    },
+    {
+      "id": "hotspot_final_lead",
+      "label": "Who Would Know?",
+      "region": { "x": 0.78, "y": 0.15, "width": 0.16, "height": 0.35 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "flag", "flag": "ch9_missing_records_seen", "equals": true }],
+      "effects": [{ "type": "trigger_interpretation_prompt", "targetId": "prompt_next_lead" }]
+    },
+    {
+      "id": "hotspot_leave_library",
+      "label": "Leave the Library",
+      "region": { "x": 0.01, "y": 0.05, "width": 0.08, "height": 0.3 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "interpretation_completed", "promptId": "prompt_next_lead" }],
+      "effects": [{ "type": "travel_to_scene", "targetId": "scene_binns_classroom" }]
+    }
+  ]
+}

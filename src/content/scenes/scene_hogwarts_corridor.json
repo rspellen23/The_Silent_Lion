@@ -1,0 +1,15 @@
+{
+  "id": "scene_hogwarts_corridor",
+  "title": "Chapter 11 — Peeves Knows a Song",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch11_peeves_corridor",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_hogwarts_corridor",
+      "description": "A suit of armor lies fallen. Peeves hangs upside down in the air atop a stolen library cart, grinning."
+    }
+  ],
+  "hotspots": []
+}

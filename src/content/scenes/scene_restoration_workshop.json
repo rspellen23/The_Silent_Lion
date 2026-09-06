@@ -1,0 +1,15 @@
+{
+  "id": "scene_restoration_workshop",
+  "title": "Chapter 7 — The Restoration Workshop",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch7_gideon",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_restoration_workshop",
+      "description": "Warm with dust and afternoon light. Ancient stones, damaged gargoyles, broken columns, and pieces of Hogwarts wait patiently for repair."
+    }
+  ],
+  "hotspots": []
+}

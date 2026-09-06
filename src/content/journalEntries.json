@@ -14,7 +14,13 @@
     "title": "What Is the Silent Lion?",
     "placeholder": false,
     "relatedFragmentIds": ["frag_eagle_fragment"],
-    "stages": [{ "stage": 0, "text": "What is the Silent Lion?" }]
+    "stages": [
+      { "stage": 0, "text": "What is the Silent Lion?" },
+      {
+        "stage": 1,
+        "text": "The Silent Lion appears to predate the modern Gryffindor emblem. Surviving depictions emphasize observation and restraint rather than strength or aggression.\n\nInterpretation: it may represent restraint, patience, or duty without recognition — unconfirmed."
+      }
+    ]
   },
   {
     "id": "journal_why_gloria",
@@ -22,5 +28,44 @@
     "placeholder": false,
     "relatedFragmentIds": ["frag_gloria_notes"],
     "stages": [{ "stage": 0, "text": "Why Gloria?" }]
+  },
+  {
+    "id": "journal_lion_rhyme",
+    "title": "Peeves' Rhyme",
+    "placeholder": false,
+    "relatedFragmentIds": ["frag_notebook_page_mechanism"],
+    "stages": [
+      { "stage": 0, "text": "Peeves knows a rhyme connected to the Silent Lion: \"Lion waits and eagle sees. Badger keeps and serpent weighs. Four may knock but one may walk. Ask the man who never talks.\"" }
+    ]
+  },
+  {
+    "id": "journal_binns_testimony",
+    "title": "Binns' Sighting",
+    "placeholder": false,
+    "relatedFragmentIds": [],
+    "stages": [
+      { "stage": 0, "text": "Professor Binns claims to have seen Ashcombe near the collapsed corridor before his death." },
+      { "stage": 1, "text": "Binns never saw a face or heard a voice — only a dark academic cloak. Downgraded from identification to possible sighting." }
+    ]
+  },
+  {
+    "id": "journal_hidden_mechanism",
+    "title": "The Hidden Mechanism",
+    "placeholder": false,
+    "relatedFragmentIds": ["frag_notebook_page_mechanism", "frag_eagle_fragment"],
+    "stages": [
+      { "stage": 0, "text": "A page is missing from Ashcombe's notebook." },
+      { "stage": 1, "text": "The recovered page references an unknown mechanism beneath the collapsed corridor. The eagle fragment matches part of the drawing." }
+    ]
+  },
+  {
+    "id": "journal_benedict",
+    "title": "Benedict Hale",
+    "placeholder": false,
+    "relatedFragmentIds": [],
+    "stages": [
+      { "stage": 0, "text": "Benedict Hale and Elias Ashcombe were longtime friends." },
+      { "stage": 1, "text": "Benedict claims he last spoke with Ashcombe several weeks before the accident. Follow-up recommended." }
+    ]
   }
 ]

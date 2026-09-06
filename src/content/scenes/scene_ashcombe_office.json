@@ -65,7 +65,36 @@
       "label": "Leave the Office",
       "region": { "x": 0.01, "y": 0.05, "width": 0.08, "height": 0.3 },
       "repeatable": true,
+      "unlockConditions": [{ "type": "flag", "flag": "peeves_saw_gideon_near_corridor", "equals": false }],
       "effects": [{ "type": "start_conversation", "targetId": "conv_ch4_leave" }]
+    },
+    {
+      "id": "hotspot_missing_page",
+      "label": "The Notebook (Something's Wrong)",
+      "region": { "x": 0.4, "y": 0.5, "width": 0.16, "height": 0.22 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "flag", "flag": "peeves_saw_gideon_near_corridor", "equals": true }],
+      "effects": [
+        { "type": "reveal_observation", "text": "A page is missing from the notebook." },
+        { "type": "update_journal", "targetId": "journal_hidden_mechanism", "journalStage": 0 },
+        { "type": "set_flag", "flag": "ch11_missing_page_found", "value": true }
+      ]
+    },
+    {
+      "id": "hotspot_stairwell_peeves",
+      "label": "A Trail to the Stairwell",
+      "region": { "x": 0.01, "y": 0.4, "width": 0.1, "height": 0.3 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "flag", "flag": "ch11_missing_page_found", "equals": true }],
+      "effects": [{ "type": "trigger_interpretation_prompt", "targetId": "prompt_peeves_rhyme" }]
+    },
+    {
+      "id": "hotspot_align_fragment",
+      "label": "Align the Fragment",
+      "region": { "x": 0.6, "y": 0.14, "width": 0.15, "height": 0.2 },
+      "repeatable": false,
+      "unlockConditions": [{ "type": "interpretation_completed", "promptId": "prompt_peeves_rhyme" }],
+      "effects": [{ "type": "start_conversation", "targetId": "conv_ch11_alignment_accident" }]
     }
   ]
 }

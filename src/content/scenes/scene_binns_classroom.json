@@ -1,0 +1,15 @@
+{
+  "id": "scene_binns_classroom",
+  "title": "Chapter 10 — History's Longest Lesson",
+  "placeholder": false,
+  "defaultVisualStateId": "default",
+  "autoStartConversationId": "conv_ch10_binns",
+  "visualStates": [
+    {
+      "id": "default",
+      "backgroundAssetId": "asset_background_binns_classroom",
+      "description": "Professor Binns drifts slowly through the blackboard, reading from yellowed notes, oblivious to the empty room."
+    }
+  ],
+  "hotspots": []
+}

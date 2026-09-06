@@ -8,6 +8,7 @@
       "id": "p1",
       "speakerId": "ashcombe",
       "text": "You were never silent. We simply forgot how to listen.",
+      "setFlags": { "peeves_saw_gideon_near_corridor": false },
       "nextLineId": "p2"
     },
     { "id": "p2", "speakerId": "unknown_visitor", "text": "Elias.", "nextLineId": "p3" },

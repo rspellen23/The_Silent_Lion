@@ -48,6 +48,54 @@
     "label": "Founder Corridor at Night (Prologue)"
   },
   {
+    "assetId": "asset_background_restoration_workshop",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#5a4632",
+    "label": "The Restoration Workshop"
+  },
+  {
+    "assetId": "asset_background_elspeth_study",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#3d3a52",
+    "label": "Elspeth's Ancient Runes Study"
+  },
+  {
+    "assetId": "asset_background_library",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#3a4436",
+    "label": "The Hogwarts Library"
+  },
+  {
+    "assetId": "asset_background_binns_classroom",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#2f2f38",
+    "label": "Professor Binns's Classroom"
+  },
+  {
+    "assetId": "asset_background_hogwarts_corridor",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#403a4a",
+    "label": "A Hogwarts Corridor"
+  },
+  {
+    "assetId": "asset_background_st_mungos",
+    "kind": "background",
+    "width": 1920,
+    "height": 1080,
+    "color": "#4a5a52",
+    "label": "St. Mungo's Hospital"
+  },
+  {
     "assetId": "asset_portrait_gloria_neutral",
     "kind": "portrait",
     "width": 700,
@@ -102,6 +150,54 @@
     "height": 1000,
     "color": "#3a3a3a",
     "label": "A Portrait - neutral"
+  },
+  {
+    "assetId": "asset_portrait_gideon_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#6b5a3a",
+    "label": "Gideon Alderwick - neutral"
+  },
+  {
+    "assetId": "asset_portrait_elspeth_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#3a2f4a",
+    "label": "Elspeth Rowan - neutral"
+  },
+  {
+    "assetId": "asset_portrait_binns_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#8a8a9a",
+    "label": "Professor Binns - neutral"
+  },
+  {
+    "assetId": "asset_portrait_peeves_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#7a2f5a",
+    "label": "Peeves - neutral"
+  },
+  {
+    "assetId": "asset_portrait_benedict_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#2f4a4a",
+    "label": "Benedict Hale - neutral"
+  },
+  {
+    "assetId": "asset_portrait_patient_neutral",
+    "kind": "portrait",
+    "width": 700,
+    "height": 1000,
+    "color": "#4a3f3a",
+    "label": "St. Mungo's Patient - neutral"
   },
   {
     "assetId": "asset_fragment_sealed_note",
@@ -174,5 +270,21 @@
     "height": 512,
     "color": "#3a5540",
     "label": "Magical Residue Analysis"
+  },
+  {
+    "assetId": "asset_fragment_elspeth_tracing",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#6a5a7a",
+    "label": "Elspeth's Tracing"
+  },
+  {
+    "assetId": "asset_fragment_notebook_page_mechanism",
+    "kind": "fragment",
+    "width": 512,
+    "height": 512,
+    "color": "#6a5540",
+    "label": "Recovered Notebook Page"
   }
 ]

@@ -61,5 +61,59 @@
     "expressions": [
       { "id": "neutral", "portraitAssetId": "asset_portrait_unnamed_neutral" }
     ]
+  },
+  {
+    "id": "gideon",
+    "displayName": "Gideon Alderwick",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_gideon_neutral" }
+    ]
+  },
+  {
+    "id": "elspeth",
+    "displayName": "Professor Elspeth Rowan",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_elspeth_neutral" }
+    ]
+  },
+  {
+    "id": "binns",
+    "displayName": "Professor Binns",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_binns_neutral" }
+    ]
+  },
+  {
+    "id": "peeves",
+    "displayName": "Peeves",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_peeves_neutral" }
+    ]
+  },
+  {
+    "id": "benedict",
+    "displayName": "Dr. Benedict Hale",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_benedict_neutral" }
+    ]
+  },
+  {
+    "id": "st_mungos_patient",
+    "displayName": "St. Mungo's Patient",
+    "placeholder": false,
+    "defaultExpressionId": "neutral",
+    "expressions": [
+      { "id": "neutral", "portraitAssetId": "asset_portrait_patient_neutral" }
+    ]
   }
 ]

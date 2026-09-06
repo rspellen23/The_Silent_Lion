@@ -178,6 +178,11 @@
       "text": "I'll let you know what Gideon says.",
       "nextLineId": "l49"
     },
-    { "id": "l49", "speakerId": "mcgonagall", "text": "See that you do." }
+    {
+      "id": "l49",
+      "speakerId": "mcgonagall",
+      "text": "See that you do.",
+      "transitionToSceneId": "scene_restoration_workshop"
+    }
   ]
 }

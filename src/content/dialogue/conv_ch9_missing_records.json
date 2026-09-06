@@ -1,0 +1,20 @@
+{
+  "id": "conv_ch9_missing_records",
+  "title": "Chapter 9 — The Missing History",
+  "placeholder": false,
+  "startLineId": "l1",
+  "lines": [
+    { "id": "l1", "speakerId": "gloria", "text": "One missing record would be an accident.", "nextLineId": "l2" },
+    { "id": "l2", "speakerId": "gloria", "text": "Three feels intentional.", "nextLineId": "l3" },
+    { "id": "l3", "speakerId": "gloria", "text": "The symbol is real.", "nextLineId": "l4" },
+    { "id": "l4", "speakerId": "gloria", "text": "That much seems certain.", "nextLineId": "l5" },
+    { "id": "l5", "speakerId": "gloria", "text": "But nobody agrees on what it meant.", "nextLineId": "l6" },
+    { "id": "l6", "speakerId": "gloria", "text": "Helpful.", "nextLineId": "l7" },
+    {
+      "id": "l7",
+      "speakerId": "gloria",
+      "text": "No. Actually, not helpful at all.",
+      "setFlags": { "ch9_missing_records_seen": true }
+    }
+  ]
+}

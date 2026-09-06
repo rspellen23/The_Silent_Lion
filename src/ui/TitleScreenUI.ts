@@ -1,11 +1,14 @@
 import type { SaveManager } from '@engine/save/SaveManager';
 import type { SaveGame } from '@engine/types';
-import { el, placeholderBadge } from './dom';
+import { el } from './dom';
+import titleBackgroundUrl from '../../assets/imgs/harry-potter-the-silent-lion-title-screen.jpg';
 
 /**
- * Title screen: New Game, Resume (most recent save across all slots), and
- * the three manual save slots. Resume/slot buttons are disabled — not
- * hidden — when empty, so keyboard/screen-reader users can discover them.
+ * Title screen: New Game, Continue (most recent save across all slots), and
+ * Settings, over the Story Bible key-art background. Manual save slots are
+ * offered as a smaller secondary row beneath the three primary buttons —
+ * disabled rather than hidden when empty, so keyboard/screen-reader users
+ * can discover them.
  */
 export class TitleScreenUI {
   private root: HTMLElement;
@@ -18,6 +21,7 @@ export class TitleScreenUI {
     private onOpenSettings: () => void
   ) {
     this.root = el('div', { id: 'title-screen' });
+    this.root.style.backgroundImage = `url(${titleBackgroundUrl})`;
     container.append(this.root);
     this.render();
   }
@@ -35,20 +39,27 @@ export class TitleScreenUI {
     const mostRecent = this.saveManager.getMostRecentSave();
     const manualSlots = this.saveManager.listManualSlots();
 
-    const newGameButton = el('button', { type: 'button' }, ['New Game']) as HTMLButtonElement;
+    const newGameButton = el('button', { type: 'button', class: 'title-primary-button' }, [
+      'New Game'
+    ]) as HTMLButtonElement;
     newGameButton.addEventListener('click', () => this.onNewGame());
 
-    const resumeButton = el('button', { type: 'button' }, [
-      mostRecent ? `Resume — ${mostRecent.sceneTitleAtSave}` : 'Resume'
+    const continueButton = el('button', { type: 'button', class: 'title-primary-button' }, [
+      mostRecent ? `Continue — ${mostRecent.sceneTitleAtSave}` : 'Continue'
     ]) as HTMLButtonElement;
-    resumeButton.disabled = !mostRecent;
+    continueButton.disabled = !mostRecent;
     if (mostRecent) {
-      resumeButton.addEventListener('click', () => this.onLoad(mostRecent));
+      continueButton.addEventListener('click', () => this.onLoad(mostRecent));
     }
 
+    const settingsButton = el('button', { type: 'button', class: 'title-primary-button' }, [
+      'Settings'
+    ]) as HTMLButtonElement;
+    settingsButton.addEventListener('click', () => this.onOpenSettings());
+
     const slotButtons = manualSlots.map((slot) => {
-      const button = el('button', { type: 'button' }, [
-        slot.occupied ? `Load ${slot.slotId} — ${slot.sceneTitleAtSave}` : `Load ${slot.slotId} (empty)`
+      const button = el('button', { type: 'button', class: 'title-slot-button' }, [
+        slot.occupied ? `${slot.slotId} — ${slot.sceneTitleAtSave}` : `${slot.slotId} (empty)`
       ]) as HTMLButtonElement;
       button.disabled = !slot.occupied;
       if (slot.occupied) {
@@ -60,16 +71,14 @@ export class TitleScreenUI {
       return button;
     });
 
-    const settingsButton = el('button', { type: 'button' }, ['Settings']) as HTMLButtonElement;
-    settingsButton.addEventListener('click', () => this.onOpenSettings());
-
     this.root.replaceChildren(
-      el('h1', {}, ['The Silent Lion']),
-      el('p', {}, [placeholderBadge(), 'Phase 1 framework — vertical slice, no final story content']),
-      newGameButton,
-      resumeButton,
-      ...slotButtons,
-      settingsButton
+      el('h1', { class: 'sr-only' }, ['Harry Potter and the Silent Lion']),
+      el('div', { id: 'title-screen-menu' }, [
+        newGameButton,
+        continueButton,
+        settingsButton,
+        el('div', { id: 'title-screen-slots' }, slotButtons)
+      ])
     );
   }
 }

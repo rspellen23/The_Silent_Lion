@@ -104,8 +104,29 @@ Title screen now uses real supplied key art
 (`assets/imgs/harry-potter-the-silent-lion-title-screen.jpg`) and a real
 title-theme track (`assets/audio/a-window-to-the-past.mp3`, looping,
 `TITLE_THEME_MUSIC_KEY`), stopped on New Game/Continue and restarted on
-returning to the title screen. No in-scene art or music yet. Menu
-navigation (hover/focus across New Game / Continue / Settings) has a
+returning to the title screen. No in-scene art or music yet.
+
+A `StartupScreenUI` "press any key" splash now gates first load, shown
+once before the title screen. This exists because every browser blocks
+audio-with-sound until the page has had at least one user gesture — no
+site can override that — so the splash turns the unavoidable first
+click/keypress into a deliberate beat (title theme starts on the same
+gesture that dismisses it) instead of the theme silently failing to
+autoplay. Subsequent returns to the title screen (e.g. Settings → Reset
+Progress) skip the splash and go straight to the title screen, since the
+page has already been interacted with by then.
+
+The splash carries only the "Click or press any key to begin" prompt —
+an earlier pass also repeated the "Harry Potter and the Silent Lion"
+wordmark there, but that read as showing the title twice since the key
+art right behind it already carries the logo, so it was cut. The two
+screens now crossfade (splash fades out, title screen fades in, in
+parallel, `title-screen-visible`/`startup-screen-fading` CSS classes)
+rather than the hard display:none/flex cut from the first pass —
+both respect `data-reduced-motion` (transition suppressed entirely,
+not just shortened).
+
+Menu navigation (hover/focus across New Game / Continue / Settings) has a
 short synthesized "tick" (`MENU_NAV_SFX_KEY`) — kept as a generated tone
 rather than a downloaded "royalty-free" file, since sourcing and
 redistributing third-party audio without the user reviewing its actual

@@ -23,17 +23,28 @@ export class TitleScreenUI {
   ) {
     this.root = el('div', { id: 'title-screen' });
     this.root.style.backgroundImage = `url(${titleBackgroundUrl})`;
+    this.root.style.display = 'none';
     container.append(this.root);
     this.render();
   }
 
+  /** Hidden until StartupScreenUI's first-gesture gate fires (see main.ts).
+   * Fades in — crossfading with StartupScreenUI's own fade-out — rather
+   * than cutting straight to the background image. */
   show(): void {
     this.render();
     this.root.style.display = 'flex';
+    // Force a reflow so the browser registers the pre-transition
+    // opacity:0 state before the class change animates it to 1 — without
+    // this the two style changes would collapse into one and skip the
+    // transition entirely.
+    void this.root.offsetWidth;
+    this.root.classList.add('title-screen-visible');
   }
 
   hide(): void {
     this.root.style.display = 'none';
+    this.root.classList.remove('title-screen-visible');
   }
 
   /** Plays the menu-navigation tone on hover and keyboard focus alike, so

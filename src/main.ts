@@ -30,6 +30,7 @@ import { CaseBoardUI } from '@ui/CaseBoardUI';
 import { SettingsUI } from '@ui/SettingsUI';
 import { HudBar } from '@ui/HudBar';
 import { TitleScreenUI } from '@ui/TitleScreenUI';
+import { StartupScreenUI } from '@ui/StartupScreenUI';
 import { ObservationToastUI } from '@ui/ObservationToastUI';
 
 import {
@@ -193,9 +194,15 @@ function onGameReady(scene: Phaser.Scene): void {
     () => audio.playSfx(MENU_NAV_SFX_KEY)
   );
 
-  // The title screen is visible from first paint (see main.css), so its
-  // theme starts as soon as the scene — and therefore AudioManager — exists.
-  audio.playMusic(TITLE_THEME_MUSIC_KEY);
+  // Browsers block audio-with-sound until the user has interacted with the
+  // page at least once — no page can override this. The startup screen
+  // turns that unavoidable first click/keypress into a deliberate "press
+  // any key" beat instead of a silent, invisible requirement, and the
+  // title theme starts on the very same gesture that dismisses it.
+  new StartupScreenUI(uiOverlay, () => {
+    titleScreen.show();
+    audio.playMusic(TITLE_THEME_MUSIC_KEY);
+  });
 }
 
 new Phaser.Game({
